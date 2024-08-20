@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Sidebar and Content */
+.question-answer {
+  display: flex;
+  height: 100vh;
+  width: 98vw;
+}
+
+/* Sidebar Styles */
+app-sidebar {
+  width: 20vw;
+  height: 100vh;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+/* Content Styles */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f1f1f1;
+  overflow-y: auto;
+}
+
+.question-answer {
+  display: flex;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.table-container td button {
+  margin-right: 8px;
+}
+
+.table-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 20px;
+  padding-bottom: 90px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th:nth-child(2),
+.table-container td:nth-child(2) {
+  width: 50%;
+}
+
+.table-container th:nth-child(3),
+.table-container td:nth-child(3) {
+  width: 15%;
+}
+
+.table-container th:nth-child(4),
+.table-container td:nth-child(4) {
+  width: 20%;
+}
+
+th,
+td {
+  padding: 20px 35px;
+  text-align: left;
+  border: 1px solid #eee;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+.button-container {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.add-question-btn,
+.delete-all-btn {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.add-question-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.add-question-btn:hover {
+  background-color: #45a049;
+}
+
+.delete-all-btn {
+  background-color: #dc3545;
+}
+
+.delete-all-btn:hover {
+  background-color: #c82333;
+}
+
+/* General button styling */
+button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Toggle Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.success-message {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff; /* Green background */
+  color: #000;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Make sure it's on top */
+  width: auto;
+  max-width: 90%;
+  text-align: center;
+  font-size: 16px;
+}

@@ -1,0 +1,30 @@
+<div class="try-my-agent">
+  <app-sidebar></app-sidebar>
+  <!-- Include the SidebarComponent -->
+  <div class="content">
+    <h1>Manage Team</h1>
+    <!-- Other content for TryMyAgentComponent -->
+    <div class="content-container">
+      <div class="header">
+        <h2>Team Manage</h2>
+        <button id="add-member-btn" (click)="openAddMemberDialog()">
+          Add Member
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Permission</th>
+              <th>Updated</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+        </table>
+        <hr class="divider-line" />
+      </div>
+    </div>
+  </div>
+</div>

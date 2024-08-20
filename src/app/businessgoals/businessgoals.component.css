@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Container for Sidebar and Content */
+.business-goalss {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sidebar Styles */
+app-sidebar {
+  width: 20vw; /* Width of the sidebar */
+  height: 100vh; /* Full height */
+  background-color: #fff;
+  overflow-y: auto; /* Enables vertical scrolling if needed */
+}
+
+/* Content Styles */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f1f1f1;
+  overflow-y: auto;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Space below the header */
+}
+
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.demobutton {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  right: 850px;
+}
+
+span {
+  color: black;
+}
+
+/* Style for Business Goals component */
+.business-goals {
+  margin-top: 25px;
+  background-color: #fff;
+  padding: 50px;
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Style for the editable business name section */
+.edit-icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Style for the dropdown button with an orange color and plus symbol */
+.btn-orange {
+  background-color: #f3982f;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+}
+
+.btn-orange i {
+  margin-right: 5px;
+}
+
+.btn-orange:hover {
+  background-color: #f2741e;
+}
+
+/* Style for the dropdown menu */
+.dropdown-menu {
+  min-width: 200px; /* Adjust width as needed */
+  display: none; /* Hide by default */
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block; /* Show when `show` class is applied */
+}
+
+.dropdown-item {
+  cursor: pointer;
+  padding: 10px; /* Padding for dropdown items */
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa; /* Light background on hover */
+}
+
+/* Style for action rows */
+.action-row {
+  display: flex;
+  align-items: center;
+}
+
+.action-row .form-control {
+  margin-left: 10px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.save-button {
+  padding: 5px 10px;
+  background-color: #218838;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 150px;
+}
+
+.delete-button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 150px;
+}
+
+.ok-button {
+  padding: 5px 10px;
+  background-color: #f3982f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 150px;
+}
+
+.ok-button:hover {
+  background-color: #f2741e;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.save-button:hover {
+  background-color: #218838;
+}
+
+.example-tips input[type="text"] {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.custom-button {
+  background-color: #f3982f; /* or any other color you prefer */
+  color: #fff; /* or any other text color you prefer */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.custom-button:hover {
+  background-color: #f3982f; /* or any other hover color you prefer */
+}
+
+.buttonss {
+  margin: 15px;
+}
+
+h2 {
+  margin: 10px;
+}
+
+h5 {
+  margin: 10px;
+}

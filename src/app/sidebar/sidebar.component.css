@@ -1,0 +1,413 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  color: #000;
+}
+
+h4 {
+  color: #525151;
+  font-size: 23px;
+  margin-left: 20px;
+}
+
+/* .btn {
+  background: #fe8645;
+  color: #fff;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.btn:hover {
+  color: #fe8645;
+  background: #000;
+  padding: 3px 8px;
+  border: 2px solid #fe8645;
+} */
+
+/* Sidebar */
+.side-menu {
+  position: fixed;
+  background-color: #fff;
+  width: 20vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Enables vertical scrolling */
+  padding-top: 5px;
+}
+
+/* Crecientech */
+.side-menu .brand-name {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-menu li {
+  font-size: 20px;
+  padding: 10px 30px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.7s;
+}
+
+.side-menu li:hover {
+  background-color: #fcb54c;
+  color: #000;
+  border-radius: 10px;
+}
+
+.side-menu ul li a {
+  color: black; /* Makes the text color black */
+  text-decoration: none; /* Removes underline from links */
+  display: block; /* Makes the entire <a> area clickable */
+}
+
+/* Dropdown */
+.dropdown {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.dropdown-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  background: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  outline: none;
+  border-radius: 7px;
+  transition: border-color 0.3s ease;
+}
+
+.dropdown-btn:hover {
+  border-color: #fe8645;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  padding-left: 40px;
+}
+
+.dropdown-content a {
+  padding: 10px 0;
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.dropdown-content a:hover {
+  color: #fcb54c;
+}
+
+.dropdown-content .create-new {
+  font-weight: bold;
+  color: #fe8645;
+}
+
+.dropdown-content .create-new:hover {
+  color: #000;
+}
+
+.dropdown-btn:focus + .dropdown-content {
+  display: flex;
+}
+
+/* AI Agent Section */
+.side-menu .ai-agent {
+  margin-top: 20px; /* Adds space before the AI Agent section */
+  margin-bottom: 10px; /* Adds space after the AI Agent section */
+}
+
+/* General Section */
+.side-menu .general {
+  margin-top: 20px; /* Adds space before the General section */
+  margin-bottom: 10px; /* Adds space after the General section */
+}
+
+/* Container */
+.container {
+  position: absolute;
+  right: 0;
+  width: 80vw;
+  height: 100vh;
+  background: #f1f1f1;
+}
+
+.container .header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80vw;
+  height: 10vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container .header .nav {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.container .header .nav .user {
+  flex: 1;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.brand-logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  bottom: 50px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.company-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.toggles {
+  display: flex;
+  gap: 10px; /* Space between the buttons */
+}
+
+.toggle-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.toggle-btn i {
+  font-size: 16px;
+}
+
+.toggle-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.user {
+  /* Optional: Add some margin to space it from the edge */
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+/* Slider container */
+.slider-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* Slider styles */
+.slider-checkbox {
+  display: none;
+}
+
+.slider-label {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 30px;
+  background-color: #ddd;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.slider {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+}
+
+.slider-checkbox:checked + .slider-label .slider {
+  transform: translateX(50px);
+}
+
+.slider-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #fff;
+}
+
+.ai-text {
+  left: 10px;
+}
+
+.widget-text {
+  right: 10px;
+}
+
+/* profile */
+.action {
+  display: flex;
+  align-items: center;
+  min-width: 150px; /* Minimum size for the user button */
+  justify-content: flex-end;
+  position: relative;
+}
+
+.profile {
+  margin-left: 50px; /* Space between the profile image and menu */
+}
+
+.profile img {
+  width: 30px; /* Adjust size of the profile image */
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.action .profile {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.action .profile img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.action .menu {
+  position: absolute;
+  top: 80px;
+  right: -10px;
+  padding: 10px 20px;
+  background: #ebe7e7;
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  margin-right: 50px;
+}
+
+.action .menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background-color: #ebe7e7;
+  transform: rotate(45deg);
+}
+
+.action .menu h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  padding: 20px 0;
+  font-weight: 500;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.2em;
+}
+
+.action .menu ul li {
+  list-style: none;
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action .menu ul li i {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover i {
+  opacity: 1;
+}
+
+.action .menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover a {
+  color: #ff5d94;
+}

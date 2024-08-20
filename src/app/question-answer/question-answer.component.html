@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="question-answer.component.css" />
+    <title>Question & Answer</title>
+  </head>
+  <body>
+    <div class="question-answer">
+      <app-sidebar></app-sidebar>
+
+      <div class="content">
+        <div *ngIf="successMessage" class="success-message">
+          {{ successMessage }}
+        </div>
+        <h1>Question & Answer</h1>
+        <p>
+          Control how your bot responds to questions and messages. Tailor your
+          own custom responses.
+        </p>
+        <div class="table-container">
+          <div class="button-container">
+            <button class="add-question-btn" (click)="openAddQuestionForm()">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+            <button class="delete-all-btn" (click)="deleteAllQuestions()">
+              <i class="fa-solid fa-trash"></i> Delete All
+            </button>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Actions</th>
+                <th>
+                  Escalate with <br />
+                  Email
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let q of questions; let i = index">
+                <td>{{ q.question }}</td>
+                <td>{{ q.answer }}</td>
+                <td>
+                  <button (click)="editQuestion(i)">
+                    <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button (click)="deleteQuestion(i)">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </td>
+                <td>
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      [(ngModel)]="q.isEscalated"
+                      (change)="toggleEscalation(q)"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <app-add-question-form
+        *ngIf="showAddQuestionForm"
+        [question]="editingIndex !== null ? questions[editingIndex] : null"
+        (questionAdded)="addQuestion($event)"
+        (close)="showAddQuestionForm = false"
+      >
+      </app-add-question-form>
+    </div>
+  </body>
+</html>

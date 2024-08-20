@@ -1,0 +1,947 @@
+/* General Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: rgb(252, 252, 252); /* Light background */
+  color: rgb(0, 0, 0); /* Default text color */
+  height: 100vh;
+  display: flex;
+  flex-direction: row; /* Flex direction for side-by-side content */
+}
+
+/* Container Styling */
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* Left Content Styling */
+.left-content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Box for Go Back Button */
+.box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+}
+
+/* Go Back Button Styles */
+#button {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+#button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle glow effect */
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+#button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#button:hover {
+  color: #ffffff; /* Text color on hover */
+  background-color: rgb(0, 0, 0); /* Background color on hover */
+}
+
+/* Arrow Icon Styling */
+.fa-arrow-left {
+  margin-right: 10px;
+}
+
+/* Agent Heading Styling */
+.agent h1 {
+  margin-top: 90px;
+  margin-left: 80px;
+  font-size: 36px;
+  color: rgb(0, 0, 0); /* Heading color */
+}
+
+/* Container Styling */
+.container2 {
+  text-align: left;
+  margin: 0 80px;
+}
+
+/* URL Input Styling */
+.url {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ddd; /* Light border */
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  transition: border-color 0.3s ease-in-out;
+}
+
+.url:focus {
+  border-color: #2196f3; /* Focus border color */
+}
+
+/* Fetch Button Styling */
+.fetch-button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.fetch-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.fetch-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.fetch-button:hover {
+  color: #ffffff;
+  background-color: rgb(0, 0, 0); /* Background color on hover */
+}
+
+/* Form Styling */
+form {
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for form */
+}
+
+.language {
+  min-width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.language:focus {
+  border-color: #2196f3;
+}
+
+input[type="text"],
+select {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #2196f3;
+}
+
+.create {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.create::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.create:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.create:hover {
+  color: #ffffff;
+  background-color: rgb(0, 0, 0);
+}
+
+/* Toggle Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Color Palette Styles */
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.color-box {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.color-box:hover {
+  transform: scale(1.1);
+}
+
+/* Selected Color Box Styles */
+.selected-color-box {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Chat Box Styling */
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 50px;
+}
+
+.chat-header {
+  padding: 10px;
+  background-color: #020202; /* Default color */
+  color: black !important;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  text-align: center;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.message.user .message-text {
+  background-color: #e0f7fa;
+  color: #000000;
+  padding: 8px;
+  border-radius: 5px;
+  max-width: 70%;
+  margin-left: auto;
+}
+
+.message.ai .message-text {
+  background-color: #e0e0e0;
+  color: #000000;
+  padding: 8px;
+  border-radius: 5px;
+  max-width: 70%;
+}
+
+/* Chat Input Styling */
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.input-field {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.send-button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.send-button:hover {
+  background-color: #1976d2;
+}
+
+/* Container styles */
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+/* Left content styles */
+.left-content {
+  width: 50%;
+  padding: 20px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.box button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.box button:hover {
+  background-color: #555;
+}
+
+.agent {
+  margin-bottom: 20px;
+}
+
+.agent h1 {
+  font-size: 24px;
+}
+
+.container2 {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-group .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.form-group .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.form-group .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.form-group .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.form-group input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.form-group input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.form-group .color-palette {
+  display: flex;
+  gap: 10px;
+}
+
+.form-group .color-box {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-group .selected-color-box {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+.create {
+  background-color: #f3982f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 85%;
+}
+
+.create:hover {
+  background-color: #f3982f;
+}
+
+/* Right content styles with grid background */
+.right-content {
+  width: 50%;
+  position: relative;
+  background-color: #f8f8f8;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  background-image: radial-gradient(black 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Chat box styles */
+.chat-box {
+  width: 400px;
+  border-radius: 13px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* Ensure it's above the grid background */
+}
+
+.chat-header {
+  background-color: #f3982f;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.chat-body {
+  padding: 10px;
+  background-color: white;
+  min-height: 200px;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.input-field {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.send-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f3982f;
+  color: white;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #52504c;
+}
+
+/* Preview button positioned at top left */
+.preview-button {
+  color: rgb(17, 17, 17);
+  background-color: #f3982f;
+  padding: 10px 20px;
+  margin-left: 0;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2; /* Ensure it's above the grid background */
+}
+
+/* toggle button */
+.toggle-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 80px;
+  position: relative;
+  bottom: 80px;
+}
+
+.toggle-buttons button {
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 2px;
+  border: none;
+}
+
+.toggle-buttons button.active {
+  background-color: #f3982f;
+  color: white;
+}
+
+/* demo button */
+
+.demobutton {
+  margin-left: 80px;
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  left: 150px;
+  bottom: 45px;
+}
+
+.new-box {
+  z-index: 1;
+}
+
+.container3 {
+  border: 2px solid black; /* add a 1px solid black border */
+  z-index: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 320px;
+}
+
+.imagebox {
+  display: flex;
+  align-items: end;
+  align-content: center;
+  width: 700px;
+  height: 300px;
+  margin-bottom: 50px;
+  background-color: #ffffff;
+  z-index: 2;
+  border: 2px solid black;
+  margin-top: 250px;
+}
+
+.imagebox-content {
+  padding: 10px;
+}
+
+.input_div {
+  position: relative;
+  left: 100px;
+}
+
+.input-box {
+  position: relative;
+  top: 40px;
+}
+
+.input-container {
+  padding: 30px;
+}
+
+.widget-content {
+  position: relative;
+  bottom: 50px;
+}
+
+.ai-nav-content {
+  position: relative;
+  bottom: 50px;
+}
+
+.custom-button {
+  margin: 10px;
+}
+
+/*  */
+
+.custom-chat-box {
+  padding: 16px;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.custom-buttons-container {
+  display: flex;
+  gap: 8px;
+}
+
+.custom-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-orange-button {
+  background-color: #f3982f;
+  color: white;
+}
+
+.custom-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: white;
+}
+
+.custom-search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-ask-agent {
+  font-size: 14px;
+  color: #333;
+}
+
+.custom-message-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.custom-message-input::placeholder {
+  color: #999;
+}
+
+.custom-message-input:focus {
+  border-color: #aaa;
+}
+
+input[type="text"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+i {
+  color: black;
+  cursor: pointer;
+}
+
+/*  */
+
+.interaction-panel {
+  padding: 24px;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  background-color: #ffffff;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 70px;
+}
+
+.title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.source-list {
+  margin-bottom: 24px;
+}
+
+.source-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background-color: #f7f7f7;
+}
+
+.source-icon {
+  color: #28a745;
+}
+
+.source-text {
+  flex-grow: 1;
+  margin-left: 8px;
+}
+
+.source-link {
+  color: #555;
+  cursor: pointer;
+}
+
+.contact-form {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-bottom: 24px;
+}
+
+.form-title {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+.submit-button {
+  width: 30%;
+  padding: 10px;
+  background-color: #f3982f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.chat-box2 {
+  padding: 16px;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.chat-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.chat-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: 8px;
+  background-color: #f3982f;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: white;
+  margin-bottom: 8px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ask-agent {
+  font-size: 14px;
+  color: #333;
+}
+
+.message-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.message-input::placeholder {
+  color: #999;
+}
+
+i {
+  color: black;
+  cursor: pointer;
+}
+
+.powered-by {
+  font-size: 12px;
+  color: #aaa;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="modal">
+      <div class="modal-content">
+        <h3>{{ question ? "Edit Question" : "Add FQA" }}</h3>
+        <form (ngSubmit)="submitForm()">
+          <label for="question">Question:</label>
+          <input
+            type="text"
+            id="question"
+            [(ngModel)]="questionText"
+            name="question"
+            required
+          />
+
+          <label for="answer">Answer:</label>
+          <textarea
+            id="answer"
+            [(ngModel)]="answerText"
+            name="answer"
+            required
+          ></textarea>
+
+          <button type="submit" class="submit-btn">
+            {{ question ? "Update" : "Add" }}
+          </button>
+          <button type="button" class="cancel-btn" (click)="closeForm()">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

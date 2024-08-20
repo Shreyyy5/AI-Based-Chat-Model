@@ -1,0 +1,149 @@
+<div class="try-my-agent">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <div class="header">
+      <h1>Try My Agent</h1>
+      <div class="toggle-buttons">
+        <button (click)="toggleView('aiNav')" [class.active]="view === 'aiNav'">
+          AI Nav
+        </button>
+        <button
+          (click)="toggleView('widget')"
+          [class.active]="view === 'widget'"
+        >
+          Widget
+        </button>
+      </div>
+    </div>
+    <div class="toggle-content">
+      <div *ngIf="view === 'aiNav'" class="ai-nav">
+        <!-- AI Nav content -->
+        <div class="info-box">
+          <div class="info-header">
+            <i class="fa fa-lightbulb"></i> Insights
+          </div>
+          <div class="info-content">
+            <span>Tailor Appearance</span>
+            <p>
+              Hubspot is trained on 2 file(s) and website(s): 2 have been
+              trained, and 0 are untrained. Add more sources to increase your
+              agent's knowledge.
+            </p>
+            <p>
+              Hubspot is on the FREE PLAN: 0 out of 200 messages have been used.
+              <span>Upgrade your plan </span>to get more message credits.
+            </p>
+            <p class="highlighted-text">
+              Gather information from your visitors?
+              <span>Try Lead Capture</span>
+            </p>
+          </div>
+          <button class="restart-btn">Restart AI Nav</button>
+
+          <!-- FAQ Section -->
+          <div class="faq-section">
+            <div class="faq-item" *ngFor="let faq of faqs">
+              <div class="faq-question" (click)="toggleAnswer(faq)">
+                <i
+                  class="fa"
+                  [ngClass]="{
+                    'fa-chevron-down': faq.open,
+                    'fa-chevron-right': !faq.open
+                  }"
+                ></i>
+                {{ faq.question }}
+              </div>
+              <div class="faq-answer" [ngClass]="{ open: faq.open }">
+                {{ faq.answer }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- message -->
+      </div>
+    </div>
+    <div *ngIf="view === 'widget'" class="widget">
+      <!-- Widget content -->
+      <div class="info-box">
+        <div class="info-header"><i class="fa fa-lightbulb"></i> Insights</div>
+        <div class="info-content">
+          <span>Tailor Appearance</span>
+          <p>
+            Hubspot is trained on 2 file(s) and website(s): 2 have been trained,
+            and 0 are untrained. Add more sources to increase your agent's
+            knowledge.
+          </p>
+          <p>
+            Hubspot is on the FREE PLAN: 0 out of 200 messages have been used.
+            <span>Upgrade your plan </span>to get more message credits.
+          </p>
+          <p class="highlighted-text">
+            Gather information from your visitors?
+            <span>Try Lead Capture</span>
+          </p>
+        </div>
+        <button class="restart-btn">Restart AI Nav</button>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+          <div class="faq-item" *ngFor="let faq of faqs">
+            <div class="faq-question" (click)="toggleAnswer(faq)">
+              <i
+                class="fa"
+                [ngClass]="{
+                  'fa-chevron-down': faq.open,
+                  'fa-chevron-right': !faq.open
+                }"
+              ></i>
+              {{ faq.question }}
+            </div>
+            <div class="faq-answer" [ngClass]="{ open: faq.open }">
+              {{ faq.answer }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- chatbox -->
+      <div class="chat-box">
+        <div
+          class="chat-header"
+          [ngStyle]="{ 'background-color': selectedColor }"
+        >
+          {{ agentName || "AI Chat" }}
+        </div>
+        <div class="chat-body">
+          <div class="message ai">
+            <i class="fas fa-robot"></i>
+            <div class="message-text">Welcome! How can we help you today?</div>
+          </div>
+          <div class="message user">
+            <div class="message-text">What is your name?</div>
+          </div>
+          <div class="message ai">
+            <i class="fas fa-robot"></i>
+
+            <div class="message-text">
+              Hi there! My name is {{ businessName }} . How can I help you
+              today?
+            </div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input
+            type="text"
+            placeholder="Type your message here..."
+            class="input-field"
+          />
+          <button
+            class="send-button"
+            [ngStyle]="{ 'background-color': selectedColor }"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

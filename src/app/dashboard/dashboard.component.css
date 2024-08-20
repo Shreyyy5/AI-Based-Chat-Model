@@ -1,0 +1,467 @@
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* dashboard.component.css */
+.dashboard-content {
+  padding: 20px;
+}
+
+.header {
+  width: 90%;
+  padding: 20px 0;
+  background-color: #f8f8f8;
+  text-align: center;
+  position: relative;
+  top: 0;
+  left: 300px;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: right;
+}
+
+.container {
+  position: relative;
+  right: 90px;
+}
+
+.company-name {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  flex: 1;
+  text-align: center;
+  margin-right: 450px;
+}
+
+/* User Profile section */
+.action {
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  padding: 10px 20px;
+  background: #ebe7e7;
+  width: 200px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  display: none;
+  margin-right: 50px;
+}
+
+.menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background-color: #ebe7e7;
+  transform: rotate(45deg);
+}
+
+.menu h3 {
+  font-size: 16px;
+  padding: 10px 0;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.2em;
+  text-align: center;
+}
+
+.menu ul li {
+  list-style: none;
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu ul li i {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.menu ul li:hover i {
+  opacity: 1;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.menu ul li:hover a {
+  color: #ff5d94;
+}
+
+/* Show the menu on profile hover */
+.profile:hover + .menu,
+.menu:hover {
+  display: block;
+}
+
+/* Share Me Option */
+.share-btn {
+  background: #ffffff;
+  color: #000000;
+  font-family: "Montserrat";
+  border: 0;
+  padding: 16px 40px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 40px;
+  position: relative;
+  margin-right: 40px;
+}
+
+.share-btn::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, #ff5d94, #ff9a9e, #ffc371);
+  z-index: -1;
+  border-radius: 40px;
+  transition: 0.3s;
+}
+
+.share-btn:hover::before {
+  background: linear-gradient(45deg, #ff5d94, #ff9a9e, #ffc371);
+  transform: scale(1.1);
+}
+
+/* Statistics and Cards Container */
+.statistics-card-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 120px;
+  margin-left: 320px;
+  width: 95%;
+  background-color: #fff;
+  max-width: 1200px;
+  position: relative;
+}
+
+/* Adjust container margins and widths for alignment */
+.statistics-card-container,
+.add-to-website-container,
+.insight-container,
+.danger-container {
+  margin-left: 320px; /* Align with the same margin */
+  margin-right: 17px; /* Same margin for all */
+  max-width: 95%; /* Set a consistent max-width */
+  width: auto; /* Allow auto width for flexibility */
+  border-radius: 8px; /* Ensure same border radius for all */
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-info {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.statistics h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: nowrap;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 22px;
+  width: 22%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card:first-child {
+  margin-right: 10px;
+}
+
+.box {
+  text-align: left;
+}
+
+.box h2 {
+  margin: 0;
+  font-size: 36px;
+  color: #000;
+  margin-top: 20px;
+}
+
+.box h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #070707;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.content {
+  margin-top: 120px;
+}
+
+.renewal {
+  font-size: 13px;
+  color: #a9a9a9;
+}
+
+/* Add to Website Container */
+.add-to-website-container {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  padding-left: 20px;
+  padding-right: 200px;
+  margin-top: 20px;
+  background-color: #fff;
+  max-width: 70%;
+  width: auto;
+  text-align: left;
+  margin-left: 320px;
+  margin-right: 25px;
+  position: relative;
+}
+
+.add-to-website-container h2 {
+  margin-right: 20px;
+  font-size: 23px;
+  color: #333;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*  Embed button */
+.embed-btn {
+  background-color: #fff;
+  color: #100f0f;
+  border: 1px solid #f3b946;
+  border-radius: 18px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 15%;
+  right: 800px;
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+
+.embed-btn:hover {
+  background-color: #f7f8fa;
+}
+
+.another-btn {
+  background-color: #fff;
+  color: #100f0f;
+  border: 1px solid #f3b946;
+  border-radius: 18px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 15%;
+  right: 550px;
+  transform: translateY(-50%);
+}
+
+.another-btn:hover {
+  background-color: #f7f8fa;
+}
+
+/* description text */
+.description-text {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #000;
+  line-height: 1.5;
+}
+
+/*Danger Container */
+.danger-container {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  text-align: left;
+  margin-left: 320px;
+  margin-right: 17px;
+  position: relative;
+}
+
+.danger-container h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #e74c3c;
+}
+
+.delete-agent {
+  color: #e74c3c;
+}
+
+.delete-agent {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #e74c3c;
+}
+
+/* Delete Button */
+.delete-btn {
+  position: absolute;
+  right: 50px;
+  bottom: 20px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Insight Container */
+.insight-container {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  text-align: left;
+  margin-left: 320px;
+  margin-right: 17px;
+  position: relative;
+}
+
+/* Insight Container Heading */
+.insight-container h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #000;
+}
+
+/* Date Pickers Container */
+.date-pickers {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  position: absolute;
+  right: 170px;
+  top: 10px;
+}
+
+/* Date Picker Groups */
+.date-picker-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Date Picker Labels */
+.date-picker-group label {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+/* Date Picker Inputs */
+.date-picker-group input[type="date"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+/* Date Range Selector */
+.date-range-selector {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.date-range-selector label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.date-range-selector select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Horizontal Divider Line */
+.divider-line {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0; /* Space above and below the line */
+}
+
+/* Dropdown Style */
+.dropdown {
+  position: absolute;
+  right: 10px;
+  top: 80px; /* Distance from the top edge */
+  z-index: 10; /* Ensure it's above other content */
+}
+
+.dropdown select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}

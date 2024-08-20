@@ -1,0 +1,121 @@
+<div class="business-goalss">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <div class="header">
+      <h1>Business Goals</h1>
+      <button class="demobutton" (click)="toggleModal()">
+        Examples and Tips
+      </button>
+    </div>
+    <p>
+      Add desired outcomes and goals you want the agent to achieve with your
+      visitors. Integrated with <span>Calendly.</span>
+    </p>
+    <div class="business-goals">
+      <div>
+        <span><strong>Business Name:</strong></span>
+        <span *ngIf="!isEditing">{{ businessName }}</span>
+        <input
+          *ngIf="isEditing"
+          [(ngModel)]="businessName"
+          (blur)="updateBusinessName()"
+        />
+        <i class="fas fa-pen edit-icon" (click)="toggleEdit()"></i>
+      </div>
+
+      <!-- Button with dropdown -->
+      <div class="dropdown">
+        <button
+          class="btn btn-orange"
+          type="button"
+          id="dropdownMenuButton"
+          (click)="toggleDropdown()"
+        >
+          <i class="fas fa-plus"></i> Add to Call to Action
+        </button>
+        <div
+          class="dropdown-menu"
+          [ngClass]="{ show: isDropdownOpen }"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <div
+            class="dropdown-item"
+            *ngFor="let option of actionOptions"
+            (click)="addAction(option)"
+          >
+            {{ option }}
+          </div>
+        </div>
+      </div>
+
+      <div
+        *ngFor="let action of actions; let i = index"
+        class="action-row mt-2"
+      >
+        <span>If user shows interest, {{ action.action }} at</span>
+        <input
+          [(ngModel)]="action.url"
+          placeholder="https://"
+          class="form-control ml-2"
+        />
+        <button
+          class="btn custom-button"
+          type="button"
+          id="dropdownMenuButton"
+          (click)="toggleDropdown()"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+        <button (click)="removeAction(i)" class="btn custom-button ml-2">
+          <i class="fas fa-minus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="examplesModal" class="modal" [ngClass]="{ show: isModalOpen }">
+    <div class="modal-content">
+      <span class="close" (click)="toggleModal()">&times;</span>
+      <h2>Examples & Tips</h2>
+      <p>✨ On this page, you can add call to actions for your agent.</p>
+      <p>
+        ✨ An <strong>Call to Action</strong> is an event the agent will try to
+        lead the user to take a specific action.
+      </p>
+      <p>✨ See the example below for the usage:</p>
+
+      <div class="example-tips">
+        <div class="buttonss">
+          <button class="save-button">Save</button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>Delete All
+          </button>
+        </div>
+        <input
+          type="text"
+          value="Request visitors to schedule meeting at info@acme-academy.com or to contact us at: +65 6890 6325"
+          readonly
+        />
+        <input
+          type="text"
+          value="Direct users to a latest events page at https://www.acme-academy.com/events"
+          readonly
+        />
+        <input
+          type="text"
+          value="Educate users on our top prospected instructors at https://www.acme-academy.com/dance-instructors"
+          readonly
+        />
+      </div>
+
+      <h5>Calendly</h5>
+      <p>
+        ✨ To integrate your agent with Calendly, choose "schedule a meeting" as
+        a call to action and provide your Calendly link.
+      </p>
+
+      <div class="buttonss">
+        <button class="ok-button">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
