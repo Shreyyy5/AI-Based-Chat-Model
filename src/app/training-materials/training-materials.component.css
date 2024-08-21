@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  html,body {
+    margin: 0;
+  padding: 0;
+  height: 100%; /* Full viewport height */
+  overflow: hidden
+  }
+  
+  /* Container for Sidebar and Content */
+  .training-materials {
+    display: flex;
+    height: 100vh; /* Full height */
+    width: 98vw; /* Full width */
+  }
+  
+  /* Sidebar Styles */
+  app-sidebar {
+    width: 20vw; 
+    height: 100vh; 
+    background-color: #fff;
+    overflow-y: auto;
+    
+  }
+  
+  /* Content Styles */
+  .content {
+    flex: 1; /* Takes up the remaining space */
+    padding: 20px;
+    background-color: #f1f1f1; /* Background color of the content area */
+    overflow-y: auto; /* Enables vertical scrolling if needed */
+    overflow-x: hidden;
+  }
+
+  .content h1{
+    margin-top: 20px;
+    font-weight: 900;
+  }
+
+  /* Tab navigation styles */
+.tab-nav {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.tablink {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: 0.3s;
+    font-size: 18px;
+    margin-left: 150px;
+    margin-top: 70px;
+    position: relative;
+    margin-right: 50px;
+}
+
+.tablink:hover {
+    background-color: #fea25f;
+}
+
+.tablink.active {
+    background-color: #ccc;
+    font-weight: bold;
+}
+
+.tab-divider {
+
+  border-top: 1px solid #ddd; /* Change color as needed */
+  width: 100%;
+  margin-bottom: 20px; /* Adjust space below the divider */
+}
+
+/* Table Container Styles */
+.table-container {
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+/* Tab content */
+.tabcontent {
+  display: none;
+  padding: 20px;
+  border-top: none;
+  width: 100%; /* Make the tab content full width */
+  max-width: 800px; /* Optional: Set a max-width to limit the size */
+  margin: 0 auto; /* Center the tab content horizontally */
+  text-align: left; /* Center the content text */
+}
+
+.tabcontent.active {
+  display: block;
+  margin-left: 10px;
+}
+
+.file-upload-area {
+  border: 2px dashed #fcc521;
+  padding: 80px;
+  text-align: center;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 179%;
+  font-size: 20px;
+  border-radius: 7px;
+}
+
+.file-upload-area.dragover {
+  background-color: #e6f7ff;
+}
+
+/* Style for URL container */
+.url-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: flex-end; /* Align items to the start of the container */
+  width: 179%; /* Adjust width as needed */
+}
+
+.url-container input[type="text"] {
+  width: 100%; 
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.url-container button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f3982f;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 17px;
+  margin-top: 20px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.url-container button:hover {
+  background-color: #f2741e;
+}
+
+/* Style for Site Map button */
+.site-map-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: flex-end; /* Align items to the start of the container */
+  width: 179%;
+}
+
+.site-map-container input[type="text"] {
+  width: 100%; 
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.site-map-container button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f3982f;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 17px;
+  margin-top: 20px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.site-map-container button:hover {
+  background-color: #f2741e;
+}
+
+.table-container h2{
+  margin-top: 10px;
+ 
+}
+/* Text button */
+.text-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: flex-end; /* Align items to the end of the container */
+  width: 179%; /* Adjust width as needed */ 
+}
+
+.text-container input[type="text"], .text-container textarea {
+  width: 100%; 
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.text-container textarea{
+  margin-top: 10px;
+  resize: vertical;
+  height: 200px; /* Adjust height as needed */
+  width: 100%; /* Ensure textarea takes full width of container */
+  box-sizing: border-box; /* Includes padding and border in the width */
+}
+
+.train-button {
+  padding: 10px 10px;
+  border: none;
+  background-color: #f3982f;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 17px;
+  margin-top: 20px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.text-container .train-button:hover {
+  background-color: #f2741e;
+}
+
+.text-body-input {
+  resize: vertical;
+  height: 100px;
+}
+
+
+
+/* Step 2 table */
+
+.training-table-container {
+  margin-top: 20px; /* Adjust margin as needed */
+  overflow-x: auto; /* Allows horizontal scrolling if table is too wide */
+}
+
+.training-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.training-table th, .training-table td {
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+}
+
+.training-table th {
+  background-color: #eaeaea;
+  font-weight: bold;
+}
+
+.training-table td {
+  background-color: #fff;
+}
+
+.training-table tr:hover {
+  background-color: #f1f1f1; /* Hover effect */
+}
+
+/* Search Bar */
+.search-container {
+  margin-bottom: 20px; /* Space below search bar */
+  margin-top: 10px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding doesn't add to the width */
+}
+
+/* buttons */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.select-buttons {
+  overflow: hidden;
+  display: flex;
+  gap: 10px; /* Space between select buttons */
+}
+
+.select-button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 7px;
+}
+
+.select-button:hover {
+  color: #f3982f;
+  border-color: #f3982f;
+  /* box-shadow: 0 0 8px #f3982f; */
+}
+
+.train-button {
+  padding: 10px 20px;
+  color: #fff;
+  border: 1px solid #ccc;
+  background-color: #f3982f;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 7px;
+}
+
+.train-button:hover {
+  background-color: #f2741e;
+  /* box-shadow: 0 0 8px #f3982f; */
+}
+
+.border-container {
+  overflow: hidden;
+  border: 2px solid #ddd;
+  padding: 40px;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-top: 20px; /* Space above the border container */
+}
