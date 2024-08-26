@@ -1,81 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="training-materials.component.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="training-materials.component.css" />
     <title>Training Materials</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="training-materials">
-        <app-sidebar></app-sidebar>
-        
-        <div class="content">
-          <h1>Training Materials</h1>
+      <app-sidebar></app-sidebar>
 
-          <div class="table-container">
-            <h2>Step 1: Upload</h2>
+      <div class="content">
+        <h1>Training Materials</h1>
 
-            <div class="tab-nav">
-              <button class="tablink" (click)="openTab('FileUpload')" [class.active]="activeTab === 'FileUpload'">File Upload</button>
-              <button class="tablink" (click)="openTab('WebsiteURL')" [class.active]="activeTab === 'WebsiteURL'">Website URL</button>
-              <button class="tablink" (click)="openTab('SiteMap')" [class.active]="activeTab === 'SiteMap'">Site Map</button>
-              <button class="tablink" (click)="openTab('Text')" [class.active]="activeTab === 'Text'">Text</button>
-            </div>
+        <div class="table-container">
+          <h2>Step 1: Upload</h2>
 
-            <hr class="tab-divider">
+          <div class="tab-nav">
+            <button
+              class="tablink"
+              (click)="openTab('FileUpload')"
+              [class.active]="activeTab === 'FileUpload'"
+            >
+              File Upload
+            </button>
+            <button
+              class="tablink"
+              (click)="openTab('WebsiteURL')"
+              [class.active]="activeTab === 'WebsiteURL'"
+            >
+              Website URL
+            </button>
+            <button
+              class="tablink"
+              (click)="openTab('SiteMap')"
+              [class.active]="activeTab === 'SiteMap'"
+            >
+              Site Map
+            </button>
+            <button
+              class="tablink"
+              (click)="openTab('Text')"
+              [class.active]="activeTab === 'Text'"
+            >
+              Text
+            </button>
 
-            <div [ngClass]="{'tabcontent': true, 'active': activeTab === 'FileUpload'}">
-              <div class="file-upload-area"
-                   (drop)="onFileDrop($event)"
-                   (dragover)="onDragOver($event)"
-                   (dragleave)="onDragLeave($event)"
-                   (click)="fileInput.click()">
-                <p>Click or drag file to this area to upload</p>
-                <input type="file" #fileInput (change)="onFileSelected($event)" hidden>
-              </div>
-            </div>
-            
-            <div [ngClass]="{'tabcontent': true, 'active': activeTab === 'WebsiteURL'}">
-              <div class="url-container">
-                  <input type="text" [(ngModel)]="websiteUrl" placeholder="Enter or paste the website URL here">
-                  <button (click)="fetchUrl()">Fetch URL</button>
-              </div>
-            </div>
-
-            <div [ngClass]="{'tabcontent': true, 'active': activeTab === 'SiteMap'}">
-              
-              <div class="site-map-container">
-                  <input type="text" [(ngModel)]="siteMap" placeholder="Enter or paste the site map here">
-                  <button (click)="addSiteFile()">Add Site File</button>
-              </div>
-            </div>
-
-            <div [ngClass]="{'tabcontent': true, 'active': activeTab === 'Text'}">
-                <div class="text-container">
-                  <input type="text" [(ngModel)]="textTitle" placeholder="Title for your text" class="text-title-input">
-                  <textarea [(ngModel)]="textBody" placeholder="Main body text" class="text-body-input"></textarea>
-                  <button (click)="trainOnText()" class="train-button">Train on Text</button>
-                </div>
-            </div> 
-          </div> <!-- Closing div for table-container -->
-
-
-          <div class="border-container">
-
-            <h2>Step 2: Train</h2>
-           <!-- Button container -->
-        <div class="button-container">
-             <div class="select-buttons">
-                <button class="select-button" (click)="selectAllUntrained()">Select All Untrained</button>
-                <button class="select-button" (click)="selectAll()">Select All</button>
-             </div>
-                <button class="train-button" (click)="trainSelected()">Train</button>
+            <button
+            class="tablink"
+            (click)="openTab('MultiUpload')"
+            [class.active]="activeTab === 'MultiUpload'"
+          >
+            Multi-Upload
+          </button>
         </div>
-  
+
+          <hr class="tab-divider" />
+
+          <div
+            [ngClass]="{ tabcontent: true, active: activeTab === 'FileUpload' }"
+          >
+            <div
+              class="file-upload-area"
+              (drop)="onFileDrop($event)"
+              (dragover)="onDragOver($event)"
+              (dragleave)="onDragLeave($event)"
+              (click)="fileInput.click()"
+            >
+              <p>Click or drag file to this area to upload</p>
+              <input
+                type="file"
+                #fileInput
+                (change)="onFileSelected($event)"
+                hidden
+              />
+            </div>
+          </div>
+
+          <div
+            [ngClass]="{ tabcontent: true, active: activeTab === 'WebsiteURL' }"
+          >
+            <div class="url-container">
+              <input
+                type="text"
+                [(ngModel)]="websiteUrl"
+                placeholder="Enter or paste the website URL here"
+              />
+              <button (click)="fetchUrl()">Fetch URL</button>
+            </div>
+          </div>
+
+          <div
+            [ngClass]="{ tabcontent: true, active: activeTab === 'SiteMap' }"
+          >
+            <div class="site-map-container">
+              <input
+                type="text"
+                [(ngModel)]="siteMap"
+                placeholder="Enter or paste the site map here"
+              />
+              <button (click)="addSiteFile()">Add Site File</button>
+            </div>
+          </div>
+
+          <div [ngClass]="{ tabcontent: true, active: activeTab === 'Text' }">
+            <div class="text-container">
+              <input
+                type="text"
+                [(ngModel)]="textTitle"
+                placeholder="Title for your text"
+                class="text-title-input"
+              />
+              <textarea
+                [(ngModel)]="textBody"
+                placeholder="Main body text"
+                class="text-body-input"
+              ></textarea>
+              <button (click)="trainOnText()" class="train-button">
+                Train on Text
+              </button>
+            </div>
+          </div>
+
+
+
+          <!-- Multi-Upload Column -->
+<div [ngClass]="{ tabcontent: true, active: activeTab === 'MultiUpload' }">
+  <div class="multi-upload-container">
+    <h3>Multi-Upload</h3>
+
+    <!-- Container for dynamic URL input boxes -->
+    <div class="url-inputs-container">
+      <div *ngFor="let urlInput of urlInputs; let i = index" class="url-input-group">
+        <input
+          type="text"
+          [(ngModel)]="urlInputs[i]"
+          placeholder="Enter URL"
+          class="url-input"
+        />
+        <button (click)="removeInput(i)" class="remove-input-button">-</button>
+      </div>
+    </div>
+
+    <button (click)="addInput()" class="add-input-button">+</button>
+    <button (click)="addUrls()" class="add-urls-button">Add URLs</button>
+
+    <ul class="url-list">
+      <li *ngFor="let url of urls; let i = index">
+        {{ url }}
+        <button (click)="removeUrl(i)" class="remove-url-button">Remove</button>
+      </li>
+    </ul>
+
+    <button (click)="uploadAllUrls()" class="upload-files-button">Upload All URLs</button>
+  </div>
+</div>
+
+          
+          
+
+    
+           
+        </div>
+        <!-- Closing div for table-container -->
+
+
+        
+        <div class="border-container">
+          <h2>Step 2: Train</h2>
+          <!-- Button container -->
+          <div class="button-container">
+            <div class="select-buttons">
+              <button class="select-button" (click)="selectAllUntrained()">
+                Select All Untrained
+              </button>
+              <button class="select-button" (click)="selectAll()">
+                Select All
+              </button>
+            </div>
+            <button class="train-button" (click)="trainSelected()">
+              Train
+            </button>
+          </div>
+
           <!-- Search bar -->
           <div class="search-container">
-            <input type="text" [(ngModel)]="searchQuery" (input)="filterTrainingMaterials()" placeholder="Search Training Materials...">
+            <input
+              type="text"
+              [(ngModel)]="searchQuery"
+              (input)="filterTrainingMaterials()"
+              placeholder="Search Training Materials..."
+            />
           </div>
 
           <!-- Add your table here -->
@@ -98,8 +213,11 @@
               </tbody>
             </table>
           </div>
-        </div> <!-- Closing div for border-container -->
-        </div> <!-- Closing div for content -->
-    </div> <!-- Closing div for training-materials -->
-</body>
+        </div>
+        <!-- Closing div for border-container -->
+      </div>
+      <!-- Closing div for content -->
+    </div>
+    <!-- Closing div for training-materials -->
+  </body>
 </html>
