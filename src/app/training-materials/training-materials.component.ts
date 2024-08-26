@@ -1,29 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-training-materials',
   templateUrl: './training-materials.component.html',
   styleUrls: ['./training-materials.component.css']
 })
-export class TrainingMaterialsComponent {
+export class TrainingMaterialsComponent implements OnInit {
   activeTab: string = 'FileUpload'; 
   websiteUrl: string = ''; 
   siteMap: string = ''; 
   textTitle: string = '';
   textBody: string = '';
   searchQuery: string = '';
-allTrainingMaterials: any[] = []; // Assuming you have a list of all training materials
-filteredTrainingMaterials: any[] = [];
+  urlInputs: string[] = ['']; // Array to store URL input boxes
+  urls: string[] = []; // Array to store added URLs
 
-materials = [
-  { name: 'Material 1', type: 'File', characters: 1500, status: 'Untrained', lastTrained: null, selected: false },
-  { name: 'Material 2', type: 'URL', characters: 2000, status: 'Trained', lastTrained: '2024-08-20', selected: false },
-  { name: 'Material 3', type: 'Text', characters: 1000, status: 'Untrained', lastTrained: null, selected: false },
-];
-  
+
+  allTrainingMaterials: any[] = []; // Assuming you have a list of all training materials
+  filteredTrainingMaterials: any[] = [];
+
+  materials = [
+    { name: 'Material 1', type: 'File', characters: 1500, status: 'Untrained', lastTrained: null, selected: false },
+    { name: 'Material 2', type: 'URL', characters: 2000, status: 'Trained', lastTrained: '2024-08-20', selected: false },
+    { name: 'Material 3', type: 'Text', characters: 1000, status: 'Untrained', lastTrained: null, selected: false },
+  ];
+
+  filteredMaterials = this.materials;
+
+  ngOnInit() {
+    this.filteredTrainingMaterials = this.allTrainingMaterials; // Initialize with all items
+    this.filterTrainingMaterials(); // Initialize filtered materials
+  }
+
   // Method to switch tabs
   openTab(tabName: string): void {
-    console.log(`Opening tab: ${this.websiteUrl}`);
+    console.log(`Opening tab: ${tabName}`);
     this.activeTab = tabName;
   }
 
@@ -39,20 +50,13 @@ materials = [
     console.log('Train on Text clicked with Title:', this.textTitle, 'and Body:', this.textBody);
   }
 
-  ngOnInit() {
-    this.filteredTrainingMaterials = this.allTrainingMaterials; // Initialize with all items
-  }
-  
-  // searchQuery = '';
-  filteredMaterials = this.materials;
-
-  filterTrainingMaterials() {
+  filterTrainingMaterials(): void {
     this.filteredMaterials = this.materials.filter(material =>
       material.name.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
 
-  selectAllUntrained() {
+  selectAllUntrained(): void {
     this.filteredMaterials.forEach(material => {
       if (material.status === 'Untrained') {
         material.selected = true;
@@ -60,34 +64,88 @@ materials = [
     });
   }
 
-  selectAll() {
+
+  // Method to add a new URL input box
+  addInput() {
+    this.urlInputs.push(''); // Add a new empty input box
+  }
+
+  // Method to remove a URL input box
+  removeInput(index: number) {
+    if (this.urlInputs.length > 1) {
+      this.urlInputs.splice(index, 1);
+    }
+  }
+
+  // Method to add URLs from input boxes to the URL list
+  addUrls() {
+    this.urls = []; // Clear existing URLs
+    for (const urlInput of this.urlInputs) {
+      const urls = urlInput.split('\n') // Split by newline for multi-line input
+        .map(url => url.trim())
+        .filter(url => url.length > 0);
+      this.urls.push(...urls); // Add new URLs to the list
+    }
+    this.urlInputs = ['']; // Reset input boxes to one empty input
+  }
+
+  // Method to remove a URL from the list
+  removeUrl(index: number) {
+    this.urls.splice(index, 1);
+  }
+
+  // Method to upload all URLs
+  async uploadAllUrls() {
+    if (this.urls.length > 0) {
+      for (const url of this.urls) {
+        try {
+          const response = await fetch(url);
+          if (response.ok) {
+            console.log('Successfully uploaded:', url);
+          } else {
+            console.error('Failed to upload:', url);
+          }
+        } catch (error) {
+          console.error('Error uploading URL:', url, error);
+        }
+      }
+    } else {
+      console.log('No URLs to upload.');
+    }
+  }
+
+    
+
+  
+
+   
+  selectAll(): void {
     this.filteredMaterials.forEach(material => material.selected = true);
   }
 
-  retrain(material) {
+  retrain(material: any): void {
     // Implement re-train logic here
     console.log(`Re-training ${material.name}`);
   }
 
-  deleteMaterial(material) {
+  deleteMaterial(material: any): void {
     // Implement delete logic here
     console.log(`Deleting ${material.name}`);
     this.materials = this.materials.filter(m => m !== material);
     this.filterTrainingMaterials(); // Refresh the filtered list
   }
 
-  trainSelected() {
+  trainSelected(): void {
     // Implement the logic to train the selected materials
     const selectedMaterials = this.materials.filter(material => material.selected);
     console.log('Training the following materials:', selectedMaterials);
     // Add your training logic here
-}
-
+  }
 
   // Method to handle file drop
   onFileDrop(event: DragEvent): void {
     event.preventDefault();
-    this.onFilesDropped(event.dataTransfer?.files);
+    this.onFilesDropped(event.dataTransfer?.files || null);
   }
 
   // Method to handle drag over
