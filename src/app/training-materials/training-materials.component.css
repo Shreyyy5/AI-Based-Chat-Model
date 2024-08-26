@@ -1,80 +1,79 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-  }
-  
-  html,body {
-    margin: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
   padding: 0;
   height: 100%; /* Full viewport height */
-  overflow: hidden
-  }
-  
-  /* Container for Sidebar and Content */
-  .training-materials {
-    display: flex;
-    height: 100vh; /* Full height */
-    width: 98vw; /* Full width */
-  }
-  
-  /* Sidebar Styles */
-  app-sidebar {
-    width: 20vw; 
-    height: 100vh; 
-    background-color: #fff;
-    overflow-y: auto;
-    
-  }
-  
-  /* Content Styles */
-  .content {
-    flex: 1; /* Takes up the remaining space */
-    padding: 20px;
-    background-color: #f1f1f1; /* Background color of the content area */
-    overflow-y: auto; /* Enables vertical scrolling if needed */
-    overflow-x: hidden;
-  }
+  overflow: hidden;
+}
 
-  .content h1{
-    margin-top: 20px;
-    font-weight: 900;
-  }
+/* Container for Sidebar and Content */
+.training-materials {
+  display: flex;
+  height: 100vh; /* Full height */
+  width: 98vw; /* Full width */
+}
 
-  /* Tab navigation styles */
+/* Sidebar Styles */
+app-sidebar {
+  width: 20vw;
+  height: 100vh;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+/* Content Styles */
+.content {
+  flex: 1; /* Takes up the remaining space */
+  padding: 20px;
+  background-color: #f1f1f1; /* Background color of the content area */
+  overflow-y: auto; /* Enables vertical scrolling if needed */
+  overflow-x: hidden;
+}
+
+.content h1 {
+  margin-top: 20px;
+  font-weight: 900;
+}
+
+/* Tab navigation styles */
 .tab-nav {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 20px;
-    position: relative;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .tablink {
-    background-color: #f1f1f1;
-    border: 1px solid #ddd;
-    outline: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    transition: 0.3s;
-    font-size: 18px;
-    margin-left: 150px;
-    margin-top: 70px;
-    position: relative;
-    margin-right: 50px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: 0.3s;
+  font-size: 18px;
+  margin-left: 90px;
+  margin-top: 70px;
+  position: relative;
+  margin-right: 50px;
 }
 
 .tablink:hover {
-    background-color: #fea25f;
+  background-color: #fea25f;
 }
 
 .tablink.active {
-    background-color: #ccc;
-    font-weight: bold;
+  background-color: #ccc;
+  font-weight: bold;
 }
 
 .tab-divider {
-
   border-top: 1px solid #ddd; /* Change color as needed */
   width: 100%;
   margin-bottom: 20px; /* Adjust space below the divider */
@@ -132,7 +131,7 @@
 }
 
 .url-container input[type="text"] {
-  width: 100%; 
+  width: 100%;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 15px;
@@ -167,7 +166,7 @@
 }
 
 .site-map-container input[type="text"] {
-  width: 100%; 
+  width: 100%;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 15px;
@@ -192,9 +191,8 @@
   background-color: #f2741e;
 }
 
-.table-container h2{
+.table-container h2 {
   margin-top: 10px;
- 
 }
 /* Text button */
 .text-container {
@@ -202,11 +200,12 @@
   display: flex;
   flex-direction: column; /* Stack children vertically */
   align-items: flex-end; /* Align items to the end of the container */
-  width: 179%; /* Adjust width as needed */ 
+  width: 179%; /* Adjust width as needed */
 }
 
-.text-container input[type="text"], .text-container textarea {
-  width: 100%; 
+.text-container input[type="text"],
+.text-container textarea {
+  width: 100%;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 15px;
@@ -214,7 +213,7 @@
   font-size: 18px;
 }
 
-.text-container textarea{
+.text-container textarea {
   margin-top: 10px;
   resize: vertical;
   height: 200px; /* Adjust height as needed */
@@ -244,6 +243,90 @@
   height: 100px;
 }
 
+/* Multi-Upload Section Styles */
+.multi-upload-container {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.url-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.url-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.url-input {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-input-button,
+.remove-input-button {
+  padding: 8px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-input-button {
+  background-color: red;
+}
+
+.add-input-button {
+  background-color: green;
+}
+
+.add-urls-button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.url-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.url-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.remove-url-button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.upload-files-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
 
 /* Step 2 table */
@@ -259,7 +342,8 @@
   margin-bottom: 20px; /* Adjust as needed */
 }
 
-.training-table th, .training-table td {
+.training-table th,
+.training-table td {
   border: 1px solid #ddd;
   padding: 20px;
   text-align: center;
