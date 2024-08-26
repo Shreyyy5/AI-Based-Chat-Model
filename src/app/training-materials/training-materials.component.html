@@ -51,7 +51,7 @@
             (click)="openTab('MultiUpload')"
             [class.active]="activeTab === 'MultiUpload'"
           >
-            Multi-Upload
+            Multiple-URL
           </button>
         </div>
 
@@ -105,17 +105,8 @@
 
           <div [ngClass]="{ tabcontent: true, active: activeTab === 'Text' }">
             <div class="text-container">
-              <input
-                type="text"
-                [(ngModel)]="textTitle"
-                placeholder="Title for your text"
-                class="text-title-input"
-              />
-              <textarea
-                [(ngModel)]="textBody"
-                placeholder="Main body text"
-                class="text-body-input"
-              ></textarea>
+              <input type="text" [(ngModel)]="textTitle" placeholder="Title for your text" class="text-title-input"/>
+              <textarea [(ngModel)]="textBody" placeholder="Main body text" class="text-body-input"></textarea>
               <button (click)="trainOnText()" class="train-button">
                 Train on Text
               </button>
@@ -123,44 +114,24 @@
           </div>
 
 
+          <div [ngClass]="{ tabcontent: true, active: activeTab === 'MultiUpload' }">
+            <!-- <div class="multi-upload-container"> -->
 
-          <!-- Multi-Upload Column -->
-<div [ngClass]="{ tabcontent: true, active: activeTab === 'MultiUpload' }">
-  <div class="multi-upload-container">
-    <h3>Multi-Upload</h3>
+                <div class="url-inputs-container">
+                    <div *ngFor="let urlInput of urlInputs; let i = index" class="url-input-group">
+                        <input type="text" [(ngModel)]="urlInputs[i]" placeholder="Enter URL" class="url-input" />
+                        <button type="button" class="add-input-button" (click)="addInput()">+</button>
+                        <button type="button" class="remove-input-button" (click)="removeInput(i)">-</button>
+                    </div>
+                </div>
 
-    <!-- Container for dynamic URL input boxes -->
-    <div class="url-inputs-container">
-      <div *ngFor="let urlInput of urlInputs; let i = index" class="url-input-group">
-        <input
-          type="text"
-          [(ngModel)]="urlInputs[i]"
-          placeholder="Enter URL"
-          class="url-input"
-        />
-        <button (click)="removeInput(i)" class="remove-input-button">-</button>
-      </div>
-    </div>
-
-    <button (click)="addInput()" class="add-input-button">+</button>
-    <button (click)="addUrls()" class="add-urls-button">Add URLs</button>
-
-    <ul class="url-list">
-      <li *ngFor="let url of urls; let i = index">
-        {{ url }}
-        <button (click)="removeUrl(i)" class="remove-url-button">Remove</button>
-      </li>
-    </ul>
-
-    <button (click)="uploadAllUrls()" class="upload-files-button">Upload All URLs</button>
-  </div>
-</div>
-
-          
-          
-
-    
-           
+                <div class="fetch-all-container">
+                  <button (click)="fetchAllUrls()" class="fetch-files-button">
+                    Fetch All URLs
+                  </button>
+                </div>
+            <!-- </div> -->
+        </div>
         </div>
         <!-- Closing div for table-container -->
 
@@ -178,9 +149,8 @@
                 Select All
               </button>
             </div>
-            <button class="train-button" (click)="trainSelected()">
-              Train
-            </button>
+            <button class="train-button" (click)="trainSelected()">Train</button>
+
           </div>
 
           <!-- Search bar -->
@@ -209,7 +179,16 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- Rows will be dynamically added here -->
+                <tr *ngFor="let material of trainingMaterials">
+                  <td><input type="checkbox" /></td>
+                  <td>{{ material.url }}</td>
+                  <td>{{ material.type }}</td>
+                  <td>{{ material.characters }}</td>
+                  <td>{{ material.status }}</td>
+                  <td>{{ material.lastTrained }}</td>
+                  <td><button (click)="retrainMaterial(material)">Re-train</button></td>
+                  <td><button (click)="deletematerial(material)">Delete</button></td>
+                </tr>                
               </tbody>
             </table>
           </div>
