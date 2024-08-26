@@ -12,8 +12,8 @@ export class TrainingMaterialsComponent implements OnInit {
   textTitle: string = '';
   textBody: string = '';
   searchQuery: string = '';
-  urlInputs: string[] = ['']; // Array to store URL input boxes
-  urls: string[] = []; // Array to store added URLs
+  urlInputs: string[] = [''];
+  trainingMaterials: any[] = [];
 
 
   allTrainingMaterials: any[] = []; // Assuming you have a list of all training materials
@@ -65,60 +65,22 @@ export class TrainingMaterialsComponent implements OnInit {
   }
 
 
-  // Method to add a new URL input box
   addInput() {
-    this.urlInputs.push(''); // Add a new empty input box
+    this.urlInputs.push('');
   }
 
-  // Method to remove a URL input box
   removeInput(index: number) {
     if (this.urlInputs.length > 1) {
       this.urlInputs.splice(index, 1);
     }
   }
 
-  // Method to add URLs from input boxes to the URL list
-  addUrls() {
-    this.urls = []; // Clear existing URLs
-    for (const urlInput of this.urlInputs) {
-      const urls = urlInput.split('\n') // Split by newline for multi-line input
-        .map(url => url.trim())
-        .filter(url => url.length > 0);
-      this.urls.push(...urls); // Add new URLs to the list
-    }
-    this.urlInputs = ['']; // Reset input boxes to one empty input
+  fetchAllUrls() {
+    // Handle fetching all URLs
+    console.log('Fetching all URLs:', this.urlInputs);
+    // Implement actual logic to fetch and process all URLs
   }
 
-  // Method to remove a URL from the list
-  removeUrl(index: number) {
-    this.urls.splice(index, 1);
-  }
-
-  // Method to upload all URLs
-  async uploadAllUrls() {
-    if (this.urls.length > 0) {
-      for (const url of this.urls) {
-        try {
-          const response = await fetch(url);
-          if (response.ok) {
-            console.log('Successfully uploaded:', url);
-          } else {
-            console.error('Failed to upload:', url);
-          }
-        } catch (error) {
-          console.error('Error uploading URL:', url, error);
-        }
-      }
-    } else {
-      console.log('No URLs to upload.');
-    }
-  }
-
-    
-
-  
-
-   
   selectAll(): void {
     this.filteredMaterials.forEach(material => material.selected = true);
   }
@@ -128,19 +90,44 @@ export class TrainingMaterialsComponent implements OnInit {
     console.log(`Re-training ${material.name}`);
   }
 
-  deleteMaterial(material: any): void {
+  deletematerial(material: any): void {
     // Implement delete logic here
     console.log(`Deleting ${material.name}`);
     this.materials = this.materials.filter(m => m !== material);
     this.filterTrainingMaterials(); // Refresh the filtered list
   }
 
-  trainSelected(): void {
-    // Implement the logic to train the selected materials
-    const selectedMaterials = this.materials.filter(material => material.selected);
-    console.log('Training the following materials:', selectedMaterials);
-    // Add your training logic here
+
+  trainSelected() {
+    if (this.websiteUrl) {
+      const newMaterial = {
+        url: this.websiteUrl,
+        type: 'Website URL', // Adjust this based on the active tab
+        characters: this.websiteUrl.length,
+        status: 'Pending',
+        lastTrained: 'Never',
+      };
+
+      this.trainingMaterials.push(newMaterial);
+      this.websiteUrl = ''; // Clear the input after adding
+    }
   }
+  
+
+    retrainMaterial(material) {
+      // Logic to retrain the material
+      material.status = 'Retrained';
+      material.lastTrained = new Date().toLocaleString();
+    }
+    
+    deleteMaterial(material: any) {
+      this.trainingMaterials = this.trainingMaterials.filter(
+        (m) => m !== material
+      );
+    }
+
+
+
 
   // Method to handle file drop
   onFileDrop(event: DragEvent): void {
