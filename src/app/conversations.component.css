@@ -1,0 +1,380 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Container for Sidebar and Content */
+.conversations {
+  display: flex;
+  height: 100vh; /* Full height */
+  width: 100vw; /* Full width */
+}
+
+/* Sidebar Styles */
+app-sidebar {
+  width: 20vw; /* Width of the sidebar */
+  height: 100vh; /* Full height */
+  background-color: #fff;
+  overflow-y: auto; /* Enables vertical scrolling if needed */
+}
+
+/* Content Styles */
+.content {
+  flex: 1; /* Takes up the remaining space */
+  padding: 20px;
+  background-color: #f1f1f1; /* Background color of the content area */
+}
+
+.main-content {
+  display: flex;
+  gap: 20px; /* Space between conversations and visitor details */
+  padding: 20px;
+  height: 100%; /* Adjust height as needed */
+}
+
+/* Container for the entire content */
+.conversations-container {
+  flex: 1; /* Takes up equal space */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.visitor-details {
+  flex: 1; /* Takes up equal space */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.box {
+  /* Ensures the box is only as wide as its content */
+  padding: 20px;
+  background-color: #fff; /* Light background for the box */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.conversations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conversations-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.header-actions .refresh-btn,
+.header-actions .export-btn {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.header-actions .refresh-btn i,
+.header-actions .export-btn i {
+  margin-right: 5px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.filters input[type="date"] {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 46%;
+}
+
+.filters select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.conversations-content {
+  background-color: #f9f9f9;
+  height: calc(100vh - 300px); /* Adjust height based on content */
+  border-radius: 8px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.visitor-details {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.visitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.visitor-info {
+  display: flex;
+  align-items: center;
+}
+
+.visitor-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #4a4a4a;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.visitor-text h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.visitor-text p {
+  font-size: 14px;
+  color: #999;
+}
+
+.visitor-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ai-agent-toggle {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.toggle-switch {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.action-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666;
+}
+
+.action-btn:hover {
+  color: #000;
+}
+
+.selects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 100px;
+  margin-top: 10px; /* add some space between date inputs and selects */
+}
+
+.selects-container select {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: calc(33.33% - 10px); /* adjust width to fit 3 selects in a row */
+}
+
+/* Toggle switch styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px; /* Adjust width as needed */
+  height: 22px; /* Adjust height as needed */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 26px; /* Rounded corners */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #218838; /* Color when toggled on */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px); /* Moves the slider */
+}
+
+/* Additional styling for the visitor-actions container */
+.visitor-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ai-agent-toggle {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.ai-agent-toggle label {
+  margin-left: 10px;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 500px; /* Set max-width to prevent it from growing too large */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-btn,
+.download-btn {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+}
+
+.download-btn {
+  background-color: orange;
+  color: white;
+}
+
+/*  */
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 500px; /* Set max-width to prevent it from growing too large */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-btn,
+.delete-btn {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
