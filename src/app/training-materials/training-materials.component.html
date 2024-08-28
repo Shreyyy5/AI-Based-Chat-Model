@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="training-materials.component.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <title>Training Materials</title>
   </head>
   <body>
@@ -29,7 +30,7 @@
               (click)="openTab('WebsiteURL')"
               [class.active]="activeTab === 'WebsiteURL'"
             >
-              Website URL
+             URL
             </button>
             <button
               class="tablink"
@@ -46,13 +47,7 @@
               Text
             </button>
 
-            <button
-            class="tablink"
-            (click)="openTab('MultiUpload')"
-            [class.active]="activeTab === 'MultiUpload'"
-          >
-            Multiple-URL
-          </button>
+            
         </div>
 
           <hr class="tab-divider" />
@@ -60,6 +55,7 @@
           <div
             [ngClass]="{ tabcontent: true, active: activeTab === 'FileUpload' }"
           >
+
             <div
               class="file-upload-area"
               (drop)="onFileDrop($event)"
@@ -77,16 +73,14 @@
             </div>
           </div>
 
-          <div
-            [ngClass]="{ tabcontent: true, active: activeTab === 'WebsiteURL' }"
-          >
+          <div [ngClass]="{ tabcontent: true, active: activeTab === 'WebsiteURL' }">
             <div class="url-container">
-              <input
-                type="text"
-                [(ngModel)]="websiteUrl"
-                placeholder="Enter or paste the website URL here"
-              />
-              <button (click)="fetchUrl()">Fetch URL</button>
+              <div *ngFor="let url of urls; let i = index" class="input-group">
+                <input [(ngModel)]="urls[i]" placeholder="Enter URL here..." />
+                <button (click)="addInputField()"><i class="fa-solid fa-plus"></i></button>
+                <button *ngIf="urls.length > 1" (click)="removeInputField(i)"><i class="fa-solid fa-minus"></i></button>
+              </div>
+              <button class="fetch-button" (click)="addTrainingMaterial()">Fetch URL</button>
             </div>
           </div>
 
@@ -113,25 +107,6 @@
             </div>
           </div>
 
-
-          <div [ngClass]="{ tabcontent: true, active: activeTab === 'MultiUpload' }">
-            <!-- <div class="multi-upload-container"> -->
-
-                <div class="url-inputs-container">
-                    <div *ngFor="let urlInput of urlInputs; let i = index" class="url-input-group">
-                        <input type="text" [(ngModel)]="urlInputs[i]" placeholder="Enter URL" class="url-input" />
-                        <button type="button" class="add-input-button" (click)="addInput()">+</button>
-                        <button type="button" class="remove-input-button" (click)="removeInput(i)">-</button>
-                    </div>
-                </div>
-
-                <div class="fetch-all-container">
-                  <button (click)="fetchAllUrls()" class="fetch-files-button">
-                    Fetch All URLs
-                  </button>
-                </div>
-            <!-- </div> -->
-        </div>
         </div>
         <!-- Closing div for table-container -->
 
@@ -186,8 +161,16 @@
                   <td>{{ material.characters }}</td>
                   <td>{{ material.status }}</td>
                   <td>{{ material.lastTrained }}</td>
-                  <td><button (click)="retrainMaterial(material)">Re-train</button></td>
-                  <td><button (click)="deletematerial(material)">Delete</button></td>
+                  <td>
+                    <button (click)="retrainMaterial(material)">
+                      <i class="fa-solid fa-retweet"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)="deletematerial(material)">
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                  </td>
                 </tr>                
               </tbody>
             </table>
