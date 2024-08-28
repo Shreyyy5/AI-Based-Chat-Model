@@ -12,9 +12,11 @@ export class TrainingMaterialsComponent implements OnInit {
   textTitle: string = '';
   textBody: string = '';
   searchQuery: string = '';
-  urlInputs: string[] = [''];
+  urls: string[] = [''];
   trainingMaterials: any[] = [];
 
+  urlInput: string = '';
+  // trainingMaterials = [];
 
   allTrainingMaterials: any[] = []; // Assuming you have a list of all training materials
   filteredTrainingMaterials: any[] = [];
@@ -65,37 +67,63 @@ export class TrainingMaterialsComponent implements OnInit {
   }
 
 
-  addInput() {
-    this.urlInputs.push('');
+  addInputField() {
+    this.urls.push('');
   }
 
-  removeInput(index: number) {
-    if (this.urlInputs.length > 1) {
-      this.urlInputs.splice(index, 1);
+  removeInputField(index: number) {
+    this.urls.splice(index, 1);
+  }
+
+  // fetch link from step one to step 2
+
+  addTrainingMaterial() {
+    this.urls.forEach(url => {
+      if (url) {
+        this.trainingMaterials.push({
+          url: url,
+          type: 'Website URL', // Type of material
+          characters: url.length, // Example: using URL length as characters count
+          status: 'Untrained',
+          lastTrained: 'Never'
+        });
+      }
+    });
+
+    // Clear the URL input fields after adding them to the table
+    this.urls = [''];
+  }
+
+   // Function to handle re-training (example)
+   retrainMaterial(material: any) {
+    material.status = 'Re-trained';
+    material.lastTrained = new Date().toLocaleDateString();
+  }
+
+  // Function to delete a material from the table
+  deletematerial(material: any) {
+    const index = this.trainingMaterials.indexOf(material);
+    if (index > -1) {
+      this.trainingMaterials.splice(index, 1);
     }
   }
 
-  fetchAllUrls() {
-    // Handle fetching all URLs
-    console.log('Fetching all URLs:', this.urlInputs);
-    // Implement actual logic to fetch and process all URLs
-  }
 
   selectAll(): void {
     this.filteredMaterials.forEach(material => material.selected = true);
   }
 
-  retrain(material: any): void {
-    // Implement re-train logic here
-    console.log(`Re-training ${material.name}`);
-  }
+  // retrain(material: any): void {
 
-  deletematerial(material: any): void {
-    // Implement delete logic here
-    console.log(`Deleting ${material.name}`);
-    this.materials = this.materials.filter(m => m !== material);
-    this.filterTrainingMaterials(); // Refresh the filtered list
-  }
+  //   console.log(`Re-training ${material.name}`);
+  // }
+
+  // deletematerial(material: any): void {
+
+  //   console.log(`Deleting ${material.name}`);
+  //   this.materials = this.materials.filter(m => m !== material);
+  //   this.filterTrainingMaterials(); 
+  // }
 
 
   trainSelected() {
@@ -114,17 +142,17 @@ export class TrainingMaterialsComponent implements OnInit {
   }
   
 
-    retrainMaterial(material) {
-      // Logic to retrain the material
-      material.status = 'Retrained';
-      material.lastTrained = new Date().toLocaleString();
-    }
+    // retrainMaterial(material) {
+    //   // Logic to retrain the material
+    //   material.status = 'Retrained';
+    //   material.lastTrained = new Date().toLocaleString();
+    // }
     
-    deleteMaterial(material: any) {
-      this.trainingMaterials = this.trainingMaterials.filter(
-        (m) => m !== material
-      );
-    }
+    // deleteMaterial(material: any) {
+    //   this.trainingMaterials = this.trainingMaterials.filter(
+    //     (m) => m !== material
+    //   );
+    // }
 
 
 
