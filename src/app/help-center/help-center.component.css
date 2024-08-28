@@ -1,0 +1,79 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  body {
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  /* Container for Sidebar and Content */
+  .help-center {
+    display: flex;
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+  }
+  
+  /* Sidebar Styles */
+  app-sidebar {
+    width: 20vw; /* Width of the sidebar */
+    height: 100vh; /* Full height */
+    background-color: #fff;
+    overflow-y: auto; /* Enables vertical scrolling if needed */
+  }
+
+  h1{
+    font-weight: 600;
+  }
+  
+  /* Content Styles */
+  .content {
+    flex: 1; /* Takes up the remaining space */
+    padding: 20px;
+    background-color: #fffdfd; /* Background color of the content area */
+    overflow-y: auto; /* Enables vertical scrolling if needed */
+  }
+
+  p{
+    font-size: 18px;
+  }
+
+  /* messaege container */
+  .message-container {
+    border: 1px solid #dcd9d9; /* Adjust border color and thickness as needed */
+  padding: 20px 30px;
+  border-radius: 8px; /* Optional: add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+  background-color: #fff;
+  }
+
+  /* p link */
+  .message-container p a {
+    color: #ffb700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.message-container p a:hover {
+    text-decoration: none;
+    color: #0056b3;
+}
+
+.calendly-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center; /* Center iframe horizontally */
+}
+
+.calendly-container iframe {
+  border: none; /* Remove iframe border */
+    width: 90%; /* Slightly increase width */
+    max-width: 1200px; /* Adjust as needed */
+    height: 700px; /* Slightly increase height */
+    overflow: hidden; /* Hide scrollbar if any */
+}
+
