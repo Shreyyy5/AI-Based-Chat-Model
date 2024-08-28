@@ -151,7 +151,7 @@ app-sidebar {
 .visitor-icon {
   width: 40px;
   height: 40px;
-  background-color: #4a4a4a;
+  background-color: #f3982f;
   color: #fff;
   font-weight: bold;
   display: flex;
@@ -204,7 +204,7 @@ app-sidebar {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 100px;
+  gap: 50px;
   margin-top: 10px; /* add some space between date inputs and selects */
 }
 
@@ -213,8 +213,8 @@ app-sidebar {
   padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 14px;
-  width: calc(33.33% - 10px); /* adjust width to fit 3 selects in a row */
+  font-size: 15px;
+  width: 250px; /* adjust width to fit 3 selects in a row */
 }
 
 /* Toggle switch styles */
@@ -329,7 +329,6 @@ input:checked + .slider:before {
   color: white;
 }
 
-/*  */
 /* Modal Styles */
 .modal {
   display: none; /* Hidden by default */
@@ -377,4 +376,64 @@ input:checked + .slider:before {
 .delete-btn {
   background-color: #dc3545;
   color: white;
+}
+
+/* Basic styling */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown-summary {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-summary i {
+  margin-right: 8px;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Options */
+.dropdown-options {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-option {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-option i {
+  margin-right: 8px;
+}
+
+.dropdown-option:hover {
+  background-color: #f0f0f0;
+}
+
+details summary::-webkit-details-marker {
+  display: none; /* Remove default arrow icon */
 }
