@@ -72,4 +72,15 @@ export class ConversationsComponent {
       }
     };
   }
+
+  startDate: string;
+  endDate: string;
+
+  onDateSelected(): void {
+    // Logic can be added here if needed when dates are selected
+    if (this.startDate && this.endDate) {
+      // This condition ensures that both dates are selected before showing the visitor-actions
+    }
+  }
+
 }
