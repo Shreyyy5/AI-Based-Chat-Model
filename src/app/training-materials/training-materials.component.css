@@ -58,10 +58,10 @@ app-sidebar {
   padding: 10px 20px;
   transition: 0.3s;
   font-size: 18px;
-  margin-left: 90px;
+  margin-left: 100px;
   margin-top: 70px;
   position: relative;
-  margin-right: 50px;
+  margin-right: 120px;
 }
 
 .tablink:hover {
@@ -125,19 +125,66 @@ app-sidebar {
 .url-container {
   margin-top: 20px;
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: flex-end; /* Align items to the start of the container */
-  width: 179%; /* Adjust width as needed */
+  flex-direction: column;
+  align-items: flex-end; 
+  width: 165%; 
 }
 
-.url-container input[type="text"] {
-  width: 100%;
-  padding: 15px;
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.url-container input {
+  border-radius: 8px; /* Adjust the value as needed */
+  padding: 10px;
+  border: 1px solid #ccc; /* Optional: Add a border */
+}
+
+
+.input-group button {
+  margin-right: 5px;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.fetch-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f3982f;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 17px;
+  margin-top: 20px;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.fetch-button:hover{
+    background-color: #f2741e;
+}
+
+/* Adjust the size of the URL input field */
+/* .url-container input {
+  width: 100%; 
+  padding: 10px; 
+  font-size: 16px; 
+  box-sizing: border-box; 
   border: 1px solid #ddd;
   border-radius: 15px;
-  margin-right: 10px;
   font-size: 18px;
 }
+
 
 .url-container button {
   padding: 10px 20px;
@@ -154,14 +201,17 @@ app-sidebar {
 
 .url-container button:hover {
   background-color: #f2741e;
-}
+} */
+
+
+
 
 /* Style for Site Map button */
 .site-map-container {
   margin-top: 20px;
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: flex-end; /* Align items to the start of the container */
+  flex-direction: column;
+  align-items: flex-end; 
   width: 179%;
 }
 
@@ -198,9 +248,9 @@ app-sidebar {
 .text-container {
   margin-top: 20px;
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: flex-end; /* Align items to the end of the container */
-  width: 179%; /* Adjust width as needed */
+  flex-direction: column; 
+  align-items: flex-end; 
+  width: 179%; 
 }
 
 .text-container input[type="text"],
@@ -216,9 +266,9 @@ app-sidebar {
 .text-container textarea {
   margin-top: 10px;
   resize: vertical;
-  height: 200px; /* Adjust height as needed */
-  width: 100%; /* Ensure textarea takes full width of container */
-  box-sizing: border-box; /* Includes padding and border in the width */
+  height: 200px; 
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 .train-button {
@@ -243,82 +293,7 @@ app-sidebar {
   height: 100px;
 }
 
-/* Multi-Upload section styling */
-/* .multi-upload-container {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-}
 
-.multi-upload-container h3 {
-  margin-top: 0;
-  color: #333;
-} */
-
-.url-inputs-container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column; /* Stack children vertically */ 
-}
-
-.url-input-group {
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 10px;
-  width: 169%;
-  gap: 10px;
-}
-
-.url-input {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-.add-input-button, .remove-input-button {
-  margin-left: 10px;
-  padding: 10px 15px;
-  background-color: #e5e7eb;
-  border: none;
-  border-radius: 4px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-
-.add-input-button:hover {
-  background-color: #d1d5db;
-}
-
-.remove-input-button:hover {
-  background-color: #d1d5db;
-}
-
-.fetch-all-container {
-  display: flex;
-  position: relative;
- 
-}
-
-.fetch-files-button {
-  padding: 10px 10px;
-  border: none;
-  background-color: #f3982f;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 17px;
-  margin-top: 20px;
-  font-weight: 600;
-  align-self: flex-start; /* Align the button to the right */
-}
-
-.fetch-files-button:hover {
-  background-color: #f2741e;
-}
 
 
 
@@ -377,6 +352,7 @@ app-sidebar {
   align-items: center;
   margin-top: 30px;
   overflow: hidden;
+
 }
 
 .select-buttons {
@@ -405,7 +381,7 @@ app-sidebar {
 .train-button {
   padding: 10px 20px;
   color: #fff;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   background-color: #f3982f;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -417,6 +393,31 @@ app-sidebar {
 .train-button:hover {
   background-color: #f2741e;
   /* box-shadow: 0 0 8px #f3982f; */
+}
+
+/* Style for the delete icon */
+.training-table .fa-trash {
+  color: red; 
+}
+
+.training-table .fa-trash:hover {
+  color: darkred; 
+}
+
+/* Style for re-train button */
+.training-table .fa-retweet {
+  color: rgb(116, 230, 54); 
+}
+
+.training-table .fa-retweet:hover {
+  color: rgb(22, 163, 29); 
+}
+
+.training-table button {
+  border: none; 
+  background: none; 
+  padding: 0; 
+  cursor: pointer; 
 }
 
 .border-container {
