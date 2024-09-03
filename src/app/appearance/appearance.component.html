@@ -8,9 +8,6 @@
       <!-- Left Content -->
       <div class="left-content">
         <div class="agent">
-          <h1>Create Agent</h1>
-          <button class="demobutton" (click)="openVideo()">How it Works</button>
-
           <!-- Toggle Button for AI Nav and Widget -->
           <div class="toggle-buttons">
             <button
@@ -31,138 +28,161 @@
         <!-- Widget Content -->
         <div *ngIf="view === 'widget'" class="widget-content">
           <div class="container2">
-            <h4>Your Website</h4>
-            <input
-              type="text"
-              placeholder="Enter your website URL"
-              class="url"
-            />
-            <button class="fetch-button">Fetch Link</button>
-            <pre></pre>
-
             <!-- Business Name -->
-            <form (ngSubmit)="onSubmit()" #businessForm="ngForm">
-              <div class="form-group">
-                <label for="businessName">*Agent Name</label><br />
-                <input
-                  type="text"
-                  id="businessName"
-                  name="businessname"
-                  class="business-name"
-                  [(ngModel)]="businessName"
-                  #businessNameField="ngModel"
-                  required
-                />
-                <div
-                  *ngIf="
-                    businessNameField.invalid &&
-                    (businessNameField.dirty || businessNameField.touched)
-                  "
-                  class="error"
-                >
-                  Agent Name is required.
-                </div>
-              </div>
+            <form>
+              <h6>Chat Mode Settings</h6>
+              <div class="section-header">
+                <!-- Tips Button -->
+                <button class="demobutton" (click)="openTipsPopup()">
+                  Tips
+                </button>
 
-              <pre></pre>
-
-              <!-- Agent Name -->
-              <div class="form-group">
-                <label for="agentName">*Business Name</label><br />
-                <input
-                  type="text"
-                  id="agentName"
-                  name="agentname"
-                  class="agent-name"
-                  [(ngModel)]="agentName"
-                  #agentNameField="ngModel"
-                  required
-                />
-                <div
-                  *ngIf="
-                    agentNameField.invalid &&
-                    (agentNameField.dirty || agentNameField.touched)
-                  "
-                  class="error"
-                >
-                  Business Name is required.
-                </div>
-              </div>
-
-              <pre></pre>
-
-              <!-- Language -->
-              <div class="form-group">
-                <label for="language">Language</label><br />
-                <select
-                  name="language"
-                  id="language"
-                  class="language"
-                  [(ngModel)]="selectedLanguage"
-                >
-                  <option *ngFor="let lang of languages" [value]="lang.value">
-                    {{ lang.label }}
-                  </option>
-                </select>
-              </div>
-
-              <pre></pre>
-              <div>
-                <div class="flex flex-row items-center justify-between mr-10">
-                  <div>Edit Welcome Message</div>
-                </div>
-                <div class="flex flex-col">
-                  <div
-                    class="ant-form-item mb-1 css-1bpa90y ant-form-item-has-success"
-                  >
-                    <div class="ant-row ant-form-item-row css-1bpa90y">
-                      <div class="ant-col ant-form-item-control css-1bpa90y">
-                        <div class="ant-form-item-control-input">
-                          <div class="ant-form-item-control-input-content">
-                            <div
-                              class="flex"
-                              id="changeAppearanceForm_welcome_message"
-                            >
-                              <textarea
-                                rows="2"
-                                class="ant-input ant-input-lg css-1bpa90y ant-input-outlined ant-input-status-success"
-                                [(ngModel)]="welcomeMessage"
-                              ></textarea>
-                              <a
-                                class="ant-dropdown-trigger text-xl font-semibold ant-dropdown-link hover:text-green-500 items-center align-center flex ml-2 flex-none"
-                              >
-                                <button
-                                  type="button"
-                                  class="ant-btn css-1bpa90y ant-btn-default ant-btn-icon-only flex items-center justify-center align-center relative rounded-full"
-                                >
-                                  <span class="ant-btn-icon">
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="currentColor"
-                                      stroke-width="0"
-                                      viewBox="0 0 320 512"
-                                      class="text-2xl -mt-2"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"
-                                      ></path>
-                                    </svg>
-                                  </span>
-                                </button>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                <!-- Tips Popup -->
+                <div class="popup-overlay" *ngIf="showTipsPopup">
+                  <div class="popup-content tips-content">
+                    <div class="popup-header">
+                      <h3>Tips</h3>
+                      <button class="close-btn" (click)="closeTipsPopup()">
+                        ×
+                      </button>
+                    </div>
+                    <div class="popup-body">
+                      <p>
+                        On this page, you can customize the agent's appearance
+                        and behavior. This page shows only the preview! For the
+                        actual agent, please visit the
+                        <strong>Try My AI</strong> page. For advanced settings,
+                        read <a href="#">our help documentation</a>.
+                      </p>
+                      <ul class="tips-list">
+                        <li>
+                          ✨ <strong>Agent Title</strong> is the title you wish
+                          to label your agent, customers will see this title on
+                          the top left corner of the widget.
+                        </li>
+                        <li>
+                          ✨ <strong>Agent Name</strong> is what the agent will
+                          refer to itself as in conversation with customers.
+                        </li>
+                        <li>
+                          ✨ <strong>Welcome Message</strong> is the first
+                          message the agent says before user inquiry.
+                        </li>
+                        <li>
+                          ✨ <strong>Profile Avatar</strong> is the icon that
+                          shows up representing the virtual agent in chat and in
+                          the profile.
+                        </li>
+                        <li>
+                          ✨ <strong>Show Sources</strong> enables your agent to
+                          display links to sites from which it sourced its
+                          previous response. Add and configure sources in
+                          <strong>Training Materials</strong>.
+                        </li>
+                        <li>
+                          ✨ <strong>Show Contact Form</strong> allows you to
+                          request contact info from your customers, which you
+                          can view in <strong>Collected Contacts</strong>.
+                        </li>
+                        <li>
+                          ✨ <strong>Require Form Completion</strong> allows you
+                          to only let visitors interact with the agent once they
+                          have provided their contact information.
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="popup-footer">
+                      <button class="btn btn-green" (click)="closeTipsPopup()">
+                        Ok
+                      </button>
                     </div>
                   </div>
-                  <div class="text-xs self-end mr-10">
-                    {{ welcomeMessage.length }} / 300
+                </div>
+
+                <button type="submit" class="create">Save</button>
+              </div>
+              <!-- Agent Title and Agent Name -->
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-6">
+                    <label for="">Agent Title</label>
+                    <p>Agent Title <span class="edit-icon">✏️</span></p>
+                  </div>
+                  <div class="col-6">
+                    <label for="">Agent Name</label>
+                    <p>Agent Name <span class="edit-icon">✏️</span></p>
                   </div>
                 </div>
+              </div>
+
+              <!-- Language and Font -->
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-6">
+                    <label for="language">Language</label>
+                    <select
+                      name="language"
+                      id="language"
+                      class="language"
+                      [(ngModel)]="selectedLanguage"
+                    >
+                      <option
+                        *ngFor="let lang of languages"
+                        [value]="lang.value"
+                      >
+                        {{ lang.label }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <label for="font">Widget Font</label>
+                    <select
+                      name="font"
+                      id="font"
+                      class="font"
+                      [(ngModel)]="selectedFont"
+                    >
+                      <option *ngFor="let fon of font" [value]="fon.value">
+                        {{ fon.label }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row-elements">
+                <div class="flex-container">
+                  <label>Profile Avatar</label>
+                  <label for="toggle">Show Contact Form Configure</label>
+                </div>
+                <div class="flex-container">
+                  <button class="upload-avatar" (click)="uploadAvatar()">
+                    + Upload Avatar
+                  </button>
+                  <input
+                    type="file"
+                    id="avatarInput"
+                    style="display: none"
+                    (change)="onAvatarSelected($event)"
+                  />
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="toggle"
+                      [(ngModel)]="toggleState"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- welcome message -->
+              <div class="form-group">
+                <label>Edit Welcome Message</label>
+                <textarea rows="3">
+Welcome 👋! How can we help you today?</textarea
+                >
+                <div class="char-count">38 / 300</div>
               </div>
 
               <!-- Color Palette -->
@@ -192,9 +212,324 @@
                 </div>
               </div>
 
-              <pre></pre>
+              <!-- button position -->
+              <!-- Show Sources, Sound Effects, and Terms & Conditions in a row -->
+              <div class="form-group row-elements">
+                <div class="flex-container">
+                  <div class="column">Show Sources</div>
+                  <div class="column">Sound Effects</div>
+                  <div class="column">Terms & Conditions</div>
+                </div>
 
-              <button type="submit" class="create">Create</button>
+                <div class="toggle-container">
+                  <div class="toggle">
+                    <!-- Toggle button code for Show Sources -->
+                    <label class="switch">
+                      <input
+                        type="checkbox"
+                        id="toggle"
+                        [(ngModel)]="toggleState"
+                      />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div class="toggle">
+                    <!-- Toggle button code for Sound Effects -->
+                    <label class="switch">
+                      <input
+                        type="checkbox"
+                        id="toggle"
+                        [(ngModel)]="toggleState"
+                      />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div class="toggle">
+                    <!-- Toggle button code for Terms & Conditions -->
+                    <label class="switch">
+                      <input
+                        type="checkbox"
+                        id="toggle"
+                        [(ngModel)]="toggleState"
+                      />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <label>Conversation Starter</label>
+              <button
+                class="btn btn-orange"
+                type="button"
+                (click)="addAction()"
+              >
+                <i class="fas fa-plus"></i> Add Conversation Starter
+              </button>
+
+              <div
+                *ngFor="let action of actions; let i = index"
+                class="action-row mt-2"
+              >
+                {{ action.action }}
+                <input
+                  [(ngModel)]="action.url"
+                  placeholder="What does your business do?"
+                  class="form-control ml-2"
+                />
+                <button
+                  class="btn custom-button"
+                  type="button"
+                  id="dropdownMenuButton"
+                  (click)="toggleDropdown()"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+                <button
+                  (click)="removeAction(i)"
+                  class="btn custom-button ml-2"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+
+              <!--  -->
+              <h6>Chat Mode Settings</h6>
+              <p>Edit Popup Message<span class="edit-icon">✏️</span></p>
+
+              <!-- Widget Button Icon -->
+
+              <!-- Widget Button Icon -->
+              <label>Widget Button Icon</label>
+              <button
+                class="btn btn-orange"
+                type="button"
+                (click)="addUpload()"
+              >
+                <i class="fas fa-plus"></i> Upload icon
+              </button>
+
+              <!-- File Upload Popup -->
+              <div class="popup-overlay" *ngIf="showPopup">
+                <div class="popup-content">
+                  <div class="popup-header">
+                    <h3>Add or Reset your Widget Button Icon</h3>
+                    <button class="close-btn" (click)="closePopup()">×</button>
+                  </div>
+                  <div class="popup-body">
+                    <div class="upload-area">
+                      <i class="fas fa-upload upload-icon"></i>
+                      <p>Click or drag file to upload</p>
+                      <small>
+                        Drag and drop your PNG, JPEG, or SVG file here, or click
+                        to select it. (2 MB limit)
+                      </small>
+                      <input
+                        type="file"
+                        (change)="onFileSelected($event)"
+                        class="file-input"
+                      />
+                    </div>
+                  </div>
+                  <div class="popup-footer">
+                    <button class="btn btn-green" (click)="closePopup()">
+                      Done
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Popup Style -->
+              <div class="form-group">
+                <label for="popup">Popup Style</label><br />
+                <select
+                  name="popup"
+                  id="popup"
+                  class="popup"
+                  [(ngModel)]="selectedPopup"
+                >
+                  <option *ngFor="let pop of popup" [value]="pop.value">
+                    {{ pop.label }}
+                  </option>
+                </select>
+              </div>
+
+              <!-- Button Position -->
+
+              <div class="flex-container2">
+                <div class="column">Widget Button Position</div>
+                <div class="column">Expanded By Default</div>
+              </div>
+              <div class="toggle-container2">
+                <div class="toggle">
+                  <!-- Toggle button code for Show Sources -->
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="toggle"
+                      [(ngModel)]="toggleState"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="toggle">
+                  <!-- Toggle button code for Sound Effects -->
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="toggle"
+                      [(ngModel)]="toggleState"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <h6>Profile Mode Settings</h6>
+              <div class="form-group">
+                <p>Edit Profile Description</p>
+                <textarea rows="3">Howdy! 👋</textarea>
+                <div class="char-count">38 / 300</div>
+              </div>
+
+              <p>Input Placeholder</p>
+              <input
+                type="text"
+                placeholder="Type your message..."
+                class="url"
+              />
+
+              <!-- Button with dropdown -->
+              <!-- <p>Actionable Items</p>
+              <div class="dropdown">
+                <button
+                  class="btn btn-orange"
+                  type="button"
+                  id="dropdownMenuButton"
+                  (click)="toggleDropdown()"
+                >
+                  <i class="fas fa-plus"></i> Add Actionable Items
+                </button>
+                <div
+                  class="dropdown-menu"
+                  [ngClass]="{ show: isDropdownOpen }"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  <div
+                    class="dropdown-item"
+                    *ngFor="let option of actionOptions"
+                    (click)="addAction2(option)"
+                  >
+                    {{ option }}
+                  </div>
+                </div>
+              </div>
+
+              <div
+                *ngFor="let action of actions; let i = index"
+                class="action-row mt-2"
+              >
+                <input
+                  [(ngModel)]="action.url"
+                  placeholder="https://"
+                  class="form-control ml-2"
+                />
+                <button
+                  class="btn custom-button"
+                  type="button"
+                  id="dropdownMenuButton"
+                  (click)="toggleDropdown()"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+                <button
+                  (click)="removeAction(i)"
+                  class="btn custom-button ml-2"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div> -->
+
+              <label>Social</label>
+              <button
+                class="btn btn-orange"
+                type="button"
+                (click)="addAction()"
+              >
+                <i class="fas fa-plus"></i> Socials
+              </button>
+
+              <div
+                *ngFor="let action of actions; let i = index"
+                class="action-row mt-2"
+              >
+                {{ action.action }}
+
+                <div class="form-group">
+                  <label for="platform"></label><br />
+                  <select
+                    name="platform"
+                    id="platform"
+                    class="platform"
+                    [(ngModel)]="selectedPlatform"
+                  >
+                    <option *ngFor="let plat of platform" [value]="plat.value">
+                      {{ plat.label }}
+                    </option>
+                  </select>
+                </div>
+
+                <input
+                  [(ngModel)]="action.url"
+                  placeholder="https://"
+                  class="form-control ml-2"
+                />
+                <button
+                  class="btn custom-button"
+                  type="button"
+                  id="dropdownMenuButton"
+                  (click)="toggleDropdown()"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+                <button
+                  (click)="removeAction(i)"
+                  class="btn custom-button ml-2"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+
+              <div class="input-container">
+                <input
+                  type="text"
+                  [value]="selectedOptions.join(', ')"
+                  readonly
+                  (click)="toggleDropdown2()"
+                  placeholder="Select options"
+                />
+                <div class="dropdown" *ngIf="dropdownVisible">
+                  <label *ngFor="let option of options">
+                    <input
+                      type="checkbox"
+                      [checked]="selectedOptions.includes(option)"
+                      (change)="toggleOption2(option)"
+                    />
+                    <span class="option-text">{{ option }}</span>
+                  </label>
+                </div>
+                <div class="selected-options">
+                  <div
+                    *ngFor="let option of selectedOptions"
+                    class="selected-item"
+                  >
+                    {{ option }}
+                    <span class="remove-icon" (click)="removeOption(option)"
+                      >&#10005;</span
+                    >
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -208,60 +543,91 @@
 
               <!-- Language -->
               <div class="form-group">
-                <label for="language">Language</label><br />
-                <select
-                  name="language"
-                  id="language"
-                  class="language"
-                  [(ngModel)]="selectedLanguage"
-                >
-                  <option *ngFor="let lang of languages" [value]="lang.value">
-                    {{ lang.label }}
-                  </option>
-                </select>
+                <div class="row">
+                  <div class="col-6">
+                    <label for="language">Language</label>
+                    <select
+                      name="language"
+                      id="language"
+                      class="language"
+                      [(ngModel)]="selectedLanguage"
+                    >
+                      <option
+                        *ngFor="let lang of languages"
+                        [value]="lang.value"
+                      >
+                        {{ lang.label }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <label for="position">Position From Bottom</label>
+                    <select
+                      name="position"
+                      id="position"
+                      class="position"
+                      [(ngModel)]="selectedPosition"
+                    >
+                      <option *ngFor="let pos of font" [value]="pos.value">
+                        {{ pos.label }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
               </div>
-
-              <pre></pre>
 
               <!-- Toggle Button -->
-              <div class="form-group">
-                <label for="toggle">Gradient Border</label><br />
-                <label class="switch">
-                  <input
-                    type="checkbox"
-                    id="toggle"
-                    [(ngModel)]="toggleState"
-                  />
-                  <span class="slider"></span>
-                </label>
+              <div class="flex-container2">
+                <div class="column">Gradient Border</div>
+                <div class="column">Enable Voice Input</div>
               </div>
-
-              <!-- voice input -->
-              <div class="form-group">
-                <label for="toggle">Enable Voice Input </label><br />
-                <label class="switch">
-                  <input
-                    type="checkbox"
-                    id="toggle"
-                    [(ngModel)]="toggleState"
-                  />
-                  <span class="slider"></span>
-                </label>
+              <div class="toggle-container2">
+                <div class="toggle">
+                  <!-- Toggle button code for Show Sources -->
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="toggle"
+                      [(ngModel)]="toggleState"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="toggle">
+                  <!-- Toggle button code for Sound Effects -->
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="toggle"
+                      [(ngModel)]="toggleState"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                </div>
               </div>
 
               <!--  -->
-              <h4>Preview Website Url</h4>
-              <input
-                type="text"
-                placeholder="Enter your website URL"
-                class="url"
-              />
-              <button class="fetch-button">Update</button>
-
-              <pre></pre>
+              <p>Preview Website Url</p>
+              <div class="toggle-container2">
+                <div class="toggle">
+                  <div class="input-container">
+                    <input
+                      type="text"
+                      placeholder="HubSpot Name"
+                      [(ngModel)]="hubspotName"
+                    />
+                  </div>
+                </div>
+                <div class="toggle">
+                  <button class="button2" (click)="updateName()">Update</button>
+                </div>
+                <div *ngIf="updatedName">
+                  <p>Updated Name: {{ updatedName }}</p>
+                </div>
+              </div>
 
               <!-- suggested question -->
-              <h4>Suggested Questions</h4>
+              <p>suggested questions</p>
               <input
                 type="text"
                 placeholder="What does Tesla do?"
@@ -394,26 +760,6 @@
                         placeholder="Type a message"
                         class="text-input"
                       />
-                      <!-- <button
-                        class="send-button"
-                        [ngStyle]="{ 'background-color': selectedColor }"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="send-icon"
-                        >
-                          <line x1="22" y1="2" x2="11" y2="13"></line>
-                          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
-                      </button> -->
                     </div>
                   </div>
                 </div>
