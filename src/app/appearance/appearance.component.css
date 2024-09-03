@@ -10,6 +10,34 @@ body {
   margin: 0;
 }
 
+h1 {
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+h6 {
+  margin-top: 20px;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px; /* add this line */
+  margin-top: 20px;
+}
+
+.section-header h6 {
+  margin-right: 10px;
+}
+
+.section-header button {
+  margin-right: 5px;
+}
+
 /* Container for Sidebar and Content */
 .appearance {
   display: flex;
@@ -135,7 +163,7 @@ body {
 /* Container Styling */
 .container2 {
   text-align: left;
-  margin: 0 80px;
+  width: 100%;
 }
 
 /* URL Input Styling */
@@ -202,17 +230,18 @@ form {
 }
 
 .language {
-  min-width: 300px;
+  width: 70px;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;
   outline: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: border-color 0.3s ease-in-out;
+  /* width: auto; */
 }
 
 .language:focus {
-  border-color: #2196f3;
+  border-color: #218838;
 }
 
 input[type="text"],
@@ -228,38 +257,19 @@ select {
 
 input[type="text"]:focus,
 select:focus {
-  border-color: #2196f3;
+  border-color: #218838;
 }
 
 .create {
-  padding: 10px 20px;
-  background-color: transparent;
-  color: rgb(0, 0, 0);
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 20px;
+  margin-left: 0; /* or a smaller value, like 10px or 20px */
+  background-color: #f3982f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
   cursor: pointer;
   position: relative;
-  z-index: 1;
-  overflow: hidden;
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.create::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease-in-out;
-  border-radius: 50%;
-  z-index: -1;
-  transform: translate(-50%, -50%) scale(0);
-}
-
-.create:hover::before {
-  transform: translate(-50%, -50%) scale(1);
+  right: 60px;
 }
 
 .create:hover {
@@ -271,8 +281,8 @@ select:focus {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 50px;
+  height: 24px;
 }
 
 .switch input {
@@ -290,14 +300,14 @@ select:focus {
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-  border-radius: 34px;
+  border-radius: 30px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 16px;
+  width: 16px;
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -532,7 +542,7 @@ input:checked + .slider:before {
 }
 
 .form-group input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #218838;
 }
 
 .form-group input:checked + .slider:before {
@@ -564,7 +574,7 @@ input:checked + .slider:before {
 }
 
 .create {
-  background-color: #e8a848;
+  background-color: #f3982f;
   color: white;
   border: none;
   border-radius: 5px;
@@ -574,7 +584,7 @@ input:checked + .slider:before {
 }
 
 .create:hover {
-  background-color: #fdcb81;
+  background-color: #f2741e;
 }
 
 /* Right content styles with grid background */
@@ -611,7 +621,7 @@ input:checked + .slider:before {
 }
 
 .chat-header {
-  background-color: #f4b43e;
+  background-color: #f3982f;
   color: white;
   padding: 20px;
   text-align: center;
@@ -638,7 +648,7 @@ input:checked + .slider:before {
 .send-button {
   padding: 10px 20px;
   border: none;
-  background-color: #f3aa3f;
+  background-color: #f3982f;
   color: white;
   cursor: pointer;
 }
@@ -650,7 +660,7 @@ input:checked + .slider:before {
 /* Preview button positioned at top left */
 .preview-button {
   color: rgb(17, 17, 17);
-  background-color: #f3aa3f;
+  background-color: #f3982f;
   padding: 10px 20px;
   margin-left: 0;
   border: 2px solid #000000;
@@ -680,7 +690,7 @@ input:checked + .slider:before {
 }
 
 .toggle-buttons button.active {
-  background-color: #f3aa3f;
+  background-color: #f3982f;
   color: white;
 }
 
@@ -695,6 +705,8 @@ input:checked + .slider:before {
   border: 2px solid rgb(0, 0, 0);
   border-radius: 20px;
   cursor: pointer;
+  position: relative;
+  left: 350px;
 }
 
 .new-box {
@@ -830,4 +842,406 @@ button.fetch-button {
   position: relative;
   left: 300px;
   bottom: 40px;
+}
+
+/* text area */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  resize: none;
+}
+
+.language,
+select {
+  padding: 5px; /* reduce padding */
+  font-size: 14px; /* reduce font size */
+}
+
+.language,
+select {
+  width: 70px; /* reduce width */
+}
+
+/* .row-elements {
+  display: flex;
+  align-items: center;
+}
+
+.row-elements label {
+  margin-right: 10px;
+}
+
+.row-elements button {
+  margin-left: 10px;
+}
+
+.row-elements .switch {
+  margin-left: 10px;
+} */
+
+.row-elements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.row-elements > label {
+  width: 33.33%;
+  margin-bottom: 10px;
+}
+
+.row-elements > .switch-container {
+  width: 33.33%;
+  margin-top: 10px;
+}
+
+.switch-container {
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  margin-left: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.flex-container label {
+  margin-right: 97px;
+}
+
+.flex-container button {
+  margin-right: 70px;
+}
+
+.flex-container .switch {
+  margin-top: 0;
+}
+
+.btn-orange {
+  background-color: #f3982f;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+}
+
+.btn-orange i {
+  margin-right: 5px;
+}
+
+.btn-orange:hover {
+  background-color: #f2741e;
+}
+
+/* Style for the dropdown menu */
+.dropdown-menu {
+  min-width: 200px; /* Adjust width as needed */
+  display: none; /* Hide by default */
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block; /* Show when `show` class is applied */
+}
+
+.dropdown-item {
+  cursor: pointer;
+  padding: 10px; /* Padding for dropdown items */
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa; /* Light background on hover */
+}
+
+/* toggle buttons */
+.flex-container {
+  display: flex;
+  gap: 70px; /* Adjust this value to increase/decrease the gap */
+}
+
+.toggle-container {
+  display: flex;
+  gap: 95px; /* Adjust the gap as needed */
+}
+
+.flex-container2 {
+  display: flex;
+  gap: 140px; /* Adjust this value to increase/decrease the gap */
+}
+
+.toggle-container2 {
+  display: flex;
+  gap: 230px; /* Adjust the gap as needed */
+}
+
+/* upload popup */
+
+/* Popup overlay and content */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.upload-area {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 30px;
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 36px;
+  color: #4caf50;
+}
+
+.popup-body p {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.popup-body small {
+  color: #666;
+}
+
+.file-input {
+  display: none;
+}
+
+.popup-footer {
+  margin-top: 20px;
+}
+
+.btn-green {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-green:hover {
+  background-color: #45a049;
+}
+
+/* tip popup */
+
+/* Popup overlay and content */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  text-align: left;
+  position: relative;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-body {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.popup-body a {
+  color: #28a745; /* green link color */
+  font-weight: bold;
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tips-list li {
+  margin-bottom: 10px;
+}
+
+.tips-list li strong {
+  font-weight: bold;
+}
+
+.btn-green {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.btn-green:hover {
+  background-color: #45a049;
+}
+
+.demobutton {
+  padding: 10px 20px;
+  background-color: #f3982f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.demobutton:hover {
+  background-color: #f2741e;
+}
+
+/* last */
+.input-container {
+  position: relative;
+  width: 100%; /* Adjust width to container or viewport if necessary */
+}
+
+input[type="text"] {
+  width: calc(100% - 16px); /* Adjust width based on padding and borders */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+  z-index: 10;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.dropdown label {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #ddd; /* Optional: adds a separator between options */
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+.dropdown input[type="checkbox"] {
+  flex-shrink: 0; /* Prevent checkbox from shrinking */
+  margin-right: 2px; /* Space between checkbox and text */
+}
+
+.dropdown span.option-text {
+  display: block; /* Make text a block element to force line breaks */
+  min-width: 100px; /* Adjust width based on the longest option */
+  text-align: left; /* Align text to the left */
+}
+
+/*  */
+.input-container {
+  margin: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.button2 {
+  padding: 8px;
+  margin-left: 10px;
+  background-color: #f3982f;
+  border: 15px;
+  border: none;
+  color: #ffff;
+  position: relative;
+  top: 40px;
+  right: 240px;
 }
