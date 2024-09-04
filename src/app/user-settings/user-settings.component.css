@@ -1,0 +1,129 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  body {
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  /* Container for Sidebar and Content */
+  .user-settings {
+    display: flex;
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+  }
+  
+  /* Sidebar Styles */
+  app-sidebar {
+    width: 20vw; /* Width of the sidebar */
+    height: 100vh; /* Full height */
+    background-color: #fff;
+    overflow-y: auto; /* Enables vertical scrolling if needed */
+  }
+  
+  /* Content Styles */
+  .content {
+    flex: 1; /* Takes up the remaining space */
+    padding: 20px;
+    background-color: #f1f1f1; /* Background color of the content area */
+    overflow-y: auto; /* Enables vertical scrolling if needed */
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 20px; /* Adjust the space between the fields as needed */
+    margin-bottom: 15px;  
+    position: relative;  
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    flex: 1;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 70%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: 1px solid #ffb730;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    margin-top: 15px; /* Space above button group */
+  }
+  
+  .save-btn {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    font-weight: bold;
+  }
+  
+  .save-btn:hover {
+    background-color: #45a049;
+  }
+
+  .reset-btn{
+    padding: 10px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    font-weight: bold;
+  }
+
+  .reset-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  .divider {
+    margin: 20px 0; /* Space above and below the divider */
+    border-top: 1px solid #ddd; /* Light grey line */
+  }
+
+  .signout-btn {
+    display: block;
+    width: 10%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #e74c3c;
+    text-align: center;
+    border-radius: 7px;
+    border: 1px solid #e74c3c;
+  }
+  
+  .signout-btn:hover {
+    box-shadow: 0 0 5px rgba(255, 60, 50, 0.7); /* Glowing effect */
+  }
+
+
+  .form-container {
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Padding inside the border */
+    background-color: #f9f9f9; /* Light background color */
+  }
