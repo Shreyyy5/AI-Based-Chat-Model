@@ -1,161 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dashboard.component.css" />
-    <title>DashBoard</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dashboard.component.css">
+  <title>Dashboard</title>
+</head>
+<body>
+  <div class="dashboard">
     <app-sidebar></app-sidebar>
-    <div class="dashboard-content">
-      <div class="dashboard">
-        <div class="header">
-          <h1 class="company-name">Crecientech</h1>
+  
+    <div class="content">
+      <div class="header-container">
+        <h1>Crecientech</h1>
+        <button class="share-btn">
+          <span class="text">Share Me</span>
+          <i class="fas fa-share-alt"></i>
+        </button>
 
-          <button class="share-btn">
-            <span class="text">Share Me</span>
-            <i class="fas fa-share-alt"></i>
-          </button>
-
-          <div class="action">
-            <div class="profile">
-              <img
-                src="https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2281862025.jpg"
-                alt=""
-              />
-            </div>
-            <div class="menu">
-              <h3>User Name</h3>
-              <ul>
-                <li>
-                  <i class="fa-regular fa-user"></i><a href="#">My Profile</a>
-                </li>
-                <li>
-                  <i class="fa-solid fa-right-from-bracket"></i
-                  ><a href="#">Logout</a>
-                </li>
-              </ul>
-            </div>
+        <div class="action">
+          <div class="profile" (click)="toggleMenu()">
+            <img src="https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2281862025.jpg" alt=""/>
           </div>
-        </div>
-        <div class="container">
-          <div class="statistics-card-container">
-            <div class="statistics">
-              <h2><i class="fa-solid fa-chart-line"></i> Statistics</h2>
-              <div class="stats-info">
-                <span>Total Automated Responses: 1</span>
-              </div>
-            </div>
-            <div class="cards">
-              <div class="card">
-                <div class="box">
-                  <h3><i class="fa-regular fa-star"></i> Message Credits</h3>
-                  <h2>0 / 200</h2>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="box">
-                  <h3><i class="fa-regular fa-message"></i> Conversations</h3>
-                  <h2>0</h2>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="box">
-                  <h3><i class="fa-solid fa-person"></i> Leads</h3>
-                  <h2>0</h2>
-                  <span class="renewal">Renewal : N/A</span>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="box">
-                  <h3>
-                    <i class="fa-solid fa-code-compare"></i> Total Interactions
-                  </h3>
-                  <h2>0</h2>
-                </div>
-              </div>
-            </div>
+          <div class="menu" *ngIf="isMenuVisible">
+            <h3>User Name</h3>
+            <ul>
+              <li>
+                <i class="fa-regular fa-user"></i><a href="#" routerLink="/user-settings">My Profile</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-right-from-bracket"></i
+                ><a href="#">Logout</a>
+              </li>
+            </ul>
           </div>
-        </div>
-
-        <!-- New container added below statistics and cards container -->
-        <div class="add-to-website-container">
-          <h2><i class="fa-solid fa-globe"></i> Add to Website</h2>
-          <hr class="divider-line" />
-          <button class="embed-btn">Embed using GTM</button>
-          <button class="another-btn">Get Advanced Analysis</button>
-          <div>
-            <p class="description-text">
-              To <b>embed</b> your agent onto your website, paste this snippet
-              into your website's HTML file,<b>
-                right before the closing body tag.</b
-              >
-              <br />
-              For other website management systems, check out our tutorials or
-              book a meeting with us.
-            </p>
-
-            <p class="description-2">
-              <b>Warning:</b> Your agent is on our <b>FREE PLAN</b> and has a
-              message limit of <b>200</b> credits. Once used, your agent will
-              <b>stop</b> responding to customers 24/7. Upgrade your plan for
-              more message credits.
-            </p>
-          </div>
-        </div>
-
-        <!-- Insights -->
-        <div class="insight-container">
-          <h2><i class="fa-solid fa-desktop"></i> Crecientech Insights</h2>
-          <hr class="divider-line" />
-          <div class="date-pickers">
-            <div class="date-picker-group">
-              <label for="start-date">Start Date:</label>
-              <input type="date" id="start-date" name="start-date" />
-            </div>
-            <div class="date-picker-group">
-              <label for="end-date">End Date:</label>
-              <input type="date" id="end-date" name="end-date" />
-            </div>
-          </div>
-
-          <!-- Dropdown List -->
-          <div class="dropdown">
-            <div class="date-range-selector">
-              <select id="date-range" name="date-range">
-                <option value="last-7-days">Last 7 Days</option>
-                <option value="last-14-days">Last 14 Days</option>
-                <option value="last-30-days">Last 30 Days</option>
-                <option value="last-90-days">Last 90 Days</option>
-                <option value="last-180-days">Last 180 Days</option>
-                <option value="last-365-days">Last 365 Days</option>
-              </select>
-            </div>
-          </div>
-          <div class="image-container">
-            <img
-              src="https://global.discourse-cdn.com/business7/uploads/plot/optimized/2X/1/16e8eea75dba1b0433548451e55fb4c437ac044e_2_1035x373.png"
-              alt="Graph Image"
-            />
-          </div>
-        </div>
-
-        <!-- Permanent Danger -->
-        <div class="danger-container">
-          <h2><i class="fa-solid fa-circle-exclamation"></i> Danger Zone</h2>
-          <hr class="divider-line" />
-          <p class="delete-agent">Permanently Delete Agent</p>
-          <button class="delete-btn">Delete Agent</button>
         </div>
       </div>
+
+<!-- Statistics -->
+      <div class="container">
+        <div class="statistics-card-container">
+          <div class="statistics">
+            <h2><i class="fa-solid fa-chart-line"></i> Statistics</h2>
+            <div class="stats-info">
+              <span>Total Automated Responses: 1</span>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <div class="box">
+                <h3><i class="fa-regular fa-star"></i> Message Credits</h3>
+                <h2>0 / 200</h2>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="box">
+                <h3><i class="fa-regular fa-message"></i> Conversations</h3>
+                <h2>0</h2>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="box">
+                <h3><i class="fa-solid fa-person"></i> Leads</h3>
+                <h2>0</h2>
+                <span class="renewal">Renewal : N/A</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="box">
+                <h3>
+                  <i class="fa-solid fa-code-compare"></i> Total Interactions
+                </h3>
+                <h2>0</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Add to website -->
+      <div class="add-to-website-container">
+        <h2><i class="fa-solid fa-globe"></i> Add to Website</h2>
+        <hr class="divider-line" />
+        <button class="embed-btn">Embed using GTM</button>
+        <button class="another-btn">Get Advanced Analysis</button>
+        <div>
+          <p class="description-text">
+            To <b>embed</b> your agent onto your website, paste this snippet
+            into your website's HTML file,<b>
+              right before the closing body tag.</b
+            >
+            <br />
+            For other website management systems, check out our tutorials or
+            book a meeting with us.
+          </p>
+
+          <p class="description-2">
+            <b>Warning:</b> Your agent is on our <b>FREE PLAN</b> and has a
+            message limit of <b>200</b> credits. Once used, your agent will
+            <b>stop</b> responding to customers 24/7. Upgrade your plan for
+            more message credits.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Insights -->
+      <div class="insight-container">
+        <h2><i class="fa-solid fa-desktop"></i> Crecientech Insights</h2>
+        <hr class="divider-line" />
+        <div class="date-pickers">
+          <div class="date-picker-group">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date" />
+          </div>
+          <div class="date-picker-group">
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end-date" />
+          </div>
+        </div>
+
+        <!-- Dropdown List -->
+        <div class="dropdown">
+          <div class="date-range-selector">
+            <select id="date-range" name="date-range">
+              <option value="last-7-days">Last 7 Days</option>
+              <option value="last-14-days">Last 14 Days</option>
+              <option value="last-30-days">Last 30 Days</option>
+              <option value="last-90-days">Last 90 Days</option>
+              <option value="last-180-days">Last 180 Days</option>
+              <option value="last-365-days">Last 365 Days</option>
+            </select>
+          </div>
+        </div>
+        <div class="image-container">
+          <img
+            src="https://global.discourse-cdn.com/business7/uploads/plot/optimized/2X/1/16e8eea75dba1b0433548451e55fb4c437ac044e_2_1035x373.png"
+            alt="Graph Image"
+          />
+        </div>
+      </div>
+
+       <!-- Permanent Danger -->
+       <div class="danger-container">
+        <h2><i class="fa-solid fa-circle-exclamation"></i> Danger Zone</h2>
+        <hr class="divider-line" />
+        <p class="delete-agent">Permanently Delete Agent</p>
+        <button class="delete-btn">Delete Agent</button>
+      </div>
+
     </div>
-  </body>
+  </div>
+</body>
 </html>
