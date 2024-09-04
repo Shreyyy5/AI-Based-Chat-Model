@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  isMenuVisible: boolean = false;
+
+  toggleMenu() {
+    this.isMenuVisible = !this.isMenuVisible;
+  }
 
 }
