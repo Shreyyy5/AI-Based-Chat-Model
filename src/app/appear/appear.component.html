@@ -1,0 +1,178 @@
+<div class="appearance">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <div class="header">
+      <h1>Appearance</h1>
+      <div class="toggle-buttons">
+        <button (click)="toggleView('aiNav')" [class.active]="view === 'aiNav'">
+          AI Nav
+        </button>
+        <button
+          (click)="toggleView('widget')"
+          [class.active]="view === 'widget'"
+        >
+          Widget
+        </button>
+      </div>
+    </div>
+    <div class="toggle-content">
+      <div *ngIf="view === 'aiNav'" class="ai-nav">
+        <!-- AI Nav content -->
+        <div class="ai-nav-content">
+          <!-- Left Panel -->
+          <div class="left-panel">
+            <h2>AI Nav Settings</h2>
+
+            <!-- Language and Position Dropdowns -->
+            <div class="form-group horizontal">
+              <div class="input-group">
+                <label for="language">Language</label>
+                <select id="language" class="custom-dropdown">
+                  <option>English</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="position">Position From Bottom</label>
+                <select id="position" class="custom-dropdown">
+                  <option>Medium</option>
+                  <option>Low</option>
+                  <option>High</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+            </div>
+
+            <!-- Primary Color and Custom Color Picker -->
+
+            <!-- Color Palette -->
+            <div class="form-group">
+              <label for="colorPalette">Select Color</label><br />
+              <div id="colorPalette" class="color-palette">
+                <div
+                  *ngFor="let color of colors"
+                  class="color-box"
+                  [style.backgroundColor]="color"
+                  (click)="selectColor(color)"
+                ></div>
+              </div>
+            </div>
+
+            <pre></pre>
+
+            <!-- Selected Color Display -->
+            <div class="form-group">
+              <label for="selectedColor">Selected Color</label><br />
+              <div
+                id="selectedColor"
+                class="selected-color-box"
+                [style.backgroundColor]="selectedColor"
+              >
+                {{ selectedColor || "No color selected" }}
+              </div>
+            </div>
+
+            <!-- Gradient Border and Voice Input Toggles -->
+            <div class="toggle-wrapper">
+              <!-- Gradient Border Toggle -->
+              <div class="toggle-container">
+                <label for="gradientBorder" class="toggle-label"
+                  >Gradient Border</label
+                >
+                <label class="switch">
+                  <input type="checkbox" id="gradientBorder" checked />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+
+              <!-- Enable Voice Input Toggle -->
+              <div class="toggle-container">
+                <label for="voiceInput" class="toggle-label"
+                  >Enable Voice Input</label
+                >
+                <label class="switch">
+                  <input type="checkbox" id="voiceInput" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Preview Website URL -->
+            <div class="form-group">
+              <label for="previewUrl">Preview Website Url</label>
+              <div class="inputdiv">
+                <input
+                  type="url"
+                  id="previewUrl"
+                  placeholder="http://example.com"
+                />
+                <button class="update-btn">Update</button>
+              </div>
+            </div>
+            <!-- suggested questions -->
+            <div class="suggested-questions">
+              <label for="questions">Suggested Questions</label>
+              <div
+                *ngFor="let question of questions; let i = index"
+                class="question-row"
+              >
+                <input
+                  type="text"
+                  [(ngModel)]="question.text"
+                  placeholder="Enter a question"
+                />
+                <div class="action-buttons">
+                  <button
+                    class="add-btn"
+                    *ngIf="i === questions.length - 1"
+                    (click)="addQuestion()"
+                  >
+                    <span class="plus-icon">+</span>
+                  </button>
+                  <button class="remove-btn" (click)="removeQuestion(i)">
+                    <span class="minus-icon">-</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group horizontal">
+              <div class="input-group">
+                <label for="collapsed">Collapsed By Default</label>
+                <select id="collapsed" class="custom-dropdown">
+                  <option>Never</option>
+                  <option>Only on Mobile</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Content Below (Collapsed by Default, Expanded View, etc.) -->
+
+          <!-- Right Panel -->
+          <div class="right-panel">
+            <div class="preview-header">
+              <button class="save-btn">Save</button>
+            </div>
+
+            <!-- Preview Box -->
+            <div class="preview-box">
+              <div class="preview-chat">
+                <button class="chat-btn">What does Hubspot do?</button>
+                <button class="chat-btn">Book a demo</button>
+              </div>
+              <div class="preview-input">
+                <input type="text" placeholder="Ask Agent" />
+                <button class="send-btn">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="view === 'widget'" class="widget">
+      <!-- Widget content -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,359 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Container for Sidebar and Content */
+.appearance {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sidebar Styles */
+app-sidebar {
+  width: 20vw; /* Width of the sidebar */
+  height: 100vh; /* Full height */
+  background-color: #fff;
+  overflow-y: auto; /* Enables vertical scrolling if needed */
+}
+
+/* Content Styles */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f1f1f1;
+  overflow-y: auto;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Space below the header */
+}
+
+.header h1 {
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.toggle-buttons button {
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 2px;
+  border: none;
+  position: relative;
+  right: 780px;
+  top: 10px;
+}
+
+.toggle-buttons button.active {
+  background-color: #f3982f;
+  color: white;
+}
+
+/* Toggle Content Styles */
+.toggle-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-nav,
+.widget {
+  display: block; /* Show active section initially */
+}
+
+/* ai nav content */
+/* Container for AI Nav Content */
+.ai-nav-content {
+  display: flex;
+  gap: 20px;
+}
+
+/* Left and Right Panels */
+.left-panel,
+.right-panel {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.left-panel h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Form Group for Horizontal Layout */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group.horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group {
+  flex: 1;
+  margin-right: 10px; /* Space between the two dropdowns */
+}
+
+.input-group:last-child {
+  margin-right: 0; /* No margin on the last item */
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* Custom Dropdown Styling */
+.custom-dropdown {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  appearance: none;
+  background-color: #fff;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px 12px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.custom-dropdown::-ms-expand {
+  display: none; /* Remove default arrow in some browsers */
+}
+
+.custom-dropdown:focus {
+  border-color: #f3982f;
+  outline: none; /* Style the dropdown when focused */
+}
+
+/* Color Picker Styles */
+/* Color Palette Styles */
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.color-box {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.color-box:hover {
+  transform: scale(1.1);
+}
+
+/* Selected Color Box Styles */
+.selected-color-box {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* toggle button */
+/* Wrapper for both toggles to place them side by side */
+.toggle-wrapper {
+  display: flex;
+  gap: 20px; /* Adjust spacing between the toggles */
+  margin-bottom: 20px; /* Add some space below the toggles */
+}
+
+/* Container for each toggle */
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Toggle label */
+.toggle-label {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* The switch - the container */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px; /* Rounded corners */
+}
+
+/* The round slider */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* The slider handle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* When checked, move the slider handle to the right */
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* preview */
+/* Container for the Preview URL section */
+.preview-url-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Add some space below the container */
+}
+
+/* Label for the input */
+.preview-url-label {
+  font-size: 14px;
+  margin-bottom: 5px; /* Space between the label and the input */
+  color: #333;
+}
+
+/* Grouping input and button side by side */
+.input-button-group {
+  display: flex;
+  align-items: center;
+}
+
+/* URL input field */
+.preview-url-input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px; /* Space between input and button */
+}
+
+/* Update button */
+.update-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #4caf50; /* Green background */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.update-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+/* suggested questions */
+.suggested-questions {
+  margin-top: 20px;
+}
+
+.suggested-questions label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.question-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.question-row input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.remove-btn,
+.add-btn {
+  background-color: #f3982f;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px;
+  color: white;
+}
+
+.remove-btn {
+  background-color: #ff4d4d; /* Red color for minus button */
+}
+
+.add-btn {
+  background-color: #4caf50; /* Green color for plus button */
+}
+
+.remove-btn i,
+.add-btn i {
+  font-size: 16px;
+}
+
+/* widget */
