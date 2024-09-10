@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -11,45 +10,43 @@ body {
   margin: 0;
 }
 
-/* Container for Sidebar and Content */
 .conversations {
   display: flex;
-  height: 100vh; /* Full height */
-  width: 100vw; /* Full width */
+  height: 100vh;
+  width: 100vw;
 }
 
 /* Sidebar Styles */
 app-sidebar {
-  width: 20vw; /* Width of the sidebar */
-  height: 100vh; /* Full height */
+  width: 20vw;
+  height: 100vh;
   background-color: #fff;
-  overflow-y: auto; /* Enables vertical scrolling if needed */
+  overflow-y: auto;
 }
 
-/* Content Styles */
 .content {
-  flex: 1; /* Takes up the remaining space */
+  flex: 1;
   padding: 20px;
-  background-color: #f1f1f1; /* Background color of the content area */
+  background-color: #f1f1f1;
 }
 
 .main-content {
   display: flex;
-  gap: 20px; /* Space between conversations and visitor details */
+  gap: 20px;
   padding: 20px;
-  height: 100%; /* Adjust height as needed */
+  height: 100%;
 }
 
 /* Container for the entire content */
 .conversations-container {
-  flex: 1; /* Takes up equal space */
+  flex: 1;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 .visitor-details {
-  flex: 1; /* Takes up equal space */
+  flex: 1;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -58,11 +55,10 @@ app-sidebar {
 }
 
 .box {
-  /* Ensures the box is only as wide as its content */
   padding: 20px;
-  background-color: #fff; /* Light background for the box */
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .conversations-header {
@@ -122,7 +118,7 @@ app-sidebar {
 
 .conversations-content {
   background-color: #f9f9f9;
-  height: calc(100vh - 300px); /* Adjust height based on content */
+  height: calc(100vh - 300px);
   border-radius: 8px;
   padding: 10px;
   overflow-y: auto;
@@ -205,7 +201,7 @@ app-sidebar {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 50px;
-  margin-top: 10px; /* add some space between date inputs and selects */
+  margin-top: 10px;
 }
 
 .selects-container select {
@@ -214,15 +210,15 @@ app-sidebar {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 15px;
-  width: 250px; /* adjust width to fit 3 selects in a row */
+  width: 250px;
 }
 
 /* Toggle switch styles */
 .switch {
   position: relative;
   display: inline-block;
-  width: 48px; /* Adjust width as needed */
-  height: 22px; /* Adjust height as needed */
+  width: 48px;
+  height: 22px;
 }
 
 .switch input {
@@ -240,7 +236,7 @@ app-sidebar {
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-  border-radius: 26px; /* Rounded corners */
+  border-radius: 26px;
 }
 
 .slider:before {
@@ -256,14 +252,14 @@ app-sidebar {
 }
 
 input:checked + .slider {
-  background-color: #218838; /* Color when toggled on */
+  background-color: #218838;
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px); /* Moves the slider */
+  transform: translateX(26px);
 }
 
-/* Additional styling for the visitor-actions container */
+/* visitor-actions container */
 .visitor-actions {
   display: flex;
   align-items: center;
@@ -282,24 +278,24 @@ input:checked + .slider:before {
 
 /* Modal Styles */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
   background-color: #fff;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
   border-radius: 8px;
-  width: 80%; /* Could be more or less, depending on screen size */
-  max-width: 500px; /* Set max-width to prevent it from growing too large */
+  width: 80%;
+  max-width: 500px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -325,30 +321,30 @@ input:checked + .slider:before {
 }
 
 .download-btn {
-  background-color: orange;
+  background-color: #f3982f;
   color: white;
 }
 
 /* Modal Styles */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
   background-color: #fff;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
   border-radius: 8px;
-  width: 80%; /* Could be more or less, depending on screen size */
-  max-width: 500px; /* Set max-width to prevent it from growing too large */
+  width: 80%;
+  max-width: 500px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -435,5 +431,5 @@ details[open] summary {
 }
 
 details summary::-webkit-details-marker {
-  display: none; /* Remove default arrow icon */
+  display: none;
 }
