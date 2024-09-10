@@ -35,10 +35,11 @@ export class TrainingMaterialsComponent implements OnInit {
   }
 
   // Method to switch tabs
-  openTab(tabName: string): void {
-    console.log(`Opening tab: ${tabName}`);
-    this.activeTab = tabName;
-  }
+openTab(tabName: string): void {
+  console.log(`Opening tab: ${tabName}`); // Use backticks for template literals
+  this.activeTab = tabName;
+}
+
 
   fetchUrl(): void {
     console.log('Fetch URL clicked with:', this.websiteUrl);
@@ -115,12 +116,12 @@ export class TrainingMaterialsComponent implements OnInit {
 
   // retrain(material: any): void {
 
-  //   console.log(`Re-training ${material.name}`);
+  //   console.log(Re-training ${material.name});
   // }
 
   // deletematerial(material: any): void {
 
-  //   console.log(`Deleting ${material.name}`);
+  //   console.log(Deleting ${material.name});
   //   this.materials = this.materials.filter(m => m !== material);
   //   this.filterTrainingMaterials(); 
   // }
