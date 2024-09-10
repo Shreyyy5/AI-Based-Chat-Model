@@ -1,92 +1,102 @@
-<div class="advancedclass">
-  <app-sidebar></app-sidebar>
-  <!-- Include the SidebarComponent -->
-  <div class="advanced-content">
-    <h1>Advanced Setting</h1>
-    <!-- Other content for TryMyAgentComponent -->
-    <div class="container">
-      <form (ngSubmit)="saveChanges()">
-        <!-- Change Base Prompt -->
-        <div class="form-group">
-          <label for="basePrompt">Change Base Prompt:</label>
-          <textarea
-            id="basePrompt"
-            rows="4"
-            maxlength="2500"
-            placeholder="This is a place where you can add an additional custom base prompt for your agent. This will further tailor agent responses to your needs. This section is optional."
-            [(ngModel)]="basePrompt"
-            (input)="updateCharCount()"
-            name="basePrompt"
-          ></textarea>
-          <div class="char-count">{{ charCount }}/2500</div>
-        </div>
-
-        <!-- Add Emails -->
-        <div class="form-group">
-          <label for="emails"
-            >Add any additional emails you wish to send agent notifications and
-            updates to:</label
-          >
-          <div
-            *ngFor="let email of emails; let i = index"
-            class="email-input-container"
-          >
-            <input
-              type="email"
-              [(ngModel)]="emails[i]"
-              placeholder="Enter email"
-              name="email-{{ i }}"
-            />
-            <button type="button" class="add-email-button" (click)="addEmail()">
-              +
-            </button>
-            <button
-              type="button"
-              class="remove-email-button"
-              (click)="removeEmail(i)"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced</title>
+</head>
+<body>
+  <div class="advancedclass">
+    <app-sidebar></app-sidebar>
+    <div class="advanced-content">
+      <h1>Advanced Setting</h1>
+      
+      <div class="container">
+        <form (ngSubmit)="saveChanges()">
+          <!-- Change Base Prompt -->
+          <div class="form-group">
+            <label for="basePrompt">Change Base Prompt:</label>
+            <textarea
+              id="basePrompt"
+              rows="4"
+              maxlength="2500"
+              placeholder="This is a place where you can add an additional custom base prompt for your agent. This will further tailor agent responses to your needs. This section is optional."
+              [(ngModel)]="basePrompt"
+              (input)="updateCharCount()"
+              name="basePrompt"
+            ></textarea>
+            <div class="char-count">{{ charCount }}/2500</div>
+          </div>
+  
+          <!-- Add Emails -->
+          <div class="form-group">
+            <label for="emails"
+              >Add any additional emails you wish to send agent notifications and
+              updates to:</label
             >
-              -
+            <div
+              *ngFor="let email of emails; let i = index"
+              class="email-input-container"
+            >
+              <input
+                type="email"
+                [(ngModel)]="emails[i]"
+                placeholder="Enter email"
+                name="email-{{ i }}"
+              />
+              <button type="button" class="add-email-button" (click)="addEmail()">
+                +
+              </button>
+              <button
+                type="button"
+                class="remove-email-button"
+                (click)="removeEmail(i)"
+              >
+                -
+              </button>
+            </div>
+          </div>
+  
+          <!-- Agent Model -->
+          <div class="form-group">
+            <label for="agentModel">Agent Model:</label>
+            <select id="agentModel" [(ngModel)]="agentModel" name="agentModel">
+              <option>Standard Model (Llama-3.1 405B)</option>
+              <option>Advanced Model (GPT-4o)</option>
+              <option>GPT-4o-Mini</option>
+              <option>GPT-4 Turbp</option>
+  
+              <!-- Add other options as needed -->
+            </select>
+          </div>
+  
+          <!-- Agent Name -->
+          <div class="form-group">
+            <label for="agentName">Agent Name:</label>
+            <input
+              type="text"
+              id="agentName"
+              [(ngModel)]="agentName"
+              name="agentName"
+            />
+          </div>
+  
+          <!-- Buttons -->
+          <div class="form-group buttons">
+            <button type="submit" class="save-button">Save Changes</button>
+            <button type="button" class="reset-button" (click)="resetToDefault()">
+              Reset to Default
             </button>
           </div>
+        </form>
+  
+        <!-- Pop-up Notification -->
+        <div *ngIf="notification" class="notification">
+          {{ notification }}
         </div>
-
-        <!-- Agent Model -->
-        <div class="form-group">
-          <label for="agentModel">Agent Model:</label>
-          <select id="agentModel" [(ngModel)]="agentModel" name="agentModel">
-            <option>Standard Model (Llama-3.1 405B)</option>
-            <option>Advanced Model (GPT-4o)</option>
-            <option>GPT-4o-Mini</option>
-            <option>GPT-4 Turbp</option>
-
-            <!-- Add other options as needed -->
-          </select>
-        </div>
-
-        <!-- Agent Name -->
-        <div class="form-group">
-          <label for="agentName">Agent Name:</label>
-          <input
-            type="text"
-            id="agentName"
-            [(ngModel)]="agentName"
-            name="agentName"
-          />
-        </div>
-
-        <!-- Buttons -->
-        <div class="form-group buttons">
-          <button type="submit" class="save-button">Save Changes</button>
-          <button type="button" class="reset-button" (click)="resetToDefault()">
-            Reset to Default
-          </button>
-        </div>
-      </form>
-
-      <!-- Pop-up Notification -->
-      <div *ngIf="notification" class="notification">
-        {{ notification }}
       </div>
     </div>
   </div>
-</div>
+  
+</body>
+</html>
