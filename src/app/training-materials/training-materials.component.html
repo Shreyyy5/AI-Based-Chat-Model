@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="training-materials.component.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <title>Training Materials</title>
   </head>
   <body>
@@ -30,7 +33,7 @@
               (click)="openTab('WebsiteURL')"
               [class.active]="activeTab === 'WebsiteURL'"
             >
-             URL
+              URL
             </button>
             <button
               class="tablink"
@@ -46,16 +49,13 @@
             >
               Text
             </button>
-
-            
-        </div>
+          </div>
 
           <hr class="tab-divider" />
 
           <div
             [ngClass]="{ tabcontent: true, active: activeTab === 'FileUpload' }"
           >
-
             <div
               class="file-upload-area"
               (drop)="onFileDrop($event)"
@@ -73,14 +73,22 @@
             </div>
           </div>
 
-          <div [ngClass]="{ tabcontent: true, active: activeTab === 'WebsiteURL' }">
+          <div
+            [ngClass]="{ tabcontent: true, active: activeTab === 'WebsiteURL' }"
+          >
             <div class="url-container">
               <div *ngFor="let url of urls; let i = index" class="input-group">
                 <input [(ngModel)]="urls[i]" placeholder="Enter URL here..." />
-                <button (click)="addInputField()"><i class="fa-solid fa-plus"></i></button>
-                <button *ngIf="urls.length > 1" (click)="removeInputField(i)"><i class="fa-solid fa-minus"></i></button>
+                <button (click)="addInputField()">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <button *ngIf="urls.length > 1" (click)="removeInputField(i)">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
               </div>
-              <button class="fetch-button" (click)="addTrainingMaterial()">Fetch URL</button>
+              <button class="fetch-button" (click)="addTrainingMaterial()">
+                Fetch URL
+              </button>
             </div>
           </div>
 
@@ -99,19 +107,25 @@
 
           <div [ngClass]="{ tabcontent: true, active: activeTab === 'Text' }">
             <div class="text-container">
-              <input type="text" [(ngModel)]="textTitle" placeholder="Title for your text" class="text-title-input"/>
-              <textarea [(ngModel)]="textBody" placeholder="Main body text" class="text-body-input"></textarea>
+              <input
+                type="text"
+                [(ngModel)]="textTitle"
+                placeholder="Title for your text"
+                class="text-title-input"
+              />
+              <textarea
+                [(ngModel)]="textBody"
+                placeholder="Main body text"
+                class="text-body-input"
+              ></textarea>
               <button (click)="trainOnText()" class="train-button">
                 Train on Text
               </button>
             </div>
           </div>
-
         </div>
         <!-- Closing div for table-container -->
 
-
-        
         <div class="border-container">
           <h2>Step 2: Train</h2>
           <!-- Button container -->
@@ -124,8 +138,9 @@
                 Select All
               </button>
             </div>
-            <button class="train-button" (click)="trainSelected()">Train</button>
-
+            <button class="train-button" (click)="trainSelected()">
+              Train
+            </button>
           </div>
 
           <!-- Search bar -->
@@ -171,7 +186,7 @@
                       <i class="fa-solid fa-trash"></i>
                     </button>
                   </td>
-                </tr>                
+                </tr>
               </tbody>
             </table>
           </div>
