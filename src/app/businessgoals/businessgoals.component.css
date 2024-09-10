@@ -10,19 +10,17 @@ body {
   margin: 0;
 }
 
-/* Container for Sidebar and Content */
 .business-goalss {
   display: flex;
   height: 100vh;
   width: 100vw;
 }
 
-/* Sidebar Styles */
 app-sidebar {
-  width: 20vw; /* Width of the sidebar */
-  height: 100vh; /* Full height */
+  width: 20vw;
+  height: 100vh;
   background-color: #fff;
-  overflow-y: auto; /* Enables vertical scrolling if needed */
+  overflow-y: auto;
 }
 
 /* Content Styles */
@@ -38,7 +36,7 @@ app-sidebar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px; /* Space below the header */
+  margin-bottom: 20px;
 }
 
 .header h1 {
@@ -55,14 +53,15 @@ app-sidebar {
   border-radius: 20px;
   cursor: pointer;
   position: relative;
-  right: 850px;
+  right: 750px;
+  top: 5px;
 }
 
 span {
   color: black;
 }
 
-/* Style for Business Goals component */
+/*Business Goals component */
 .business-goals {
   margin-top: 25px;
   background-color: #fff;
@@ -71,13 +70,13 @@ span {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 2px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* Style for the editable business name section */
+/* editable business name section */
 .edit-icon {
   cursor: pointer;
   margin-left: 10px;
 }
 
-/* Style for the dropdown button with an orange color and plus symbol */
+/*dropdown button with an orange color and plus symbol */
 .btn-orange {
   background-color: #f3982f;
   color: white;
@@ -96,10 +95,10 @@ span {
   background-color: #f2741e;
 }
 
-/* Style for the dropdown menu */
+/*dropdown menu */
 .dropdown-menu {
-  min-width: 200px; /* Adjust width as needed */
-  display: none; /* Hide by default */
+  min-width: 200px;
+  display: none;
   position: absolute;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -107,19 +106,19 @@ span {
 }
 
 .dropdown-menu.show {
-  display: block; /* Show when `show` class is applied */
+  display: block;
 }
 
 .dropdown-item {
   cursor: pointer;
-  padding: 10px; /* Padding for dropdown items */
+  padding: 10px;
 }
 
 .dropdown-item:hover {
-  background-color: #f8f9fa; /* Light background on hover */
+  background-color: #f8f9fa;
 }
 
-/* Style for action rows */
+/* action rows */
 .action-row {
   display: flex;
   align-items: center;
@@ -227,8 +226,8 @@ span {
 }
 
 .custom-button {
-  background-color: #f3982f; /* or any other color you prefer */
-  color: #fff; /* or any other text color you prefer */
+  background-color: #f3982f;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -237,7 +236,7 @@ span {
 }
 
 .custom-button:hover {
-  background-color: #f3982f; /* or any other hover color you prefer */
+  background-color: #f3982f;
 }
 
 .buttonss {
@@ -250,4 +249,10 @@ h2 {
 
 h5 {
   margin: 10px;
+}
+
+.content h1 {
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 30px;
 }
