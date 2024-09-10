@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qualify Leads</title>
+</head>
+<body>
+  <div class="qualify-lead">
+    <app-sidebar></app-sidebar>
+    <div class="content">
+      <h1>Qualify Leads</h1>
+      <button class="demobutton" (click)="toggleModal()">
+        Examples and Tips
+      </button>
+      <div class="header">
+        <div class="toggle-active">
+          <span>Active</span>
+          <label class="switch">
+            <input type="checkbox" (change)="toggleLeadInsights()" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <h6>
+          Configure your agent to ask custom questions in the following order to
+          gain customer insights.
+        </h6>
+      </div>
+  
+      <div class="qualify-lead-content">
+        <table class="questions-table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Enabled</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let question of questions; let i = index">
+              <td>
+                <div class="drag-handle">
+                  <i class="fa-solid fa-grip"></i>
+                </div>
+                <input
+                  type="text"
+                  [(ngModel)]="question.question"
+                  class="question-input"
+                />
+              </td>
+              <td>
+                <div class="input-type">QUESTION</div>
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="question.enabled" />
+                  <span class="slider round"></span>
+                </label>
+                <i class="fa fa-trash" (click)="deleteQuestion(i)"></i>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="add-button-cell">
+                <div class="add-button" (click)="addQuestion()">
+                  <span>Add</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button class="save-button" (click)="saveChanges()">Save</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <!-- Enable Popup -->
+    <div
+      *ngIf="showEnablePopup"
+      class="popup-overlay"
+      (click)="toggleModal()"
+    ></div>
+    <div *ngIf="showEnablePopup" class="popup-content">
+      <div class="popup-header">
+        <h3>Your Agenda has Lead Insights Enabled!</h3>
+        <button class="close-btn" (click)="toggleModal()">&#x2715;</button>
+      </div>
+      <p>
+        Try the new Quality Lead functionality on the
+        <button class="try-my-ai-btn">TRY MY AI PAGE</button>
+      </p>
+    </div>
+  
+    <!-- Disable Popup -->
+    <div
+      *ngIf="showDisablePopup"
+      class="popup-overlay"
+      (click)="toggleModal()"
+    ></div>
+    <div *ngIf="showDisablePopup" class="popup-content">
+      <div class="popup-header">
+        <h2>Lead Insights is not Enabled</h2>
+        <button class="close-btn" (click)="toggleModal()">&#x2715;</button>
+      </div>
+      <p>
+        Quality Leads is not enabled! Make sure to toggle "Active" on to use
+        Quality Leads.
+      </p>
+    </div>
+  
+    <!-- Success Popup -->
+    <div *ngIf="isSuccessPopupOpen" class="success-popup">
+      <p>Successfully updated lead insight question!</p>
+    </div>
+  
+    <!--  -->
+    <!-- Popup Overlay and Content -->
+    <div *ngIf="isModalOpen" class="popup-overlay" (click)="toggleModal()"></div>
+    <div *ngIf="isModalOpen" class="popup-content">
+      <div class="popup-header">
+        <h2>Examples & Tips</h2>
+        <button class="close-btn" (click)="toggleModal()">&#x2715;</button>
+      </div>
+      <p>💡 On this page, you can lead questions for your agent.</p>
+      <p>
+        💡 These questions are here to collect information towards your visitors
+        to generate leads. Here is an example configuration:
+      </p>
+  
+      <div class="qualify-lead-content">
+        <table class="questions-table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Enabled</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example Questions, you can repeat as needed -->
+            <tr>
+              <td>
+                <div class="drag-handle">
+                  <i class="fa-solid fa-grip"></i>
+                </div>
+                What is your number?
+              </td>
+              <td>
+                <div class="input-type">TEXT</div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider round"></span>
+                </label>
+                <i class="fa fa-trash"></i>
+              </td>
+            </tr>
+            <!-- More questions -->
+            <tr>
+              <td colspan="2" class="add-button-cell">
+                <div class="add-button">
+                  <span>Add</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="ok" (click)="toggleModal()">Ok</button>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
