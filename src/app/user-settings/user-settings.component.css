@@ -14,24 +14,29 @@
   /* Container for Sidebar and Content */
   .user-settings {
     display: flex;
-    height: 100vh; /* Full height */
-    width: 100vw; /* Full width */
+    height: 100vh; 
+    width: 100vw; 
   }
   
   /* Sidebar Styles */
   app-sidebar {
-    width: 20vw; /* Width of the sidebar */
-    height: 100vh; /* Full height */
+    width: 20vw; 
+    height: 100vh; 
     background-color: #fff;
-    overflow-y: auto; /* Enables vertical scrolling if needed */
+    overflow-y: auto; 
   }
   
-  /* Content Styles */
   .content {
-    flex: 1; /* Takes up the remaining space */
+    flex: 1; 
     padding: 20px;
-    background-color: #f1f1f1; /* Background color of the content area */
-    overflow-y: auto; /* Enables vertical scrolling if needed */
+    background-color: #f1f1f1; 
+    overflow-y: auto; 
+  }
+
+  .content h1{
+   margin-top: 20px; 
+   font-size: 30px;
+   font-weight: 900;
   }
 
   h2 {
@@ -41,7 +46,7 @@
 
   .form-row {
     display: flex;
-    gap: 20px; /* Adjust the space between the fields as needed */
+    gap: 20px; 
     margin-bottom: 15px;  
     position: relative;  
   }
@@ -66,8 +71,8 @@
 
   .button-group {
     display: flex;
-    gap: 10px; /* Space between buttons */
-    margin-top: 15px; /* Space above button group */
+    gap: 10px; 
+    margin-top: 15px; 
   }
   
   .save-btn {
@@ -99,8 +104,8 @@
   }
   
   .divider {
-    margin: 20px 0; /* Space above and below the divider */
-    border-top: 1px solid #ddd; /* Light grey line */
+    margin: 20px 0; 
+    border-top: 1px solid #ddd; 
   }
 
   .signout-btn {
@@ -117,13 +122,14 @@
   }
   
   .signout-btn:hover {
-    box-shadow: 0 0 5px rgba(255, 60, 50, 0.7); /* Glowing effect */
+    box-shadow: 0 0 5px rgba(255, 60, 50, 0.7);
   }
 
 
   .form-container {
-    border: 1px solid #ddd; /* Light grey border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 20px; /* Padding inside the border */
-    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    padding: 20px; 
+    background-color: #f9f9f9; 
+    margin-top: 20px;
   }
