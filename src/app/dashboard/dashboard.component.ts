@@ -12,4 +12,14 @@ export class DashboardComponent {
     this.isMenuVisible = !this.isMenuVisible;
   }
 
+  isAiNav = true; // Default to AI Nav view
+  toggleText = 'AI Nav';
+
+
+
+  view: string = 'aiNav'; // Default view
+
+  toggleView(viewType: string) {
+    this.view = viewType;
+  }
 }
