@@ -9,18 +9,17 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%; /* Full viewport height */
+  height: 100%; 
   overflow: hidden;
 }
 
-/* Container for Sidebar and Content */
 .training-materials {
   display: flex;
-  height: 100vh; /* Full height */
-  width: 98vw; /* Full width */
+  height: 100vh; 
+  width: 98vw;
 }
 
-/* Sidebar Styles */
+
 app-sidebar {
   width: 20vw;
   height: 100vh;
@@ -28,21 +27,22 @@ app-sidebar {
   overflow-y: auto;
 }
 
-/* Content Styles */
+
 .content {
-  flex: 1; /* Takes up the remaining space */
+  flex: 1; 
   padding: 20px;
-  background-color: #f1f1f1; /* Background color of the content area */
-  overflow-y: auto; /* Enables vertical scrolling if needed */
+  background-color: #f1f1f1; 
+  overflow-y: auto; 
   overflow-x: hidden;
 }
 
 .content h1 {
   margin-top: 20px;
   font-weight: 900;
+  font-size: 30px;
 }
 
-/* Tab navigation styles */
+
 .tab-nav {
   display: flex;
   justify-content: flex-start;
@@ -74,9 +74,9 @@ app-sidebar {
 }
 
 .tab-divider {
-  border-top: 1px solid #ddd; /* Change color as needed */
+  border-top: 1px solid #ddd; 
   width: 100%;
-  margin-bottom: 20px; /* Adjust space below the divider */
+  margin-bottom: 20px; 
 }
 
 /* Table Container Styles */
@@ -94,10 +94,10 @@ app-sidebar {
   display: none;
   padding: 20px;
   border-top: none;
-  width: 100%; /* Make the tab content full width */
-  max-width: 800px; /* Optional: Set a max-width to limit the size */
-  margin: 0 auto; /* Center the tab content horizontally */
-  text-align: left; /* Center the content text */
+  width: 100%; 
+  max-width: 800px; 
+  margin: 0 auto;
+  text-align: left;
 }
 
 .tabcontent.active {
@@ -112,7 +112,7 @@ app-sidebar {
   background-color: #f9f9f9;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 179%;
+  width: 175%;
   font-size: 20px;
   border-radius: 7px;
 }
@@ -143,9 +143,9 @@ app-sidebar {
 }
 
 .url-container input {
-  border-radius: 8px; /* Adjust the value as needed */
+  border-radius: 8px; 
   padding: 10px;
-  border: 1px solid #ccc; /* Optional: Add a border */
+  border: 1px solid #ccc; 
 }
 
 
@@ -173,38 +173,6 @@ app-sidebar {
 .fetch-button:hover{
     background-color: #f2741e;
 }
-
-/* Adjust the size of the URL input field */
-/* .url-container input {
-  width: 100%; 
-  padding: 10px; 
-  font-size: 16px; 
-  box-sizing: border-box; 
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  font-size: 18px;
-}
-
-
-.url-container button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #f3982f;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 17px;
-  margin-top: 20px;
-  margin-right: 10px;
-  font-weight: 600;
-}
-
-.url-container button:hover {
-  background-color: #f2741e;
-} */
-
-
-
 
 /* Style for Site Map button */
 .site-map-container {
@@ -244,6 +212,7 @@ app-sidebar {
 .table-container h2 {
   margin-top: 10px;
 }
+
 /* Text button */
 .text-container {
   margin-top: 20px;
@@ -295,19 +264,17 @@ app-sidebar {
 
 
 
-
-
 /* Step 2 table */
 
 .training-table-container {
-  margin-top: 20px; /* Adjust margin as needed */
-  overflow-x: auto; /* Allows horizontal scrolling if table is too wide */
+  margin-top: 20px; 
+  overflow-x: auto; 
 }
 
 .training-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px; /* Adjust as needed */
+  margin-bottom: 20px; 
 }
 
 .training-table th,
@@ -327,12 +294,12 @@ app-sidebar {
 }
 
 .training-table tr:hover {
-  background-color: #f1f1f1; /* Hover effect */
+  background-color: #f1f1f1; 
 }
 
 /* Search Bar */
 .search-container {
-  margin-bottom: 20px; /* Space below search bar */
+  margin-bottom: 20px; 
   margin-top: 10px;
 }
 
@@ -342,7 +309,7 @@ app-sidebar {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; /* Ensures padding doesn't add to the width */
+  box-sizing: border-box; 
 }
 
 /* buttons */
@@ -358,7 +325,7 @@ app-sidebar {
 .select-buttons {
   overflow: hidden;
   display: flex;
-  gap: 10px; /* Space between select buttons */
+  gap: 10px; 
 }
 
 .select-button {
@@ -426,5 +393,5 @@ app-sidebar {
   padding: 40px;
   border-radius: 8px;
   background-color: #fff;
-  margin-top: 20px; /* Space above the border container */
+  margin-top: 20px; 
 }
