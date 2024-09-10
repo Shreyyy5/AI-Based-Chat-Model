@@ -10,14 +10,12 @@ body {
   margin: 0;
 }
 
-/* Sidebar and Content */
 .question-answer {
   display: flex;
   height: 100vh;
   width: 98vw;
 }
 
-/* Sidebar Styles */
 app-sidebar {
   width: 20vw;
   height: 100vh;
@@ -25,7 +23,6 @@ app-sidebar {
   overflow-y: auto;
 }
 
-/* Content Styles */
 .content {
   flex: 1;
   padding: 20px;
@@ -38,10 +35,9 @@ app-sidebar {
 }
 
 h1 {
-  font-size: 35px;
-  margin-bottom: 20px;
-  color: #333;
-  font-weight: 600;
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 30px;
 }
 
 p {
@@ -116,7 +112,7 @@ tr:hover {
 }
 
 .add-question-btn {
-  background-color: #4caf50;
+  background-color: #218838;
   color: white;
 }
 
@@ -193,12 +189,12 @@ input:checked + .slider:before {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #ffffff; /* Green background */
+  background-color: #ffffff;
   color: #000;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Make sure it's on top */
+  z-index: 1000;
   width: auto;
   max-width: 90%;
   text-align: center;
