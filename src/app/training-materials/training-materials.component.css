@@ -9,16 +9,15 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%; 
+  height: 100%;
   overflow: hidden;
 }
 
 .training-materials {
   display: flex;
-  height: 100vh; 
+  height: 100vh;
   width: 98vw;
 }
-
 
 app-sidebar {
   width: 20vw;
@@ -27,12 +26,11 @@ app-sidebar {
   overflow-y: auto;
 }
 
-
 .content {
-  flex: 1; 
+  flex: 1;
   padding: 20px;
-  background-color: #f1f1f1; 
-  overflow-y: auto; 
+  background-color: #f1f1f1;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -41,7 +39,6 @@ app-sidebar {
   font-weight: 900;
   font-size: 30px;
 }
-
 
 .tab-nav {
   display: flex;
@@ -74,9 +71,9 @@ app-sidebar {
 }
 
 .tab-divider {
-  border-top: 1px solid #ddd; 
+  border-top: 1px solid #ddd;
   width: 100%;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 /* Table Container Styles */
@@ -94,8 +91,8 @@ app-sidebar {
   display: none;
   padding: 20px;
   border-top: none;
-  width: 100%; 
-  max-width: 800px; 
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   text-align: left;
 }
@@ -112,7 +109,7 @@ app-sidebar {
   background-color: #f9f9f9;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 175%;
+  width: 135%;
   font-size: 20px;
   border-radius: 7px;
 }
@@ -126,8 +123,8 @@ app-sidebar {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
-  width: 165%; 
+  align-items: flex-end;
+  width: 135%;
 }
 
 .input-group {
@@ -143,11 +140,10 @@ app-sidebar {
 }
 
 .url-container input {
-  border-radius: 8px; 
+  border-radius: 8px;
   padding: 10px;
-  border: 1px solid #ccc; 
+  border: 1px solid #ccc;
 }
-
 
 .input-group button {
   margin-right: 5px;
@@ -170,8 +166,8 @@ app-sidebar {
   font-weight: 600;
 }
 
-.fetch-button:hover{
-    background-color: #f2741e;
+.fetch-button:hover {
+  background-color: #f2741e;
 }
 
 /* Style for Site Map button */
@@ -179,8 +175,8 @@ app-sidebar {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
-  width: 179%;
+  align-items: flex-end;
+  width: 135%;
 }
 
 .site-map-container input[type="text"] {
@@ -217,9 +213,9 @@ app-sidebar {
 .text-container {
   margin-top: 20px;
   display: flex;
-  flex-direction: column; 
-  align-items: flex-end; 
-  width: 179%; 
+  flex-direction: column;
+  align-items: flex-end;
+  width: 135%;
 }
 
 .text-container input[type="text"],
@@ -235,9 +231,9 @@ app-sidebar {
 .text-container textarea {
   margin-top: 10px;
   resize: vertical;
-  height: 200px; 
-  width: 100%; 
-  box-sizing: border-box; 
+  height: 200px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .train-button {
@@ -262,19 +258,17 @@ app-sidebar {
   height: 100px;
 }
 
-
-
 /* Step 2 table */
 
 .training-table-container {
-  margin-top: 20px; 
-  overflow-x: auto; 
+  margin-top: 20px;
+  overflow-x: auto;
 }
 
 .training-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .training-table th,
@@ -294,12 +288,12 @@ app-sidebar {
 }
 
 .training-table tr:hover {
-  background-color: #f1f1f1; 
+  background-color: #f1f1f1;
 }
 
 /* Search Bar */
 .search-container {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   margin-top: 10px;
 }
 
@@ -309,7 +303,7 @@ app-sidebar {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 /* buttons */
@@ -319,13 +313,12 @@ app-sidebar {
   align-items: center;
   margin-top: 30px;
   overflow: hidden;
-
 }
 
 .select-buttons {
   overflow: hidden;
   display: flex;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .select-button {
@@ -364,27 +357,27 @@ app-sidebar {
 
 /* Style for the delete icon */
 .training-table .fa-trash {
-  color: red; 
+  color: red;
 }
 
 .training-table .fa-trash:hover {
-  color: darkred; 
+  color: darkred;
 }
 
 /* Style for re-train button */
 .training-table .fa-retweet {
-  color: rgb(116, 230, 54); 
+  color: rgb(116, 230, 54);
 }
 
 .training-table .fa-retweet:hover {
-  color: rgb(22, 163, 29); 
+  color: rgb(22, 163, 29);
 }
 
 .training-table button {
-  border: none; 
-  background: none; 
-  padding: 0; 
-  cursor: pointer; 
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .border-container {
@@ -393,5 +386,5 @@ app-sidebar {
   padding: 40px;
   border-radius: 8px;
   background-color: #fff;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
