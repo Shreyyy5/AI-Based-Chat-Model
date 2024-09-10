@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="captured-contacts.component.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captured Contacts</title>
+</head>
+<body>
+    <div class="captured-contacts">
+        <app-sidebar></app-sidebar>
+        
+        <div class="content">
+            <div class="content-header">
+                <h1>Captured Contacts</h1>
+                <button class="btn-captured"><i class="fa-solid fa-download"></i> Export to CSV</button>
+            </div>
+
+            <!-- Table for Captured Contacts -->
+            <div class="table-border-container">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="5">
+                                No data 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
