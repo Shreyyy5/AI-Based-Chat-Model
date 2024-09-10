@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appearance</title>
+    <title>Document</title>
   </head>
   <body>
     <div class="appearance">
@@ -11,312 +11,680 @@
       <div class="content">
         <div class="header">
           <h1>Appearance</h1>
+          <div class="toggle-buttons">
+            <button
+              (click)="toggleView('aiNav')"
+              [class.active]="view === 'aiNav'"
+            >
+              AI Nav
+            </button>
+            <button
+              (click)="toggleView('widget')"
+              [class.active]="view === 'widget'"
+            >
+              Widget
+            </button>
+          </div>
         </div>
-        <div class="container">
-          <!-- Left Content -->
-          <div class="left-content">
-            <div class="agent">
-              <!-- Toggle Button for AI Nav and Widget -->
-              <div class="toggle-buttons">
-                <button
-                  (click)="toggleView('aiNav')"
-                  [class.active]="view === 'aiNav'"
-                >
-                  AI Nav
-                </button>
-                <button
-                  (click)="toggleView('widget')"
-                  [class.active]="view === 'widget'"
-                >
-                  Widget
-                </button>
-              </div>
-            </div>
+        <div class="toggle-content">
+          <div *ngIf="view === 'aiNav'" class="ai-nav">
+            <!-- AI Nav content -->
+            <div class="ai-nav-content">
+              <!-- Left Panel -->
+              <div class="left-panel">
+                <div class="heading-container">
+                  <h2>AI Nav Settings</h2>
+                  <button class="save-btn1">Save</button>
+                </div>
 
-            <!-- Widget Content -->
-            <div *ngIf="view === 'widget'" class="widget-content">
-              <div class="container2">
-                <!-- Business Name -->
-                <form>
-                  <h6>Chat Mode Settings</h6>
-                  <div class="section-header">
-                    <!-- Tips Button -->
-                    <button class="demobutton" (click)="openTipsPopup()">
-                      Tips
-                    </button>
-
-                    <!-- Tips Popup -->
-                    <div class="popup-overlay" *ngIf="showTipsPopup">
-                      <div class="popup-content tips-content">
-                        <div class="popup-header">
-                          <h3>Tips</h3>
-                          <button class="close-btn" (click)="closeTipsPopup()">
-                            ×
-                          </button>
-                        </div>
-                        <div class="popup-body">
-                          <p>
-                            On this page, you can customize the agent's
-                            appearance and behavior. This page shows only the
-                            preview! For the actual agent, please visit the
-                            <strong>Try My AI</strong> page. For advanced
-                            settings, read
-                            <a href="#">our help documentation</a>.
-                          </p>
-                          <ul class="tips-list">
-                            <li>
-                              ✨ <strong>Agent Title</strong> is the title you
-                              wish to label your agent, customers will see this
-                              title on the top left corner of the widget.
-                            </li>
-                            <li>
-                              ✨ <strong>Agent Name</strong> is what the agent
-                              will refer to itself as in conversation with
-                              customers.
-                            </li>
-                            <li>
-                              ✨ <strong>Welcome Message</strong> is the first
-                              message the agent says before user inquiry.
-                            </li>
-                            <li>
-                              ✨ <strong>Profile Avatar</strong> is the icon
-                              that shows up representing the virtual agent in
-                              chat and in the profile.
-                            </li>
-                            <li>
-                              ✨ <strong>Show Sources</strong> enables your
-                              agent to display links to sites from which it
-                              sourced its previous response. Add and configure
-                              sources in <strong>Training Materials</strong>.
-                            </li>
-                            <li>
-                              ✨ <strong>Show Contact Form</strong> allows you
-                              to request contact info from your customers, which
-                              you can view in
-                              <strong>Collected Contacts</strong>.
-                            </li>
-                            <li>
-                              ✨ <strong>Require Form Completion</strong> allows
-                              you to only let visitors interact with the agent
-                              once they have provided their contact information.
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="popup-footer">
-                          <button
-                            class="btn btn-green"
-                            (click)="closeTipsPopup()"
-                          >
-                            Ok
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <button type="submit" class="create">Save</button>
+                <!-- Language and Position Dropdowns -->
+                <div class="form-group horizontal">
+                  <div class="input-group">
+                    <label for="language">Language</label>
+                    <select id="language" class="custom-dropdown">
+                      <option>English</option>
+                      <option>Spanish</option>
+                      <option>French</option>
+                      <!-- Add more options as needed -->
+                    </select>
                   </div>
-                  <!-- Agent Title and Agent Name -->
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-6">
-                        <label for="">Agent Title</label>
-                        <p>Agent Title <span class="edit-icon">✏️</span></p>
-                      </div>
-                      <div class="col-6">
-                        <label for="">Agent Name</label>
-                        <p>Agent Name <span class="edit-icon">✏️</span></p>
-                      </div>
-                    </div>
+                  <div class="input-group">
+                    <label for="position">Position From Bottom</label>
+                    <select id="position" class="custom-dropdown">
+                      <option>Medium</option>
+                      <option>Low</option>
+                      <option>High</option>
+                      <!-- Add more options as needed -->
+                    </select>
                   </div>
+                </div>
 
-                  <!-- Language and Font -->
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-6">
-                        <label for="language">Language</label>
-                        <select
-                          name="language"
-                          id="language"
-                          class="language"
-                          [(ngModel)]="selectedLanguage"
-                        >
-                          <option
-                            *ngFor="let lang of languages"
-                            [value]="lang.value"
-                          >
-                            {{ lang.label }}
-                          </option>
-                        </select>
-                      </div>
-                      <div class="col-6">
-                        <label for="font">Widget Font</label>
-                        <select
-                          name="font"
-                          id="font"
-                          class="font"
-                          [(ngModel)]="selectedFont"
-                        >
-                          <option *ngFor="let fon of font" [value]="fon.value">
-                            {{ fon.label }}
-                          </option>
-                        </select>
-                      </div>
-                    </div>
+                <!-- Primary Color and Custom Color Picker -->
+
+                <!-- Color Palette -->
+                <div class="form-group">
+                  <label for="colorPalette">Select Color</label><br />
+                  <div id="colorPalette" class="color-palette">
+                    <div
+                      *ngFor="let color of colors"
+                      class="color-box"
+                      [style.backgroundColor]="color"
+                      (click)="selectColor(color)"
+                    ></div>
                   </div>
+                </div>
 
-                  <div class="row-elements">
-                    <div class="flex-container">
-                      <label>Profile Avatar</label>
-                      <label for="toggle">Show Contact Form Configure</label>
-                    </div>
-                    <div class="flex-container">
-                      <button class="upload-avatar" (click)="uploadAvatar()">
-                        + Upload Avatar
-                      </button>
-                      <input
-                        type="file"
-                        id="avatarInput"
-                        style="display: none"
-                        (change)="onAvatarSelected($event)"
-                      />
+                <pre></pre>
+
+                <!-- Selected Color Display -->
+                <div class="form-group">
+                  <label for="selectedColor">Selected Color</label><br />
+                  <div
+                    id="selectedColor"
+                    class="selected-color-box"
+                    [style.backgroundColor]="selectedColor"
+                  >
+                    {{ selectedColor || "No color selected" }}
+                  </div>
+                </div>
+
+                <!-- Gradient Border and Voice Input Toggles -->
+                <div class="toggle-wrapper">
+                  <!-- Gradient Border Toggle -->
+                  <div class="toggle-container">
+                    <label for="gradientBorder" class="toggle-label"
+                      >Gradient Border</label
+                    >
+                    <div class="switch-wrapper">
                       <label class="switch">
-                        <input
-                          type="checkbox"
-                          id="toggle"
-                          [(ngModel)]="toggleState"
-                        />
-                        <span class="slider"></span>
+                        <input type="checkbox" id="gradientBorder" checked />
+                        <span class="slider round"></span>
                       </label>
                     </div>
                   </div>
 
-                  <!-- welcome message -->
-                  <div class="form-group">
-                    <label>Edit Welcome Message</label>
-                    <textarea rows="3">
-  Welcome 👋! How can we help you today?</textarea
+                  <div class="toggle-container">
+                    <label for="voiceInput" class="toggle-label"
+                      >Enable Voice Input</label
                     >
-                    <div class="char-count">38 / 300</div>
-                  </div>
-
-                  <!-- Color Palette -->
-                  <div class="form-group">
-                    <label for="colorPalette">Select Color</label><br />
-                    <div id="colorPalette" class="color-palette">
-                      <div
-                        *ngFor="let color of colors"
-                        class="color-box"
-                        [style.backgroundColor]="color"
-                        (click)="selectColor(color)"
-                      ></div>
+                    <div class="switch-wrapper">
+                      <label class="switch">
+                        <input type="checkbox" id="voiceInput" />
+                        <span class="slider round"></span>
+                      </label>
                     </div>
                   </div>
+                </div>
 
+                <!-- Preview Website URL -->
+                <div class="form-group">
+                  <label for="previewUrl">Preview Website Url</label>
+                  <div class="inputdiv">
+                    <input
+                      type="url"
+                      id="previewUrl"
+                      placeholder="http://example.com"
+                    />
+                    <button class="update-btn">Update</button>
+                  </div>
+                </div>
+
+                <!-- Suggested Questions -->
+                <div class="suggested-questions">
+                  <label for="questions">Suggested Questions</label>
+                  <div
+                    *ngFor="let question of questions; let i = index"
+                    class="question-row"
+                  >
+                    <input
+                      type="text"
+                      [(ngModel)]="question.text"
+                      placeholder="Enter a question"
+                    />
+                    <div class="action-buttons">
+                      <button
+                        class="add-btn"
+                        *ngIf="i === questions.length - 1"
+                        (click)="addQuestion()"
+                      >
+                        <span class="plus-icon">+</span>
+                      </button>
+                      <button class="remove-btn" (click)="removeQuestion(i)">
+                        <span class="minus-icon">-</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Collapsed by Default -->
+                <div class="form-group horizontal">
+                  <div class="input-group">
+                    <label for="collapsed">Collapsed By Default</label>
+                    <select id="collapsed" class="custom-dropdown-default">
+                      <option>Never</option>
+                      <option>Only on Mobile</option>
+                    </select>
+                  </div>
+                </div>
+
+                <h2>Expanded View</h2>
+
+                <!-- show contact form -->
+                <div class="toggle-container">
+                  <label for="contactForm" class="toggle-label"
+                    >Show Contact Form</label
+                  >
+                  <div class="switch-wrapper">
+                    <label class="switch">
+                      <input type="checkbox" id="contactForm" checked />
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Source Card Customization Section -->
+                <div class="form-group horizontal">
+                  <div class="input-group">
+                    <label for="collapsed">Source Card Customizations</label>
+                    <select
+                      id="card-customization"
+                      class="source-card-customizations"
+                    >
+                      <option>Show Cards</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Miscellaneous customizations -->
+                <div class="form-group horizontal">
+                  <div class="input-group">
+                    <label for="collapsed">Miscellaneous customizations</label>
+                    <select
+                      id="miscellaneous-customizations"
+                      class="miscellaneous-customizations"
+                    >
+                      <option>Show Image</option>
+                      <option>Show emoji in AI Responses</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Height Section -->
+                <div class="form-group horizontal">
+                  <div class="input-group">
+                    <label for="collapsed">Height</label>
+                    <select id="height" class="height">
+                      <option>Regular</option>
+                      <option>Short</option>
+                      <option>Medium</option>
+                      <option>Tall</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Call to Action Button -->
+                <div class="form-group horizontal">
+                  <div class="input-group">
+                    <label for="collapsed">Call to Action Button</label>
+                    <select id="action-button" class="call-to-action-button">
+                      <option>Solid</option>
+                      <option>Gradient</option>
+                      <option>None</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Button Text -->
+                <div class="form-group">
+                  <label for="textareaTitle">Button Text</label>
+                  <input
+                    id="textareaTitle"
+                    rows="4"
+                    placeholder="Enter your text here"
+                  />
+                </div>
+
+                <div class="form-group horizontal">
+                  <div class="input-group">
+                    <label for="collapsed">Button Action</label>
+                    <select id="button-action" class="button-action">
+                      <option>Website Link</option>
+                      <option>Email</option>
+                      <option>Phone</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- New Collapsed Placeholder and Placeholder Input Section -->
+                <div class="form-group horizontal">
+                  <div class="input-group">
+                    <label for="collapsed-placeholder"
+                      >Collapsed Placeholder</label
+                    >
+                    <input id="collapsed-placeholder" placeholder="AI Agent" />
+                  </div>
+                  <div class="input-group">
+                    <p>Input Placeholder</p>
+                    <input
+                      id="placeholder-input"
+                      placeholder="Type a Message here"
+                    />
+                  </div>
+                </div>
+
+                <div class="toggle-container">
+                  <label for="contactForm" class="toggle-label"
+                    >Remove Powered by Crecientech</label
+                  >
+                  <div class="switch-wrapper">
+                    <label class="switch">
+                      <input type="checkbox" id="powered-by" checked />
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Panel -->
+
+              <div class="right-content">
+                <button class="preview-button">Preview</button>
+                <pre></pre>
+
+                <!-- New Box Below Preview Button (Only in AI Nav) -->
+                <div *ngIf="view === 'aiNav'" class="new-box">
                   <pre></pre>
-
-                  <!-- Selected Color Display -->
-                  <div class="form-group">
-                    <label for="selectedColor">Selected Color</label><br />
-                    <div
-                      id="selectedColor"
-                      class="selected-color-box"
-                      [style.backgroundColor]="selectedColor"
-                    >
-                      {{ selectedColor || "No color selected" }}
-                    </div>
-                  </div>
-
-                  <!-- button position -->
-                  <!-- Show Sources, Sound Effects, and Terms & Conditions in a row -->
-                  <div class="form-group row-elements">
-                    <div class="flex-container">
-                      <div class="column">Show Sources</div>
-                      <div class="column">Sound Effects</div>
-                      <div class="column">Terms & Conditions</div>
-                    </div>
-
-                    <div class="toggle-container">
-                      <div class="toggle">
-                        <!-- Toggle button code for Show Sources -->
-                        <label class="switch">
-                          <input
-                            type="checkbox"
-                            id="toggle"
-                            [(ngModel)]="toggleState"
-                          />
-                          <span class="slider"></span>
-                        </label>
+                  <div class="container3">
+                    <div class="custom-chat-box">
+                      <div class="custom-buttons-container">
+                        <!-- <button
+                        class="custom-button custom-orange-button"
+                        [style.backgroundColor]="selectedColor"
+                      >
+                        What does Crecientech do? <i class="fas fa-briefcase"></i>
+                      </button> -->
+                        <!-- <button
+                        class="custom-button custom-orange-button"
+                        [style.backgroundColor]="selectedColor"
+                      >
+                        Book a demo <i class="fas fa-calendar-alt"></i>
+                      </button> -->
                       </div>
-                      <div class="toggle">
-                        <!-- Toggle button code for Sound Effects -->
-                        <label class="switch">
-                          <input
-                            type="checkbox"
-                            id="toggle"
-                            [(ngModel)]="toggleState"
-                          />
-                          <span class="slider"></span>
-                        </label>
-                      </div>
-                      <div class="toggle">
-                        <!-- Toggle button code for Terms & Conditions -->
-                        <label class="switch">
-                          <input
-                            type="checkbox"
-                            id="toggle"
-                            [(ngModel)]="toggleState"
-                          />
-                          <span class="slider"></span>
-                        </label>
+                      <div class="custom-input-container">
+                        <div class="custom-search-container">
+                          <i class="fas fa-search"></i>
+                          <span class="custom-ask-agent">Ask Agent</span>
+                        </div>
+                        <i class="fas fa-paper-plane"></i>
                       </div>
                     </div>
                   </div>
 
-                  <label>Conversation Starter</label>
+                  <div class="ai-agent-container">
+                    <div class="center-text">
+                      <p>Start by entering your website</p>
+                    </div>
+                    <div class="custom-input-container1">
+                      <div class="custom-search-container">
+                        <i class="fas fa-search"></i>
+                        <span class="custom-ask-agent">Ask Agent</span>
+                      </div>
+                      <i class="fas fa-paper-plane"></i>
+                    </div>
+                  </div>
+
+                  <div class="interaction-panel">
+                    <h2 class="title">What can I do?</h2>
+
+                    <div class="source-list">
+                      <div class="source-item">
+                        <span class="source-icon"
+                          ><i class="fas fa-file-alt"></i
+                        ></span>
+                        <span class="source-text">Source 1</span>
+                        <span class="source-link"
+                          ><i class="fas fa-link"></i
+                        ></span>
+                      </div>
+                      <div class="source-item">
+                        <span class="source-icon"
+                          ><i class="fas fa-file-alt"></i
+                        ></span>
+                        <span class="source-text">Source 2</span>
+                        <span class="source-link"
+                          ><i class="fas fa-link"></i
+                        ></span>
+                      </div>
+                    </div>
+
+                    <div class="contact-form">
+                      <p class="form-title">
+                        Can I please have your contact, so I can forward you
+                        more information?
+                      </p>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          placeholder="Name"
+                          class="form-input"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          class="form-input"
+                        />
+                      </div>
+                      <button
+                        class="submit-button"
+                        [style.backgroundColor]="selectedColor"
+                      >
+                        Submit
+                      </button>
+                    </div>
+
+                    <div class="chat-box2">
+                      <div class="chat-buttons">
+                        <button
+                          class="chat-button orange-button"
+                          [style.backgroundColor]="selectedColor"
+                        >
+                          What does Crecientech do?
+                          <i class="fas fa-briefcase"></i>
+                        </button>
+                        <button
+                          class="chat-button orange-button"
+                          [style.backgroundColor]="selectedColor"
+                        >
+                          Book a demo <i class="fas fa-calendar-alt"></i>
+                        </button>
+                      </div>
+                      <div class="chat-input-container">
+                        <div class="search-container">
+                          <i class="fas fa-search"></i>
+                          <input
+                            type="text"
+                            class="chat-input"
+                            placeholder="Ask Agent"
+                          />
+                          <i class="fas fa-paper-plane"></i>
+                        </div>
+                      </div>
+                      <p class="powered-by">Powered by Crecientech</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Chat Box -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="view === 'widget'" class="widget">
+          <!-- Widget content -->
+          <div class="ai-nav-content">
+            <!-- Left Panel -->
+            <div class="left-panel">
+              <h2>Chat Mode Settings</h2>
+              <div class="section-header">
+                <!-- Tips Button -->
+                <button class="demobutton" (click)="openTipsPopup()">
+                  Tips
+                </button>
+
+                <!-- Tips Popup -->
+                <div class="popup-overlay" *ngIf="showTipsPopup">
+                  <div class="popup-content tips-content">
+                    <div class="popup-header">
+                      <h3>Tips</h3>
+                      <button class="close-btn" (click)="closeTipsPopup()">
+                        ×
+                      </button>
+                    </div>
+                    <div class="popup-body">
+                      <p>
+                        On this page, you can customize the agent's appearance
+                        and behavior. This page shows only the preview! For the
+                        actual agent, please visit the
+                        <strong>Try My AI</strong> page. For advanced settings,
+                        read <a href="#">our help documentation</a>.
+                      </p>
+                      <ul class="tips-list">
+                        <li>
+                          ✨ <strong>Agent Title</strong> is the title you wish
+                          to label your agent, customers will see this title on
+                          the top left corner of the widget.
+                        </li>
+                        <li>
+                          ✨ <strong>Agent Name</strong> is what the agent will
+                          refer to itself as in conversation with customers.
+                        </li>
+                        <li>
+                          ✨ <strong>Welcome Message</strong> is the first
+                          message the agent says before user inquiry.
+                        </li>
+                        <li>
+                          ✨ <strong>Profile Avatar</strong> is the icon that
+                          shows up representing the virtual agent in chat and in
+                          the profile.
+                        </li>
+                        <li>
+                          ✨ <strong>Show Sources</strong> enables your agent to
+                          display links to sites from which it sourced its
+                          previous response. Add and configure sources in
+                          <strong>Training Materials</strong>.
+                        </li>
+                        <li>
+                          ✨ <strong>Show Contact Form</strong> allows you to
+                          request contact info from your customers, which you
+                          can view in <strong>Collected Contacts</strong>.
+                        </li>
+                        <li>
+                          ✨ <strong>Require Form Completion</strong> allows you
+                          to only let visitors interact with the agent once they
+                          have provided their contact information.
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="popup-footer">
+                      <button class="btn btn-green" (click)="closeTipsPopup()">
+                        Ok
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <button class="save-btn">Save</button>
+              </div>
+
+              <!-- Agent Title and Agent Name -->
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-6">
+                    <label for="">Agent Title</label>
+                    <p>Agent Title <span class="edit-icon">✏️</span></p>
+                  </div>
+                  <div class="col-6">
+                    <label for="">Agent Name</label>
+                    <p>Agent Name <span class="edit-icon">✏️</span></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Language and Position Dropdowns -->
+              <div class="form-group horizontal">
+                <div class="input-group">
+                  <label for="language">Language</label>
+                  <select id="language" class="custom-dropdown">
+                    <option>English</option>
+                    <option>Spanish</option>
+                    <option>French</option>
+                    <!-- Add more options as needed -->
+                  </select>
+                </div>
+                <div class="input-group">
+                  <label for="position">Widget Font</label>
+                  <select id="position" class="custom-dropdown">
+                    <option>Poppins (Google)</option>
+                    <option>Ubuntu(Google)'</option>
+                    <option>Merrierweather(Google)</option>
+                    <option>Roboto(Google)</option>
+                    <option>Archerus Grotesque</option>
+                    <!-- Add more options as needed -->
+                  </select>
+                </div>
+              </div>
+
+              <!-- profile avatar -->
+              <div class="row-elements">
+                <div class="flex-container">
+                  <label>Profile Avatar</label>
+                  <label for="toggle">Show Contact Form Configure</label>
+                </div>
+                <div class="flex-container">
+                  <button class="upload-avatar" (click)="uploadAvatar()">
+                    + Upload Avatar
+                  </button>
+                  <input
+                    type="file"
+                    id="avatarInput"
+                    style="display: none"
+                    (change)="onAvatarSelected($event)"
+                  />
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="toggle"
+                      [(ngModel)]="toggleState"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- welcome message -->
+              <div class="text-area">
+                <label>Edit Welcome Message</label>
+                <div class="textarea">
+                  <textarea rows="3">
+                Welcome 👋! How can we help you today?</textarea
+                  >
+                </div>
+                <div class="char-count">38 / 300</div>
+              </div>
+              <!-- Primary Color and Custom Color Picker -->
+
+              <!-- Color Palette -->
+              <div class="form-group">
+                <label for="colorPalette">Select Color</label><br />
+                <div id="colorPalette" class="color-palette">
+                  <div
+                    *ngFor="let color of colors"
+                    class="color-box"
+                    [style.backgroundColor]="color"
+                    (click)="selectColor(color)"
+                  ></div>
+                </div>
+              </div>
+
+              <pre></pre>
+
+              <!-- Selected Color Display -->
+              <div class="form-group">
+                <label for="selectedColor">Selected Color</label><br />
+                <div
+                  id="selectedColor"
+                  class="selected-color-box"
+                  [style.backgroundColor]="selectedColor"
+                >
+                  {{ selectedColor || "No color selected" }}
+                </div>
+              </div>
+
+              <!-- Gradient Border and Voice Input Toggles -->
+              <div class="toggle-wrapper">
+                <!-- Gradient Border Toggle -->
+                <div class="toggle-container">
+                  <label for="gradientBorder" class="toggle-label"
+                    >Show Sources</label
+                  >
+                  <label class="switch">
+                    <input type="checkbox" id="gradientBorder" checked />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div class="toggle-container">
+                  <label for="gradientBorder" class="toggle-label"
+                    >Sound Effects
+                  </label>
+                  <label class="switch">
+                    <input type="checkbox" id="gradientBorder" checked />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+
+                <!-- Enable Voice Input Toggle -->
+                <div class="toggle-container">
+                  <label for="voiceInput" class="toggle-label"
+                    >Terms and conditions</label
+                  >
+                  <label class="switch">
+                    <input type="checkbox" id="voiceInput" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- conversation starter -->
+              <label>Conversation Starter</label>
+              <button
+                class="btn btn-orange"
+                type="button"
+                (click)="addAction()"
+              >
+                <i class="fas fa-plus"></i> Add Conversation Starter
+              </button>
+
+              <div
+                *ngFor="let action of actions; let i = index"
+                class="action-row mt-2"
+              >
+                {{ action.action }}
+                <div class="action-controls">
+                  <input
+                    [(ngModel)]="action.url"
+                    placeholder="What does your business do?"
+                    class="form-control"
+                  />
                   <button
-                    class="btn btn-orange"
+                    class="btn custom-button"
                     type="button"
                     (click)="addAction()"
                   >
-                    <i class="fas fa-plus"></i> Add Conversation Starter
+                    <i class="fas fa-plus"></i>
                   </button>
-
-                  <div
-                    *ngFor="let action of actions; let i = index"
-                    class="action-row mt-2"
+                  <button
+                    (click)="removeAction(i)"
+                    class="btn custom-button ml-2"
                   >
-                    {{ action.action }}
-                    <input
-                      [(ngModel)]="action.url"
-                      placeholder="What does your business do?"
-                      class="form-control ml-2"
-                    />
-                    <button
-                      class="btn custom-button"
-                      type="button"
-                      id="dropdownMenuButton"
-                      (click)="toggleDropdown()"
-                    >
-                      <i class="fas fa-plus"></i>
-                    </button>
-                    <button
-                      (click)="removeAction(i)"
-                      class="btn custom-button ml-2"
-                    >
-                      <i class="fas fa-minus"></i>
-                    </button>
-                  </div>
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <h2>Chat Mode Settings</h2>
 
-                  <!--  -->
-                  <h6>Chat Mode Settings</h6>
-                  <p>Edit Popup Message<span class="edit-icon">✏️</span></p>
+              <!--  -->
+              <div class="col-6">
+                <p>Edit Popup Message <span class="edit-icon">✏️</span></p>
+              </div>
 
-                  <!-- Widget Button Icon -->
-
+              <!-- Language and Position Dropdowns -->
+              <div class="form-group horizontal">
+                <div class="input-group">
                   <!-- Widget Button Icon -->
                   <label>Widget Button Icon</label>
                   <button
-                    class="btn btn-orange"
+                    class="orange-btn"
                     type="button"
                     (click)="addUpload()"
                   >
@@ -354,375 +722,172 @@
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="input-group">
+                  <label for="position">Popup style </label>
+                  <select id="position" class="custom-dropdown">
+                    <option>High Engagement</option>
+                    <option>White</option>
+                    <option>Solid</option>
+                    <option>Gradient</option>
+                    <option>None</option>
+                  </select>
+                </div>
+              </div>
 
-                  <!-- Popup Style -->
-                  <div class="form-group">
-                    <label for="popup">Popup Style</label><br />
-                    <select
-                      name="popup"
-                      id="popup"
-                      class="popup"
-                      [(ngModel)]="selectedPopup"
-                    >
-                      <option *ngFor="let pop of popup" [value]="pop.value">
-                        {{ pop.label }}
-                      </option>
-                    </select>
+              <!-- widget Button Position -->
+              <div class="toggle-wrapper">
+                <!-- widget Button Position -->
+                <div class="toggle-container">
+                  <label for="gradientBorder" class="toggle-label"
+                    >Widget Button Position</label
+                  >
+                  <label class="switch">
+                    <input type="checkbox" id="gradientBorder" checked />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+
+                <!-- Exapnded By Default -->
+                <div class="toggle-container">
+                  <label for="voiceInput" class="toggle-label"
+                    >Expanded By Default</label
+                  >
+                  <label class="switch">
+                    <input type="checkbox" id="voiceInput" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <h2>Profile Mode Settings</h2>
+
+              <!-- edit profile description-->
+              <div class="text-area">
+                <label>Edit Profile Description</label>
+                <div class="textarea">
+                  <textarea rows="3">  Howdy!👋 </textarea>
+                </div>
+                <div class="char-count">9/200</div>
+              </div>
+
+              <!-- input placeholder -->
+              <!-- Button Text -->
+              <div class="form-group">
+                <label for="textareaTitle">Input Placeholder</label>
+                <input
+                  id="textareaTitle"
+                  rows="4"
+                  placeholder="Enter your text here"
+                />
+              </div>
+              <!-- actionable -->
+              <div class="custom-actionable-items">
+                <label>Actionable Items</label>
+
+                <div class="action">
+                  <button
+                    (click)="toggleDropdown()"
+                    class="custom-dropdown-button"
+                  >
+                    + Add Custom Items
+                  </button>
+                </div>
+
+                <div *ngIf="isDropdownVisible" class="custom-dropdown-menu">
+                  <div
+                    (click)="addCustomAction('Website Link')"
+                    class="custom-dropdown-item"
+                  >
+                    Website Link
                   </div>
-
-                  <!-- Button Position -->
-
-                  <div class="flex-container2">
-                    <div class="column">Widget Button Position</div>
-                    <div class="column">Expanded By Default</div>
+                  <div
+                    (click)="addCustomAction('Email')"
+                    class="custom-dropdown-item"
+                  >
+                    Email
                   </div>
-                  <div class="toggle-container2">
-                    <div class="toggle">
-                      <!-- Toggle button code for Show Sources -->
-                      <label class="switch">
-                        <input
-                          type="checkbox"
-                          id="toggle"
-                          [(ngModel)]="toggleState"
-                        />
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                    <div class="toggle">
-                      <!-- Toggle button code for Sound Effects -->
-                      <label class="switch">
-                        <input
-                          type="checkbox"
-                          id="toggle"
-                          [(ngModel)]="toggleState"
-                        />
-                        <span class="slider"></span>
-                      </label>
-                    </div>
+                  <div
+                    (click)="addCustomAction('Phone')"
+                    class="custom-dropdown-item"
+                  >
+                    Phone
                   </div>
+                </div>
 
-                  <h6>Profile Mode Settings</h6>
-                  <div class="form-group">
-                    <p>Edit Profile Description</p>
-                    <textarea rows="3">Howdy! 👋</textarea>
-                    <div class="char-count">38 / 300</div>
-                  </div>
-
-                  <p>Input Placeholder</p>
+                <div
+                  *ngFor="let customAction of customActions; let i = index"
+                  class="custom-action-row"
+                >
                   <input
                     type="text"
-                    placeholder="Type your message..."
-                    class="url"
+                    placeholder="Custom Action Title"
+                    [(ngModel)]="customAction.title"
                   />
-
-                  <!-- Button with dropdown -->
-                  <!-- <p>Actionable Items</p>
-                <div class="dropdown">
-                  <button
-                    class="btn btn-orange"
-                    type="button"
-                    id="dropdownMenuButton"
-                    (click)="toggleDropdown()"
-                  >
-                    <i class="fas fa-plus"></i> Add Actionable Items
+                  <input
+                    type="text"
+                    [placeholder]="getCustomPlaceholder(customAction.type)"
+                    [(ngModel)]="customAction.value"
+                  />
+                  <button (click)="addCustomRow(i)" class="custom-plus-button">
+                    +
                   </button>
-                  <div
-                    class="dropdown-menu"
-                    [ngClass]="{ show: isDropdownOpen }"
-                    aria-labelledby="dropdownMenuButton"
+                  <button
+                    (click)="removeCustomRow(i)"
+                    class="custom-minus-button"
                   >
-                    <div
-                      class="dropdown-item"
-                      *ngFor="let option of actionOptions"
-                      (click)="addAction2(option)"
-                    >
-                      {{ option }}
+                    -
+                  </button>
+                </div>
+              </div>
+              <div class="form-group horizontal">
+                <div class="input-group">
+                  <label for="collapsed">More customizations</label>
+                  <select id="collapsed" class="custom-dropdown-default">
+                    <option>Remove Powered By Crecientech</option>
+                    <option>View Profile First</option>
+                    <option value="">Remove Share Button</option>
+                    <option value="">Disabled profile mode</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- social -->
+
+            <!-- Right Panel -->
+
+            <div class="right-content">
+              <button class="preview-button">Preview</button>
+              <pre></pre>
+
+              <!-- Chat Box -->
+              <div *ngIf="view === 'widget'" class="chat-box">
+                <div
+                  class="chat-header"
+                  [ngStyle]="{ 'background-color': selectedColor }"
+                >
+                  {{ agentName || "AI Chat" }}
+                </div>
+                <div class="chat-body">
+                  <div class="message ai">
+                    <i class="fas fa-robot"></i>
+                    <div class="message-text">
+                      Welcome! How can we help you today?
+                    </div>
+                  </div>
+                  <div class="message user">
+                    <div class="message-text">What is your name?</div>
+                  </div>
+                  <div class="message ai">
+                    <i class="fas fa-robot"></i>
+                    <div class="message-text">
+                      Hi there! My name is {{ businessName }}. How can I help
+                      you today?
                     </div>
                   </div>
                 </div>
-  
-                <div
-                  *ngFor="let action of actions; let i = index"
-                  class="action-row mt-2"
-                >
-                  <input
-                    [(ngModel)]="action.url"
-                    placeholder="https://"
-                    class="form-control ml-2"
-                  />
-                  <button
-                    class="btn custom-button"
-                    type="button"
-                    id="dropdownMenuButton"
-                    (click)="toggleDropdown()"
-                  >
-                    <i class="fas fa-plus"></i>
-                  </button>
-                  <button
-                    (click)="removeAction(i)"
-                    class="btn custom-button ml-2"
-                  >
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div> -->
-
-                  <label>Social</label>
-                  <button
-                    class="btn btn-orange"
-                    type="button"
-                    (click)="addAction()"
-                  >
-                    <i class="fas fa-plus"></i> Socials
-                  </button>
-
-                  <div
-                    *ngFor="let action of actions; let i = index"
-                    class="action-row mt-2 d-flex align-items-center"
-                  >
-                    <div class="form-group mb-0 mr-2">
-                      <select
-                        name="platform"
-                        id="platform"
-                        class="platform"
-                        [(ngModel)]="selectedPlatform"
-                      >
-                        <option
-                          *ngFor="let plat of platform"
-                          [value]="plat.value"
-                        >
-                          {{ plat.label }}
-                        </option>
-                      </select>
-                    </div>
-
-                    <input
-                      [(ngModel)]="action.url"
-                      placeholder="https://"
-                      class="form-control mr-2"
-                      style="flex-grow: 1"
-                    />
-
-                    <button
-                      class="btn custom-button"
-                      type="button"
-                      id="dropdownMenuButton"
-                      (click)="toggleDropdown()"
-                    >
-                      <i class="fas fa-plus"></i>
-                    </button>
-
-                    <button
-                      (click)="removeAction(i)"
-                      class="btn custom-button ml-2"
-                    >
-                      <i class="fas fa-minus"></i>
-                    </button>
-                  </div>
-
-                  <div class="input-container">
-                    <input
-                      type="text"
-                      [value]="selectedOptions.join(', ')"
-                      readonly
-                      (click)="toggleDropdown2()"
-                      placeholder="Select options"
-                    />
-                    <div class="dropdown" *ngIf="dropdownVisible">
-                      <label *ngFor="let option of options">
-                        <input
-                          type="checkbox"
-                          [checked]="selectedOptions.includes(option)"
-                          (change)="toggleOption2(option)"
-                        />
-                        <span class="option-text">{{ option }}</span>
-                      </label>
-                    </div>
-                    <div class="selected-options">
-                      <div
-                        *ngFor="let option of selectedOptions"
-                        class="selected-item"
-                      >
-                        {{ option }}
-                        <span class="remove-icon" (click)="removeOption(option)"
-                          >&#10005;</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <!-- AI Nav Content -->
-            <div *ngIf="view === 'aiNav'" class="ai-nav-content">
-              <div class="container2">
-                <!-- Form -->
-                <form (ngSubmit)="onSubmit()" #businessForm="ngForm">
-                  <h3>AI Nav Setting</h3>
-
-                  <!-- Language -->
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-6">
-                        <label for="language">Language</label>
-                        <select
-                          name="language"
-                          id="language"
-                          class="language"
-                          [(ngModel)]="selectedLanguage"
-                        >
-                          <option
-                            *ngFor="let lang of languages"
-                            [value]="lang.value"
-                          >
-                            {{ lang.label }}
-                          </option>
-                        </select>
-                      </div>
-                      <div class="col-6">
-                        <label for="position">Position From Bottom</label>
-                        <select
-                          name="position"
-                          id="position"
-                          class="position"
-                          [(ngModel)]="selectedPosition"
-                        >
-                          <option *ngFor="let pos of font" [value]="pos.value">
-                            {{ pos.label }}
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Toggle Button -->
-                  <div class="flex-container2">
-                    <div class="column">Gradient Border</div>
-                    <div class="column">Enable Voice Input</div>
-                  </div>
-                  <div class="toggle-container2">
-                    <div class="toggle">
-                      <!-- Toggle button code for Show Sources -->
-                      <label class="switch">
-                        <input
-                          type="checkbox"
-                          id="toggle"
-                          [(ngModel)]="toggleState"
-                        />
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                    <div class="toggle">
-                      <!-- Toggle button code for Sound Effects -->
-                      <label class="switch">
-                        <input
-                          type="checkbox"
-                          id="toggle"
-                          [(ngModel)]="toggleState"
-                        />
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <!--  -->
-                  <p>Preview Website Url</p>
-                  <div class="toggle-container2">
-                    <div class="toggle">
-                      <div class="input-container">
-                        <input
-                          type="text"
-                          placeholder="HubSpot Name"
-                          [(ngModel)]="hubspotName"
-                        />
-                      </div>
-                    </div>
-                    <div class="toggle">
-                      <button class="button2" (click)="updateName()">
-                        Update
-                      </button>
-                    </div>
-                    <div *ngIf="updatedName">
-                      <p>Updated Name: {{ updatedName }}</p>
-                    </div>
-                  </div>
-
-                  <!-- suggested question -->
-                  <p>suggested questions</p>
-                  <input
-                    type="text"
-                    placeholder="What does Tesla do?"
-                    class="url"
-                  />
-
-                  <!-- suggested question -->
-
-                  <input type="text" placeholder="Book a demo" class="url" />
-
-                  <!-- Color Palette -->
-                  <div class="form-group">
-                    <label for="colorPalette">Select Color</label><br />
-                    <div id="colorPalette" class="color-palette">
-                      <div
-                        *ngFor="let color of colors"
-                        class="color-box"
-                        [style.backgroundColor]="color"
-                        (click)="selectColor(color)"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <pre></pre>
-
-                  <!-- Collapse -->
-                  <div class="form-group">
-                    <label for="collapse">Collapsed by Default </label><br />
-                    <select
-                      name="collapse"
-                      id="collapse"
-                      class="collapse"
-                      [(ngModel)]="selectedCollapse"
-                    >
-                      <option
-                        *ngFor="let cola of collapses"
-                        [value]="cola.value"
-                      >
-                        {{ cola.label }}
-                      </option>
-                    </select>
-                  </div>
-
-                  <!-- Expanded View -->
-                  <h3>Expanded View</h3>
-                  <div class="form-group">
-                    <label for="toggle"
-                      >Show Contact Form <a href="">Configure</a></label
-                    ><br />
-                    <label class="switch">
-                      <input
-                        type="checkbox"
-                        id="toggle"
-                        [(ngModel)]="toggleState"
-                      />
-                      <span class="slider"></span>
-                    </label>
-                  </div>
-                </form>
-              </div>
-
-              <!-- New Box Below Preview Button (Only in AI Nav) -->
-            </div>
-          </div>
-
-          <!-- Right Content -->
-          <div class="right-content">
-            <button class="preview-button">Preview</button>
-            <pre></pre>
-
-            <!-- New Box Below Preview Button (Only in AI Nav) -->
-            <div *ngIf="view === 'aiNav'" class="new-box">
-              <div class="imagebox">
-                <div class="imagebox-content">
+                <div class="chat-input">
                   <input
                     type="text"
                     placeholder="Type your message here..."
@@ -737,100 +902,9 @@
                 </div>
               </div>
 
-              <pre></pre>
-              <div class="container3">
-                <div class="outer-box">
-                  <div class="content-box">
-                    <div class="inner-box">
-                      <div
-                        class="button-container"
-                        [style.background-color]="selectColor"
-                      >
-                        <button
-                          class="custom-button"
-                          [ngStyle]="{ 'background-color': selectedColor }"
-                        >
-                          What does Hubspot do? 💼
-                        </button>
-                        <button
-                          class="custom-button"
-                          [ngStyle]="{ 'background-color': selectedColor }"
-                        >
-                          Book a demo 📅
-                        </button>
-                      </div>
-                      <div class="input-container">
-                        <div class="input-box">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon"
-                          >
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                          </svg>
-                          <span class="label">Ask Agent</span>
-                        </div>
-                        <div class="input_div">
-                          <input
-                            type="text"
-                            placeholder="Type a message"
-                            class="text-input"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Chat Box -->
-
-            <div *ngIf="view === 'widget'" class="chat-box">
-              <div
-                class="chat-header"
-                [ngStyle]="{ 'background-color': selectedColor }"
-              >
-                {{ agentName || "AI Chat" }}
-              </div>
-              <div class="chat-body">
-                <div class="message ai">
-                  <i class="fas fa-robot"></i>
-                  <div class="message-text">
-                    Welcome! How can we help you today?
-                  </div>
-                </div>
-                <div class="message user">
-                  <div class="message-text">What is your name?</div>
-                </div>
-                <div class="message ai">
-                  <i class="fas fa-robot"></i>
-
-                  <div class="message-text">
-                    Hi there! My name is {{ businessName }} . How can I help you
-                    today?
-                  </div>
-                </div>
-              </div>
-              <div class="chat-input">
-                <input
-                  type="text"
-                  placeholder="Type your message here..."
-                  class="input-field"
-                />
-                <button
-                  class="send-button"
-                  [ngStyle]="{ 'background-color': selectedColor }"
-                >
-                  Send
-                </button>
+              <!-- Welcome Container -->
+              <div class="welcome-container">
+                <p>Welcome 👋! How can we help you today?</p>
               </div>
             </div>
           </div>
