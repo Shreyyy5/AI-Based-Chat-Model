@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -11,31 +10,27 @@ body {
   margin: 0;
 }
 
-/* Container for Sidebar and Content */
 .manage-team {
   display: flex;
-  height: 100vh; /* Full height */
-  width: 100vw; /* Full width */
+  height: 100vh;
+  width: 100vw;
 }
 
-/* Sidebar Styles */
 app-sidebar {
-  width: 20vw; /* Width of the sidebar */
-  height: 100vh; /* Full height */
+  width: 20vw;
+  height: 100vh;
   background-color: #fff;
-  overflow-y: auto; /* Enables vertical scrolling if needed */
+  overflow-y: auto;
 }
 
-/* Content Styles */
 .content {
-  flex: 1; /* Takes up the remaining space */
+  flex: 1;
   padding: 20px;
-  background-color: #f1f1f1; /* Background color of the content area */
-  overflow-y: auto; /* Enables vertical scrolling if needed */
+  background-color: #f1f1f1;
+  overflow-y: auto;
   position: relative;
 }
 
-/* Content Container Styles */
 .content-container {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -44,28 +39,34 @@ app-sidebar {
   padding-bottom: 150px;
 }
 
-/* Heading Styles */
 .header-container {
   display: flex;
-  align-items: center; /* Align items vertically centered */
-  justify-content: space-between; /* Space between heading and button */
-  margin-bottom: 20px; /* Space between the header and the table */
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .header-container h2 {
-  margin-left: 20px; /* Remove default margin */
+  margin-left: 20px;
   color: #333;
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+h2 {
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 30px;
 }
 
 .table-container {
   margin: 20px auto;
   width: 90%;
-  overflow-x: auto; /* Allows horizontal scrolling if needed */
+  overflow-x: auto;
 }
 
 table {
@@ -74,14 +75,14 @@ table {
 }
 
 thead {
-  border: 1px solid #ddd; /* Light border for the cells */
+  border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
 }
 
 th {
-  background-color: #d4d4d4; /* Light grey background for the header */
-  color: #333; /* Darker text color for contrast */
+  background-color: #d4d4d4;
+  color: #333;
   font-weight: bold;
 }
 
@@ -92,23 +93,23 @@ td {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* Optional: stripe rows for better readability */
+  background-color: #f9f9f9;
 }
 
 tbody tr:hover {
-  background-color: #f1f1f1; /* Optional: highlight row on hover */
+  background-color: #f1f1f1;
 }
 
 /* Add a Member button */
 .button-container {
   display: flex;
-  justify-content: flex-end; /* Aligns button to the right */
-  margin-bottom: 10px; /* Space between the button and the table */
+  justify-content: flex-end;
+  margin-bottom: 10px;
   padding-right: 80px;
 }
 
 .add-member-btn {
-  background-color: #f3982f; /* Primary button color */
+  background-color: #f3982f;
   color: white;
   border: none;
   padding: 15px 20px;
@@ -119,13 +120,13 @@ tbody tr:hover {
 }
 
 .add-member-btn:hover {
-  background-color: #f3982f; /* Darker button color on hover */
+  background-color: #f2741e;
 }
 
 /* Remove button */
 .remove-btn {
-  background-color: #ff4d4d; /* Red background color */
-  color: white; /* White text color */
+  background-color: #dc3545;
+  color: white;
   border: none;
   padding: 8px 12px;
   border-radius: 4px;
@@ -135,5 +136,5 @@ tbody tr:hover {
 }
 
 .remove-btn:hover {
-  background-color: #c82333; /* Darker red on hover */
+  background-color: #c82333;
 }
