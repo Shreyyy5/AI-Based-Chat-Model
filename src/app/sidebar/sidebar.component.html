@@ -1,118 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="sidebar.component.css" />
-    <title>SideBar</title>
-  </head>
-  <body>
-    <div class="side-menu">
-      <div class="brand-logo">
-        <img
-          src="https://media.licdn.com/dms/image/C5103AQFPTrbhRJGpsg/profile-displayphoto-shrink_200_200/0/1580451880046?e=2147483647&v=beta&t=Ix1MGDmklIaVf4xvWKAG2_qWkM5wviFR5tdfJFZJbko"
-          alt="Crecientech Logo"
-        />
-      </div>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
 
-      <!-- Dropdown Menu -->
-      <div class="dropdown">
-        <button class="dropdown-btn">Crecientech &#9660;</button>
-        <div class="dropdown-content">
-          <a href="#">Crecientech</a>
-          <hr />
-          <!-- Separator line -->
-          <a href="#" class="create-new">Create New Agent</a>
-        </div>
-      </div>
+body {
+  min-height: 100vh;
+  margin: 0;
+}
 
-      <ul>
-        <li>
-          <a href="/dashboard"><i class="fa-solid fa-house"></i> DashBoard</a>
-        </li>
-        <li>
-          <a href="/appearance"><i class="fa-solid fa-eye"></i> Appearance</a>
-        </li>
-        <li>
-          <a href="/manage-team"
-            ><i class="fa-solid fa-users"></i> Manage Team</a
-          >
-        </li>
-        <li>
-          <a href="/ai-agent"
-            ><i class="fa-solid fa-message"></i> Try My AI Agent</a
-          >
-        </li>
-      </ul>
-      <div>
-        <router-outlet></router-outlet>
-      </div>
-      <div class="/try-my-agent">
-        <h4>AI Agent</h4>
-      </div>
-      <ul>
-        <li>
-          <a href="/training-materials"
-            ><i class="fa-solid fa-square-poll-vertical"></i> Training
-            Materials</a
-          >
-        </li>
-        <li>
-          <a href="/businessgoals"
-            ><i class="fa-solid fa-circle-info"></i> Business Goals</a
-          >
-        </li>
-        <li>
-          <a href="/qualify-leads"
-            ><i class="fa-solid fa-dollar-sign"></i> Qualify Leads</a
-          >
-        </li>
-        <li>
-          <a href="/question-answer"
-            ><i class="fa-solid fa-circle-question"></i> Question & Answer</a
-          >
-        </li>
-      </ul>
-      <div class="general">
-        <h4>GENERAL</h4>
-      </div>
-      <ul>
-        <li>
-          <a href="/upgrade"><i class="fa-solid fa-bolt"></i> Upgrade</a>
-        </li>
-        <li>
-          <a href="/captured-contacts"
-            ><i class="fa-solid fa-user-group"></i> Captured Contacts</a
-          >
-        </li>
-        <li>
-          <a href="/conversations"
-            ><i class="fa-solid fa-comments"></i> Conversations</a
-          >
-        </li>
-        <li>
-          <a href="/advanced"><i class="fa-solid fa-gear"></i> Advanced</a>
-        </li>
-        <li>
-          <a href="/integrations"
-            ><i class="fa-solid fa-plug"></i> Integrations</a
-          >
-        </li>
-        <li>
-          <a href="/help"
-            ><i class="fa-solid fa-handshake-angle"></i> Help Center</a
-          >
-        </li>
-        <li>
-          <a href="/languages"
-            ><i class="fa-solid fa-book-open"></i> Languages</a
-          >
-        </li>
-      </ul>
-    </div>
-  </body>
-</html>
+h1 {
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.captured-contacts {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+app-sidebar {
+  width: 20vw;
+  height: 100vh;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f1f1f1;
+  overflow-y: auto;
+}
+
+/* table container */
+.table-container {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* table headers */
+th {
+  background-color: #eae8e8;
+  color: #333;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  text-align: center;
+  height: 60px;
+  font-size: 18px;
+}
+
+/* table rows */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* table cells */
+td {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 70px;
+  color: #d0cece;
+  font-size: 18px;
+}
+
+.table-border-container {
+  border: 1px solid #dcd9d9;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-captured {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #d4caca;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.btn-captured:hover {
+  color: #f3982f;
+  border-color: #f3982f;
+}
