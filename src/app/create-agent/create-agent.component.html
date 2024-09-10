@@ -1,377 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Add this in your index.html inside the <head> tag -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <title>Create Agent</title>
 </head>
-<div class="container">
-  <!-- Left Content -->
-  <div class="left-content">
-    <div class="box">
-      <i class="fa-solid fa-arrow-left"></i>
-      <button id="button">Go Back</button>
-    </div>
-    <div class="agent">
-      <h1>Create Agent</h1>
-      <button class="demobutton" (click)="openVideo()">How it Works</button>
-
-      <!-- Toggle Button for AI Nav and Widget -->
-      <div class="toggle-buttons">
-        <button (click)="toggleView('aiNav')" [class.active]="view === 'aiNav'">
-          AI Nav
-        </button>
-        <button
-          (click)="toggleView('widget')"
-          [class.active]="view === 'widget'"
-        >
-          Widget
-        </button>
+<body>
+  <div class="container">
+  
+    <div class="left-content">
+      <div class="box">
+        <i class="fa-solid fa-arrow-left"></i>
+        <button id="button">Go Back</button>
       </div>
-    </div>
-
-    <!-- Widget Content -->
-    <div *ngIf="view === 'widget'" class="widget-content">
-      <div class="container2">
-        <h4>Your Website</h4>
-        <input type="text" placeholder="Enter your website URL" class="url" />
-        <button class="fetch-button">Fetch Link</button>
-        <pre></pre>
-
-        <!-- Business Name -->
-        <form (ngSubmit)="onSubmit()" #businessForm="ngForm">
-          <div class="form-group">
-            <label for="businessName">*Agent Name</label><br />
-            <input
-              type="text"
-              id="businessName"
-              name="businessname"
-              class="business-name"
-              [(ngModel)]="businessName"
-              #businessNameField="ngModel"
-              required
-            />
-            <div
-              *ngIf="
-                businessNameField.invalid &&
-                (businessNameField.dirty || businessNameField.touched)
-              "
-              class="error"
-            >
-              Agent Name is required.
-            </div>
-          </div>
-
-          <pre></pre>
-
-          <!-- Agent Name -->
-          <div class="form-group">
-            <label for="agentName">*Business Name</label><br />
-            <input
-              type="text"
-              id="agentName"
-              name="agentname"
-              class="agent-name"
-              [(ngModel)]="agentName"
-              #agentNameField="ngModel"
-              required
-            />
-            <div
-              *ngIf="
-                agentNameField.invalid &&
-                (agentNameField.dirty || agentNameField.touched)
-              "
-              class="error"
-            >
-              Business Name is required.
-            </div>
-          </div>
-
-          <pre></pre>
-
-          <!-- Language -->
-          <div class="form-group">
-            <label for="language">Language</label><br />
-            <select
-              name="language"
-              id="language"
-              class="language"
-              [(ngModel)]="selectedLanguage"
-            >
-              <option *ngFor="let lang of languages" [value]="lang.value">
-                {{ lang.label }}
-              </option>
-            </select>
-          </div>
-
-          <pre></pre>
-
-          <!-- Color Palette -->
-          <div class="form-group">
-            <label for="colorPalette">Select Color</label><br />
-            <div id="colorPalette" class="color-palette">
-              <div
-                *ngFor="let color of colors"
-                class="color-box"
-                [style.backgroundColor]="color"
-                (click)="selectColor(color)"
-              ></div>
-            </div>
-          </div>
-
-          <pre></pre>
-
-          <!-- Selected Color Display -->
-          <div class="form-group">
-            <label for="selectedColor">Selected Color</label><br />
-            <div
-              id="selectedColor"
-              class="selected-color-box"
-              [style.backgroundColor]="selectedColor"
-            >
-              {{ selectedColor || "No color selected" }}
-            </div>
-          </div>
-
-          <pre></pre>
-
-          <button type="submit" class="create">Create</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- AI Nav Content -->
-    <div *ngIf="view === 'aiNav'" class="ai-nav-content">
-      <div class="container2">
-        <h4>Your Website</h4>
-        <input type="text" placeholder="Enter your website URL" class="url" />
-        <button class="fetch-button">Fetch Link</button>
-        <pre></pre>
-
-        <!-- Form -->
-        <form (ngSubmit)="onSubmit()" #businessForm="ngForm">
-          <div class="form-group">
-            <label for="businessName">*Business Name</label><br />
-            <input
-              type="text"
-              id="businessName"
-              name="businessname"
-              class="business-name"
-              [(ngModel)]="businessName"
-              #businessNameField="ngModel"
-              required
-            />
-            <div
-              *ngIf="
-                businessNameField.invalid &&
-                (businessNameField.dirty || businessNameField.touched)
-              "
-              class="error"
-            >
-              Business Name is required.
-            </div>
-          </div>
-
-          <pre></pre>
-
-          <pre></pre>
-
-          <!-- Language -->
-          <div class="form-group">
-            <label for="language">Language</label><br />
-            <select
-              name="language"
-              id="language"
-              class="language"
-              [(ngModel)]="selectedLanguage"
-            >
-              <option *ngFor="let lang of languages" [value]="lang.value">
-                {{ lang.label }}
-              </option>
-            </select>
-          </div>
-
-          <pre></pre>
-
-          <!-- Toggle Button -->
-          <div class="form-group">
-            <label for="toggle">Gradient Border</label><br />
-            <label class="switch">
-              <input type="checkbox" id="toggle" [(ngModel)]="toggleState" />
-              <span class="slider"></span>
-            </label>
-          </div>
-
-          <pre></pre>
-
-          <!-- Color Palette -->
-          <div class="form-group">
-            <label for="colorPalette">Select Color</label><br />
-            <div id="colorPalette" class="color-palette">
-              <div
-                *ngFor="let color of colors"
-                class="color-box"
-                [style.backgroundColor]="color"
-                (click)="selectColor(color)"
-              ></div>
-            </div>
-          </div>
-
-          <pre></pre>
-
-          <!-- Selected Color Display -->
-          <div class="form-group">
-            <label for="selectedColor">Selected Color</label><br />
-            <div
-              id="selectedColor"
-              class="selected-color-box"
-              [style.backgroundColor]="selectedColor"
-            >
-              {{ selectedColor || "No color selected" }}
-            </div>
-          </div>
-
-          <pre></pre>
-
-          <button type="submit" class="create">Create</button>
-        </form>
-      </div>
-
-      <!-- New Box Below Preview Button (Only in AI Nav) -->
-    </div>
-  </div>
-
-  <!-- Right Content -->
-  <div class="right-content">
-    <button class="preview-button">Preview</button>
-    <pre></pre>
-
-    <!-- New Box Below Preview Button (Only in AI Nav) -->
-    <div *ngIf="view === 'aiNav'" class="new-box">
-      <pre></pre>
-      <div class="container3">
-        <div class="custom-chat-box">
-          <div class="custom-buttons-container">
-            <button
-              class="custom-button custom-orange-button"
-              [style.backgroundColor]="selectedColor"
-            >
-              What does Hubspot do? <i class="fas fa-briefcase"></i>
-            </button>
-            <button
-              class="custom-button custom-orange-button"
-              [style.backgroundColor]="selectedColor"
-            >
-              Book a demo <i class="fas fa-calendar-alt"></i>
-            </button>
-          </div>
-          <div class="custom-input-container">
-            <div class="custom-search-container">
-              <i class="fas fa-search"></i>
-              <span class="custom-ask-agent">Ask Agent</span>
-            </div>
-
-            <i class="fas fa-paper-plane"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="interaction-panel">
-        <h2 class="title">What can I do?</h2>
-
-        <div class="source-list">
-          <div class="source-item">
-            <span class="source-icon"><i class="fas fa-file-alt"></i></span>
-            <span class="source-text">Source 1</span>
-            <span class="source-link"><i class="fas fa-link"></i></span>
-          </div>
-          <div class="source-item">
-            <span class="source-icon"><i class="fas fa-file-alt"></i></span>
-            <span class="source-text">Source 2</span>
-            <span class="source-link"><i class="fas fa-link"></i></span>
-          </div>
-        </div>
-
-        <div class="contact-form">
-          <p class="form-title">
-            Can I please have your contact, so I can forward you more
-            information?
-          </p>
-          <div class="form-group">
-            <input type="text" placeholder="Name" class="form-input" />
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Email" class="form-input" />
-          </div>
-          <button class="submit-button" [style.backgroundColor]="selectedColor">
-            Submit
+      <div class="agent">
+        <h1>Create Agent</h1>
+        <button class="demobutton" (click)="openVideo()">How it Works</button>
+  
+        <!-- Toggle Button for AI Nav and Widget -->
+        <div class="toggle-buttons">
+          <button (click)="toggleView('aiNav')" [class.active]="view === 'aiNav'">
+            AI Nav
+          </button>
+          <button
+            (click)="toggleView('widget')"
+            [class.active]="view === 'widget'"
+          >
+            Widget
           </button>
         </div>
-
-        <div class="chat-box2">
-          <div class="chat-buttons">
-            <button
-              class="chat-button orange-button"
-              [style.backgroundColor]="selectedColor"
-            >
-              What does Hubspot do? <i class="fas fa-briefcase"></i>
-            </button>
-            <button
-              class="chat-button orange-button"
-              [style.backgroundColor]="selectedColor"
-            >
-              Book a demo <i class="fas fa-calendar-alt"></i>
-            </button>
-          </div>
-          <div class="chat-input-container">
-            <div class="search-container">
-              <i class="fas fa-search"></i>
-              <input type="text" class="chat-input" placeholder="Ask Agent" />
+      </div>
+  
+      <!-- Widget Content -->
+      <div *ngIf="view === 'widget'" class="widget-content">
+        <div class="container2">
+          <h4>Your Website</h4>
+          <input type="text" placeholder="Enter your website URL" class="url" />
+          <button class="fetch-button">Fetch Link</button>
+          <pre></pre>
+  
+          <!-- Business Name -->
+          <form (ngSubmit)="onSubmit()" #businessForm="ngForm">
+            <div class="form-group">
+              <label for="businessName">*Agent Name</label><br />
+              <input
+                type="text"
+                id="businessName"
+                name="businessname"
+                class="business-name"
+                [(ngModel)]="businessName"
+                #businessNameField="ngModel"
+                required
+              />
+              <div
+                *ngIf="
+                  businessNameField.invalid &&
+                  (businessNameField.dirty || businessNameField.touched)
+                "
+                class="error"
+              >
+                Agent Name is required.
+              </div>
+            </div>
+  
+            <pre></pre>
+  
+            <!-- Agent Name -->
+            <div class="form-group">
+              <label for="agentName">*Business Name</label><br />
+              <input
+                type="text"
+                id="agentName"
+                name="agentname"
+                class="agent-name"
+                [(ngModel)]="agentName"
+                #agentNameField="ngModel"
+                required
+              />
+              <div
+                *ngIf="
+                  agentNameField.invalid &&
+                  (agentNameField.dirty || agentNameField.touched)
+                "
+                class="error"
+              >
+                Business Name is required.
+              </div>
+            </div>
+  
+            <pre></pre>
+  
+            <!-- Language -->
+            <div class="form-group">
+              <label for="language">Language</label><br />
+              <select
+                name="language"
+                id="language"
+                class="language"
+                [(ngModel)]="selectedLanguage"
+              >
+                <option *ngFor="let lang of languages" [value]="lang.value">
+                  {{ lang.label }}
+                </option>
+              </select>
+            </div>
+  
+            <pre></pre>
+  
+            <!-- Color Palette -->
+            <div class="form-group">
+              <label for="colorPalette">Select Color</label><br />
+              <div id="colorPalette" class="color-palette">
+                <div
+                  *ngFor="let color of colors"
+                  class="color-box"
+                  [style.backgroundColor]="color"
+                  (click)="selectColor(color)"
+                ></div>
+              </div>
+            </div>
+  
+            <pre></pre>
+  
+            <!-- Selected Color Display -->
+            <div class="form-group">
+              <label for="selectedColor">Selected Color</label><br />
+              <div
+                id="selectedColor"
+                class="selected-color-box"
+                [style.backgroundColor]="selectedColor"
+              >
+                {{ selectedColor || "No color selected" }}
+              </div>
+            </div>
+  
+            <pre></pre>
+  
+            <button type="submit" class="create">Create</button>
+          </form>
+        </div>
+      </div>
+  
+      <!-- AI Nav Content -->
+      <div *ngIf="view === 'aiNav'" class="ai-nav-content">
+        <div class="container2">
+          <h4>Your Website</h4>
+          <input type="text" placeholder="Enter your website URL" class="url" />
+          <button class="fetch-button">Fetch Link</button>
+          <pre></pre>
+  
+          <!-- Form -->
+          <form (ngSubmit)="onSubmit()" #businessForm="ngForm">
+            <div class="form-group">
+              <label for="businessName">*Business Name</label><br />
+              <input
+                type="text"
+                id="businessName"
+                name="businessname"
+                class="business-name"
+                [(ngModel)]="businessName"
+                #businessNameField="ngModel"
+                required
+              />
+              <div
+                *ngIf="
+                  businessNameField.invalid &&
+                  (businessNameField.dirty || businessNameField.touched)
+                "
+                class="error"
+              >
+                Business Name is required.
+              </div>
+            </div>
+  
+            <pre></pre>
+  
+            <pre></pre>
+  
+            <!-- Language -->
+            <div class="form-group">
+              <label for="language">Language</label><br />
+              <select
+                name="language"
+                id="language"
+                class="language"
+                [(ngModel)]="selectedLanguage"
+              >
+                <option *ngFor="let lang of languages" [value]="lang.value">
+                  {{ lang.label }}
+                </option>
+              </select>
+            </div>
+  
+            <pre></pre>
+  
+            <!-- Toggle Button -->
+            <div class="form-group">
+              <label for="toggle">Gradient Border</label><br />
+              <label class="switch">
+                <input type="checkbox" id="toggle" [(ngModel)]="toggleState" />
+                <span class="slider"></span>
+              </label>
+            </div>
+  
+            <pre></pre>
+  
+            <!-- Color Palette -->
+            <div class="form-group">
+              <label for="colorPalette">Select Color</label><br />
+              <div id="colorPalette" class="color-palette">
+                <div
+                  *ngFor="let color of colors"
+                  class="color-box"
+                  [style.backgroundColor]="color"
+                  (click)="selectColor(color)"
+                ></div>
+              </div>
+            </div>
+  
+            <pre></pre>
+  
+            <!-- Selected Color Display -->
+            <div class="form-group">
+              <label for="selectedColor">Selected Color</label><br />
+              <div
+                id="selectedColor"
+                class="selected-color-box"
+                [style.backgroundColor]="selectedColor"
+              >
+                {{ selectedColor || "No color selected" }}
+              </div>
+            </div>
+  
+            <pre></pre>
+  
+            <button type="submit" class="create">Create</button>
+          </form>
+        </div>
+  
+        <!-- New Box Below Preview Button (Only in AI Nav) -->
+      </div>
+    </div>
+  
+    <!-- Right Content -->
+    <div class="right-content">
+      <button class="preview-button">Preview</button>
+      <pre></pre>
+  
+      <!-- New Box Below Preview Button (Only in AI Nav) -->
+      <div *ngIf="view === 'aiNav'" class="new-box">
+        <pre></pre>
+        <div class="container3">
+          <div class="custom-chat-box">
+            <div class="custom-buttons-container">
+              <button
+                class="custom-button custom-orange-button"
+                [style.backgroundColor]="selectedColor"
+              >
+                What does Hubspot do? <i class="fas fa-briefcase"></i>
+              </button>
+              <button
+                class="custom-button custom-orange-button"
+                [style.backgroundColor]="selectedColor"
+              >
+                Book a demo <i class="fas fa-calendar-alt"></i>
+              </button>
+            </div>
+            <div class="custom-input-container">
+              <div class="custom-search-container">
+                <i class="fas fa-search"></i>
+                <span class="custom-ask-agent">Ask Agent</span>
+              </div>
+  
               <i class="fas fa-paper-plane"></i>
             </div>
           </div>
-          <p class="powered-by">Powered by Chatsimple</p>
         </div>
-      </div>
-    </div>
-    <!-- Chat Box -->
-
-    <div *ngIf="view === 'widget'" class="chat-box">
-      <div
-        class="chat-header"
-        [ngStyle]="{ 'background-color': selectedColor }"
-      >
-        {{ agentName || "AI Chat" }}
-      </div>
-      <div class="chat-body">
-        <div class="message ai">
-          <i class="fas fa-robot"></i>
-          <div class="message-text">Welcome! How can we help you today?</div>
-        </div>
-        <div class="message user">
-          <div class="message-text">What is your name?</div>
-        </div>
-        <div class="message ai">
-          <i class="fas fa-robot"></i>
-
-          <div class="message-text">
-            Hi there! My name is {{ businessName }} . How can I help you today?
+  
+        <div class="interaction-panel">
+          <h2 class="title">What can I do?</h2>
+  
+          <div class="source-list">
+            <div class="source-item">
+              <span class="source-icon"><i class="fas fa-file-alt"></i></span>
+              <span class="source-text">Source 1</span>
+              <span class="source-link"><i class="fas fa-link"></i></span>
+            </div>
+            <div class="source-item">
+              <span class="source-icon"><i class="fas fa-file-alt"></i></span>
+              <span class="source-text">Source 2</span>
+              <span class="source-link"><i class="fas fa-link"></i></span>
+            </div>
+          </div>
+  
+          <div class="contact-form">
+            <p class="form-title">
+              Can I please have your contact, so I can forward you more
+              information?
+            </p>
+            <div class="form-group">
+              <input type="text" placeholder="Name" class="form-input" />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email" class="form-input" />
+            </div>
+            <button class="submit-button" [style.backgroundColor]="selectedColor">
+              Submit
+            </button>
+          </div>
+  
+          <div class="chat-box2">
+            <div class="chat-buttons">
+              <button
+                class="chat-button orange-button"
+                [style.backgroundColor]="selectedColor"
+              >
+                What does Hubspot do? <i class="fas fa-briefcase"></i>
+              </button>
+              <button
+                class="chat-button orange-button"
+                [style.backgroundColor]="selectedColor"
+              >
+                Book a demo <i class="fas fa-calendar-alt"></i>
+              </button>
+            </div>
+            <div class="chat-input-container">
+              <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" class="chat-input" placeholder="Ask Agent" />
+                <i class="fas fa-paper-plane"></i>
+              </div>
+            </div>
+            <p class="powered-by">Powered by Chatsimple</p>
           </div>
         </div>
       </div>
-      <div class="chat-input">
-        <input
-          type="text"
-          placeholder="Type your message here..."
-          class="input-field"
-        />
-        <button
-          class="send-button"
+      <!-- Chat Box -->
+  
+      <div *ngIf="view === 'widget'" class="chat-box">
+        <div
+          class="chat-header"
           [ngStyle]="{ 'background-color': selectedColor }"
         >
-          Send
-        </button>
+          {{ agentName || "AI Chat" }}
+        </div>
+        <div class="chat-body">
+          <div class="message ai">
+            <i class="fas fa-robot"></i>
+            <div class="message-text">Welcome! How can we help you today?</div>
+          </div>
+          <div class="message user">
+            <div class="message-text">What is your name?</div>
+          </div>
+          <div class="message ai">
+            <i class="fas fa-robot"></i>
+  
+            <div class="message-text">
+              Hi there! My name is {{ businessName }} . How can I help you today?
+            </div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input
+            type="text"
+            placeholder="Type your message here..."
+            class="input-field"
+          />
+          <button
+            class="send-button"
+            [ngStyle]="{ 'background-color': selectedColor }"
+          >
+            Send
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  
+</body>
+</html>
