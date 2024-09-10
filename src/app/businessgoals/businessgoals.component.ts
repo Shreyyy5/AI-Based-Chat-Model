@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class BusinessgoalsComponent {
   isModalOpen: boolean = false;
-  businessName: string = 'Tesla';
+  businessName: string = 'Crecientech';
   isEditing: boolean = false;
   actions: any[] = [];
   actionOptions: string[] = [
